@@ -25,14 +25,26 @@ static CardManager *gInstance = NULL;
       NSString* plistFile = [bundle pathForResource:@"CardData" ofType:@"plist"];
 
       NSMutableDictionary* plist = [[NSMutableDictionary alloc] initWithContentsOfFile:plistFile];
-      NSArray* plistCards = [plist objectForKey:@"Cards"];
+      NSDictionary* plistCards = [plist objectForKey:@"Cards"];
       
       NSMutableDictionary* cards = [NSMutableDictionary new];
       
-      for(NSDictionary* card in plistCards) {
-        Card* cardObj = [[Card alloc] initWithParams:card];
-        [cards setObject:cardObj forKey:[card valueForKey:@"id"]];          
+      NSArray *keys;
+      int i, count;
+      id key;
+      
+      keys = [plistCards allKeys];
+      count = [keys count];
+      for (i = 0; i < count; i++)
+      {
+        key = [keys objectAtIndex: i];
+        NSDictionary* card = [plistCards objectForKey: key];
+        Card* cardObj = [[Card alloc] initWithParams:card];        
+        [cards setObject:cardObj forKey:(NSString*)key];
       }
+
+      
+      
       gInstance.cards = cards;
     }
   }

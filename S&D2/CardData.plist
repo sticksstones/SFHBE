@@ -3,7 +3,8 @@
 <plist version="1.0">
 <dict>
 	<key>Cards</key>
-	<array>
+	<dict>
+		<key>Ship 1</key>
 		<dict>
 			<key>properties</key>
 			<dict>
@@ -31,11 +32,10 @@
 			<integer>50</integer>
 			<key>type</key>
 			<string>ship</string>
-			<key>id</key>
-			<string>1</string>
 			<key>captain</key>
 			<false/>
 		</dict>
+		<key>Ship 2</key>
 		<dict>
 			<key>properties</key>
 			<dict>
@@ -56,11 +56,10 @@
 			<integer>100</integer>
 			<key>type</key>
 			<string>ship</string>
-			<key>id</key>
-			<string>2</string>
 			<key>captain</key>
 			<false/>
 		</dict>
+		<key>Captain 1</key>
 		<dict>
 			<key>properties</key>
 			<dict>
@@ -81,11 +80,9 @@
 			<integer>100</integer>
 			<key>type</key>
 			<string>ship</string>
-			<key>id</key>
-			<string>3</string>
 			<key>captain</key>
 			<true/>
 		</dict>
-	</array>
+	</dict>
 </dict>
 </plist>

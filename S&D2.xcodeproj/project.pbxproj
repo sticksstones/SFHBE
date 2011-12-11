@@ -639,16 +639,8 @@
 		C24CD1BC148B5575007CFB58 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C26FE47C149464B7000D84C3 /* Fog.png */,
-				C26FE47114945005000D84C3 /* Heal.png */,
-				C26FE46914943FCF000D84C3 /* Missile.png */,
-				C26FE42F148F166C000D84C3 /* CardData.plist */,
-				C26FE44D14912ABF000D84C3 /* Totem.png */,
-				C26FE4481490595B000D84C3 /* Mana.png */,
-				C24CD40C148C5F10007CFB58 /* Card.png */,
-				C26FE443148FD5D6000D84C3 /* Card2.png */,
-				C24CD38F148B7FA5007CFB58 /* Ship.png */,
-				C24CD38D148B774E007CFB58 /* Tile.png */,
+				C26FE48A14948BD8000D84C3 /* GFX */,
+				C26FE48914948BBE000D84C3 /* Data */,
 				C24CD1BD148B5575007CFB58 /* Default.png */,
 				C24CD1BF148B5575007CFB58 /* fps_images.png */,
 				C24CD1C1148B5575007CFB58 /* Icon-72.png */,
@@ -660,8 +652,6 @@
 				C24CD1CD148B5575007CFB58 /* Info.plist */,
 				C24CD1CE148B5575007CFB58 /* iTunesArtwork */,
 				C24CD373148B557A007CFB58 /* grossini_dance_atlas.png */,
-				C26FE43E148F44E2000D84C3 /* DeckData.plist */,
-				C26FE481149475C5000D84C3 /* AbilityData.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1190,6 +1180,32 @@
 				C26FE47F14946A71000D84C3 /* AbilityRetreat.m */,
 			);
 			name = Ability;
+			sourceTree = "<group>";
+		};
+		C26FE48914948BBE000D84C3 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C26FE481149475C5000D84C3 /* AbilityData.plist */,
+				C26FE42F148F166C000D84C3 /* CardData.plist */,
+				C26FE43E148F44E2000D84C3 /* DeckData.plist */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		C26FE48A14948BD8000D84C3 /* GFX */ = {
+			isa = PBXGroup;
+			children = (
+				C26FE47C149464B7000D84C3 /* Fog.png */,
+				C26FE47114945005000D84C3 /* Heal.png */,
+				C26FE46914943FCF000D84C3 /* Missile.png */,
+				C26FE44D14912ABF000D84C3 /* Totem.png */,
+				C26FE4481490595B000D84C3 /* Mana.png */,
+				C24CD40C148C5F10007CFB58 /* Card.png */,
+				C26FE443148FD5D6000D84C3 /* Card2.png */,
+				C24CD38F148B7FA5007CFB58 /* Ship.png */,
+				C24CD38D148B774E007CFB58 /* Tile.png */,
+			);
+			name = GFX;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -6,48 +6,52 @@
 	<dict>
 		<key>Cards</key>
 		<array>
-			<string>1</string>
-			<string>1</string>
-			<string>1</string>
-			<string>1</string>
-			<string>1</string>
-			<string>1</string>
-			<string>1</string>
-			<string>1</string>
-			<string>2</string>
-			<string>2</string>
-			<string>2</string>
-			<string>2</string>
+			<string>Ship 1</string>
+			<string>Ship 1</string>
+			<string>Ship 1</string>
+			<string>Ship 1</string>
+			<string>Ship 1</string>
+			<string>Ship 1</string>
+			<string>Ship 1</string>
+			<string>Ship 1</string>
+			<string>Ship 2</string>
+			<string>Ship 2</string>
+			<string>Ship 2</string>
+			<string>Ship 2</string>
+			<string>Ship 2</string>
+			<string>Ship 2</string>
 		</array>
 		<key>Captain</key>
 		<array>
-			<string>3</string>
-			<string>3</string>
-			<string>3</string>
+			<string>Captain 1</string>
+			<string>Captain 1</string>
+			<string>Captain 1</string>
 		</array>
 	</dict>
 	<key>Ethan Deck</key>
 	<dict>
 		<key>Cards</key>
 		<array>
-			<string>1</string>
-			<string>1</string>
-			<string>1</string>
-			<string>1</string>
-			<string>1</string>
-			<string>1</string>
-			<string>1</string>
-			<string>1</string>
-			<string>2</string>
-			<string>2</string>
-			<string>2</string>
-			<string>2</string>
+			<string>Ship 1</string>
+			<string>Ship 1</string>
+			<string>Ship 1</string>
+			<string>Ship 1</string>
+			<string>Ship 1</string>
+			<string>Ship 1</string>
+			<string>Ship 1</string>
+			<string>Ship 1</string>
+			<string>Ship 2</string>
+			<string>Ship 2</string>
+			<string>Ship 2</string>
+			<string>Ship 2</string>
+			<string>Ship 2</string>
+			<string>Ship 2</string>
 		</array>
 		<key>Captain</key>
 		<array>
-			<string>3</string>
-			<string>3</string>
-			<string>3</string>
+			<string>Captain 1</string>
+			<string>Captain 1</string>
+			<string>Captain 1</string>
 		</array>
 	</dict>
 </dict>
