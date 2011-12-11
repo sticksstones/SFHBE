@@ -22,6 +22,5 @@
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
 -(void) step: (ccTime) dt;
--(void) addNewSpriteX:(float)x y:(float)y;
 
 @end

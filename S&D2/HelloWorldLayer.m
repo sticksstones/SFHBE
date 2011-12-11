@@ -9,27 +9,22 @@
 
 // Import the interfaces
 #import "HelloWorldLayer.h"
+#import "GameObjectManager.h"
+#import "BoardManager.h"
+#import "CardManager.h"
+#import "Board.h"
+#import "Ship.h"
+#import "Card.h"
+#import "Deck.h"
+#import "DeckManager.h"
+#import "Player.h"
+#import "PlayerManager.h"
+#import "Totem.h"
 
 enum {
 	kTagBatchNode = 1,
 };
 
-static void
-eachShape(void *ptr, void* unused)
-{
-	cpShape *shape = (cpShape*) ptr;
-	CCSprite *sprite = shape->data;
-	if( sprite ) {
-		cpBody *body = shape->body;
-		
-		// TIP: cocos2d and chipmunk uses the same struct to store it's position
-		// chipmunk uses: cpVect, and cocos2d uses CGPoint but in reality the are the same
-		// since v0.7.1 you can mix them if you want.		
-		[sprite setPosition: body->p];
-		
-		[sprite setRotation: (float) CC_RADIANS_TO_DEGREES( -body->a )];
-	}
-}
 
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
@@ -49,45 +44,6 @@ eachShape(void *ptr, void* unused)
 	return scene;
 }
 
--(void) addNewSpriteX: (float)x y:(float)y
-{
-	int posx, posy;
-	
-	CCSpriteBatchNode *batch = (CCSpriteBatchNode*) [self getChildByTag:kTagBatchNode];
-	
-	posx = (CCRANDOM_0_1() * 200);
-	posy = (CCRANDOM_0_1() * 200);
-	
-	posx = (posx % 4) * 85;
-	posy = (posy % 3) * 121;
-	
-	CCSprite *sprite = [CCSprite spriteWithBatchNode:batch rect:CGRectMake(posx, posy, 85, 121)];
-	[batch addChild: sprite];
-	
-	sprite.position = ccp(x,y);
-	
-	int num = 4;
-	CGPoint verts[] = {
-		ccp(-24,-54),
-		ccp(-24, 54),
-		ccp( 24, 54),
-		ccp( 24,-54),
-	};
-	
-	cpBody *body = cpBodyNew(1.0f, cpMomentForPoly(1.0f, num, verts, CGPointZero));
-	
-	// TIP:
-	// since v0.7.1 you can assign CGPoint to chipmunk instead of cpVect.
-	// cpVect == CGPoint
-	body->p = ccp(x, y);
-	cpSpaceAddBody(space, body);
-	
-	cpShape* shape = cpPolyShapeNew(body, num, verts, CGPointZero);
-	shape->e = 0.5f; shape->u = 0.5f;
-	shape->data = sprite;
-	cpSpaceAddShape(space, shape);
-	
-}
 
 // on "init" you need to initialize your instance
 -(id) init
@@ -97,46 +53,54 @@ eachShape(void *ptr, void* unused)
 	if( (self=[super init])) {
 		
 		self.isTouchEnabled = YES;
-		self.isAccelerometerEnabled = YES;
+
 		
-		CGSize wins = [[CCDirector sharedDirector] winSize];
-		cpInitChipmunk();
-		
-		cpBody *staticBody = cpBodyNew(INFINITY, INFINITY);
-		space = cpSpaceNew();
-		cpSpaceResizeStaticHash(space, 400.0f, 40);
-		cpSpaceResizeActiveHash(space, 100, 600);
-		
-		space->gravity = ccp(0, 0);
-		space->elasticIterations = space->iterations;
-		
-		cpShape *shape;
-		
-		// bottom
-		shape = cpSegmentShapeNew(staticBody, ccp(0,0), ccp(wins.width,0), 0.0f);
-		shape->e = 1.0f; shape->u = 1.0f;
-		cpSpaceAddStaticShape(space, shape);
-		
-		// top
-		shape = cpSegmentShapeNew(staticBody, ccp(0,wins.height), ccp(wins.width,wins.height), 0.0f);
-		shape->e = 1.0f; shape->u = 1.0f;
-		cpSpaceAddStaticShape(space, shape);
-		
-		// left
-		shape = cpSegmentShapeNew(staticBody, ccp(0,0), ccp(0,wins.height), 0.0f);
-		shape->e = 1.0f; shape->u = 1.0f;
-		cpSpaceAddStaticShape(space, shape);
-		
-		// right
-		shape = cpSegmentShapeNew(staticBody, ccp(wins.width,0), ccp(wins.width,wins.height), 0.0f);
-		shape->e = 1.0f; shape->u = 1.0f;
-		cpSpaceAddStaticShape(space, shape);
-		
-		CCSpriteBatchNode *batch = [CCSpriteBatchNode batchNodeWithFile:@"grossini_dance_atlas.png" capacity:100];
-		[self addChild:batch z:0 tag:kTagBatchNode];
-		
-		[self addNewSpriteX: 200 y:200];
-		
+    Board* board = [[Board alloc] init];
+    [board setupBoardLanes:3 Columns:9];
+    
+    [[BoardManager instance] setBoard:board];
+    [self addChild:board];
+    
+    [[GameObjectManager instance] setGameLayer:self];
+    
+    
+    Player* p1,*p2;
+
+    p1 = [[Player alloc] init];
+    [p1 initialize:1];
+    Deck* deck = [[DeckManager instance] getDeck:@"Vinit Deck"];
+    [deck shuffle];
+    [p1 setDeck:deck];
+    [p1 setPosition:CGPointMake(250,730)];
+    [p1 setRotation:90];
+
+    p2 = [[Player alloc] init];
+    [p2 initialize:-1];
+    deck = [[DeckManager instance] getDeck:@"Vinit Deck"];
+    [deck shuffle];
+    [p2 setDeck:deck];
+    [p2 setPosition:CGPointMake(770, 730)];
+    [p2 setRotation:270];
+    
+    [p1 addMana:50];
+    [p2 addMana:50];
+    
+    [[PlayerManager instance] addPlayer:p1 Num:1];
+    [[PlayerManager instance] addPlayer:p2 Num:-1];       
+    
+    [self addChild:p1];
+    [self addChild:p2];
+    
+    [[GameObjectManager instance] setupTotem:1 X:0 Y:0];
+    [[GameObjectManager instance] setupTotem:1 X:0 Y:1];    
+    [[GameObjectManager instance] setupTotem:1 X:0 Y:2];    
+    [[GameObjectManager instance] setupTotem:-1 X:17 Y:0];    
+    [[GameObjectManager instance] setupTotem:-1 X:17 Y:1];    
+    [[GameObjectManager instance] setupTotem:-1 X:17 Y:2];    
+
+    [[BoardManager instance] spawnMana];
+    [[PlayerManager instance] drawCards];
+
 		[self schedule: @selector(step:)];
 	}
 	return self;
@@ -146,8 +110,6 @@ eachShape(void *ptr, void* unused)
 - (void) dealloc
 {
 	// in case you have something to dealloc, do it in this method
-	cpSpaceFree(space);
-	space = NULL;
 	
 	// don't forget to call "super dealloc"
 	[super dealloc];
@@ -157,19 +119,11 @@ eachShape(void *ptr, void* unused)
 {
 	[super onEnter];
 	
-	[[UIAccelerometer sharedAccelerometer] setUpdateInterval:(1.0 / 60)];
 }
 
 -(void) step: (ccTime) delta
 {
-	int steps = 2;
-	CGFloat dt = delta/(CGFloat)steps;
-	
-	for(int i=0; i<steps; i++){
-		cpSpaceStep(space, dt);
-	}
-	cpSpaceHashEach(space->activeShapes, &eachShape, nil);
-	cpSpaceHashEach(space->staticShapes, &eachShape, nil);
+  [[GameObjectManager instance] update];
 }
 
 
@@ -180,24 +134,6 @@ eachShape(void *ptr, void* unused)
 		
 		location = [[CCDirector sharedDirector] convertToGL: location];
 		
-		[self addNewSpriteX: location.x y:location.y];
 	}
-}
-
-- (void)accelerometer:(UIAccelerometer*)accelerometer didAccelerate:(UIAcceleration*)acceleration
-{	
-	static float prevX=0, prevY=0;
-	
-#define kFilterFactor 0.05f
-	
-	float accelX = (float) acceleration.x * kFilterFactor + (1- kFilterFactor)*prevX;
-	float accelY = (float) acceleration.y * kFilterFactor + (1- kFilterFactor)*prevY;
-	
-	prevX = accelX;
-	prevY = accelY;
-	
-	CGPoint v = ccp( accelX, accelY);
-	
-	space->gravity = ccpMult(v, 200);
 }
 @end

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Blink</key>
+	<dict>
+		<key>ability</key>
+		<string>Blink</string>
+		<key>level</key>
+		<integer>1</integer>
+		<key>rechargeTime</key>
+		<real>10</real>
+		<key>charges</key>
+		<integer>-1</integer>
+	</dict>
+	<key>Missile</key>
+	<dict>
+		<key>ability</key>
+		<string>Missile</string>
+		<key>level</key>
+		<integer>1</integer>
+		<key>rechargeTime</key>
+		<real>10</real>
+		<key>charges</key>
+		<integer>-1</integer>
+	</dict>
+	<key>Heal</key>
+	<dict>
+		<key>ability</key>
+		<string>Heal</string>
+		<key>level</key>
+		<integer>1</integer>
+		<key>rechargeTime</key>
+		<real>10</real>
+		<key>charges</key>
+		<integer>-1</integer>
+	</dict>
+	<key>ChainStrike</key>
+	<dict>
+		<key>ability</key>
+		<string>ChainStrike</string>
+		<key>level</key>
+		<integer>1</integer>
+		<key>rechargeTime</key>
+		<integer>10</integer>
+		<key>charges</key>
+		<integer>-1</integer>
+	</dict>
+	<key>Fog</key>
+	<dict>
+		<key>ability</key>
+		<string>Fog</string>
+		<key>level</key>
+		<integer>1</integer>
+		<key>rechargeTime</key>
+		<integer>10</integer>
+		<key>charges</key>
+		<integer>-1</integer>
+	</dict>
+</dict>
+</plist>
