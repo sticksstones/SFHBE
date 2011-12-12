@@ -17,6 +17,25 @@
   [self runAction:[CCActionTween actionWithDuration:0.25 key:@"opacity" from:0 to:128]];  
 }
 
+
+- (CGRect)rectInPixels
+{
+	CGSize s = [texture_ contentSizeInPixels];
+	return CGRectMake(-2.0*s.width / 2, -2.0*s.height / 2, 2.0*s.width, 2.0*s.height);
+}
+
+- (CGRect)rect
+{
+	CGSize s = [texture_ contentSize];
+	return CGRectMake(-2.0*s.width / 2, -2.0*s.height / 2, 2.0*s.width, 2.0*s.height);
+}
+
+- (void)setupTouch
+{
+	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+}
+
+
 - (void)setManaAmount:(int)_amount {
   amount = _amount;
 }

@@ -6,52 +6,44 @@
 	<dict>
 		<key>Cards</key>
 		<array>
-			<string>Ship 1</string>
-			<string>Ship 1</string>
-			<string>Ship 1</string>
-			<string>Ship 1</string>
-			<string>Ship 1</string>
-			<string>Ship 1</string>
-			<string>Ship 1</string>
-			<string>Ship 1</string>
-			<string>Ship 2</string>
-			<string>Ship 2</string>
-			<string>Ship 2</string>
-			<string>Ship 2</string>
-			<string>Ship 2</string>
-			<string>Ship 2</string>
+			<string>Soldier</string>
+			<string>Soldier</string>
+			<string>Scout</string>
+			<string>Scout</string>
+			<string>Grunt</string>
+			<string>Medic</string>
+			<string>Bowman</string>
+			<string>Lightning Ninja</string>
+			<string>Mystic Scout</string>
+			<string>Flash Amulet</string>
 		</array>
 		<key>Captain</key>
 		<array>
-			<string>Captain 1</string>
-			<string>Captain 1</string>
-			<string>Captain 1</string>
+			<string>Harvester</string>
+			<string>Lightning Ninja</string>
+			<string>Bowman</string>
 		</array>
 	</dict>
 	<key>Ethan Deck</key>
 	<dict>
 		<key>Cards</key>
 		<array>
-			<string>Ship 1</string>
-			<string>Ship 1</string>
-			<string>Ship 1</string>
-			<string>Ship 1</string>
-			<string>Ship 1</string>
-			<string>Ship 1</string>
-			<string>Ship 1</string>
-			<string>Ship 1</string>
-			<string>Ship 2</string>
-			<string>Ship 2</string>
-			<string>Ship 2</string>
-			<string>Ship 2</string>
-			<string>Ship 2</string>
-			<string>Ship 2</string>
+			<string>Soldier</string>
+			<string>Soldier</string>
+			<string>Scout</string>
+			<string>Scout</string>
+			<string>Grunt</string>
+			<string>Medic</string>
+			<string>Bowman</string>
+			<string>Lightning Ninja</string>
+			<string>Bandages</string>
+			<string>Flash Amulet</string>
 		</array>
 		<key>Captain</key>
 		<array>
-			<string>Captain 1</string>
-			<string>Captain 1</string>
-			<string>Captain 1</string>
+			<string>Harvester</string>
+			<string>Soldier</string>
+			<string>Bowman</string>
 		</array>
 	</dict>
 </dict>

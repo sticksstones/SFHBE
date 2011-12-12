@@ -46,13 +46,18 @@
     [cards addObject:card];
     [self addChild:card];
     [self rearrangeCards];
+
   }
 }
 
 - (void)addCaptains:(NSArray*)captain {
   [self clearHand];
   for(NSString* card in captain) {
-    [self addCardToHand:[[CardManager instance] getCard:card]];    
+    Card* cardObj = [[CardManager instance] getCard:card];
+    [cardObj setIsCaptain:YES];    
+    if (cardObj) {
+      [self addCardToHand:cardObj]; 
+    }
   }
 }
 

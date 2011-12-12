@@ -13,6 +13,9 @@
 #import "AbilityHeal.h"
 #import "AbilityFog.h"
 #import "AbilityChainStrike.h"
+#import "AbilityAutoRepair.h"
+#import "AbilityBurn.h"
+#import "AbilityHarvest.h"
 
 @implementation AbilityHelper
 
@@ -33,6 +36,16 @@
   else if([type isEqualToString:@"ChainStrike"]) {
     return [[AbilityChainStrike alloc] init];
   }
+  else if([type isEqualToString:@"Auto Repair"]) {
+    return [[AbilityAutoRepair alloc] init];
+  }
+  else if([type isEqualToString:@"Burn"]) {
+    return [[AbilityBurn alloc] init];
+  }
+  else if([type isEqualToString:@"Harvest"]) {
+    return [[AbilityHarvest alloc] init];
+  }
+
   
   return nil;
 }

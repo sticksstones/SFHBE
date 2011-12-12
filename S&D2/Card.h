@@ -27,6 +27,7 @@
 @property (nonatomic) CGPoint originalLocation;
 @property (nonatomic) bool held;
 @property (nonatomic) bool ready;
+@property (nonatomic) bool isCaptain;
 
 - (void)playCard:(CGPoint)boardPos;
 - (Card*)initWithParams:(NSDictionary*)params;

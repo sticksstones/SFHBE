@@ -39,6 +39,7 @@ static CardManager *gInstance = NULL;
       {
         key = [keys objectAtIndex: i];
         NSDictionary* card = [plistCards objectForKey: key];
+        [card setValue:key forKey:@"id"];
         Card* cardObj = [[Card alloc] initWithParams:card];        
         [cards setObject:cardObj forKey:(NSString*)key];
       }

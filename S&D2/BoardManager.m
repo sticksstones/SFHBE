@@ -12,8 +12,8 @@
 #import "Tile.h"
 #import "Mana.h"
 
-#define MANA_INTERVAL 1.0
-#define MANA_DROP_AMOUNT 100
+#define MANA_INTERVAL 12.0
+#define MANA_DROP_AMOUNT 25
 
 @implementation BoardManager
 
@@ -103,8 +103,8 @@ static BoardManager *gInstance = NULL;
 
 - (void)spawnMana {
 
-  [self spawnManaInRangeXY1:CGPointMake(0,0) XY2:CGPointMake(3,6) playerNum:1];
-  [self spawnManaInRangeXY1:CGPointMake(0,13) XY2:CGPointMake(3,18) playerNum:-1];  
+  [self spawnManaInRangeXY1:CGPointMake(0,2) XY2:CGPointMake(3,6) playerNum:1];
+  [self spawnManaInRangeXY1:CGPointMake(0,13) XY2:CGPointMake(3,16) playerNum:-1];  
   [self performSelector:@selector(spawnMana) withObject:nil afterDelay:MANA_INTERVAL];    
   
 }

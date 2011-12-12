@@ -33,6 +33,7 @@
 #define MOVE_DISTANCE 1
 #define kHealthTag 1
 #define kAPTag 2
+#define kAbilityChargeTag 3
 
 @implementation Ship
 
@@ -42,6 +43,8 @@
   self = [super initWithFile:[params objectAtIndex:PARAMS_SPRITE]];
   if(self) {
     passiveAbilities = [NSMutableDictionary new];
+    passiveAbilitiesToRemove = [NSMutableDictionary new];
+    
     
     maxHP = [[params objectAtIndex:PARAMS_HP] intValue];
     [self setHp:maxHP];
@@ -50,13 +53,9 @@
     
     shotReady = NO;
     performTapAbility = NO;    
-    CCLabelTTF* label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d",hp] fontName:@"Helvetica" fontSize:12];
-    label.position = CGPointMake(0, 0);
-    [label setTag:kHealthTag];    
-    [self addChild:label];
-    label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d",ap] fontName:@"Helvetica" fontSize:12];
+    CCLabelTTF* label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d/%d",ap,hp] fontName:@"Helvetica" fontSize:12];
     label.position = CGPointMake(self.contentSize.width, 0);
-    [label setTag:kAPTag];
+    [label setTag:kHealthTag];    
     [self addChild:label];
     
     if ([params count] > PARAMS_PROPERTIES) {
@@ -71,6 +70,11 @@
       tapAbility = [[AbilityManager instance] getAbility:[properties valueForKey:@"tapAbility"]];
       if(tapAbility) {
         [tapAbility setSourceToken:self];
+        CCLabelTTF* label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%f",[tapAbility getCurrentCharge]] fontName:@"Helvetica" fontSize:10];
+        label.position = CGPointMake(0, 0);
+        [label setTag:kAbilityChargeTag];    
+        [self addChild:label];
+        
       }
     }    
   }
@@ -104,8 +108,8 @@
 
 - (void)setAp:(int)_ap {
   ap = _ap;
-  CCLabelTTF* attackLabel = (CCLabelTTF*)[self getChildByTag:kAPTag];
-  [attackLabel setString:[NSString stringWithFormat:@"%d",ap]];
+  CCLabelTTF* attackLabel = (CCLabelTTF*)[self getChildByTag:kHealthTag];
+  [attackLabel setString:[NSString stringWithFormat:@"%d/%d",ap,hp]];
   
 }
 
@@ -114,7 +118,7 @@
   hp = _hp;
   hp = hp > maxHP ? maxHP : hp;  
   CCLabelTTF* healthLabel = (CCLabelTTF*)[self getChildByTag:kHealthTag];
-  [healthLabel setString:[NSString stringWithFormat:@"%d",hp]];
+  [healthLabel setString:[NSString stringWithFormat:@"%d/%d",ap,hp]];
 }
 
 
@@ -199,6 +203,8 @@
 }
 
 - (void)update {
+  [self purgeExpiredPassiveAbilities];
+  
   CGSize winSize = [[CCDirector sharedDirector] winSize];
   if(hp <= 0 || self.position.x < 0 || self.position.x > winSize.width) {
     [self killShip];
@@ -209,6 +215,18 @@
     performTapAbility = NO;    
   }
   
+  if(tapAbility) {
+    CCLabelTTF* label = (CCLabelTTF*)[self getChildByTag:kAbilityChargeTag];
+    float currentCharge = [tapAbility getCurrentCharge];
+    if(currentCharge <= 0.0) {
+      [label setString:[[tapAbility abilityName] uppercaseString]];      
+    }
+    else {
+      [label setString:[NSString stringWithFormat:@"%.1f", currentCharge]];
+    }
+  }
+  
+  [self performPassiveAbilitiesForEvent:@"onUpdate"];  
   
   if(![self performPassiveAbilitiesForEvent:@"controlBehavior"]) {
     if([self checkAttackAvailable]) {
@@ -218,6 +236,7 @@
       [self move];
     }
   }
+  
 }
 
 
@@ -229,8 +248,9 @@
     [self deploy];
   }
   else {
-    
-    performTapAbility = YES;
+    if(endPoint.y <= 20) {
+      performTapAbility = YES;
+    }
   }
   
 }
@@ -240,8 +260,51 @@
     [passiveAbilities setObject:[NSMutableArray new] forKey:step];
   }
   NSMutableArray* abilityList = [passiveAbilities objectForKey:step];
+  id abilityToRemove = nil;
+  for(id existingAbility in abilityList) {
+    if([existingAbility class] == [ability class]) {
+      abilityToRemove = existingAbility;
+      break;
+    }
+  }
+  
+  if(abilityToRemove) {
+    [abilityList removeObject:abilityToRemove];
+  }
+  
   [abilityList addObject:ability];
   
+}
+
+- (void)purgeExpiredPassiveAbilities {
+  NSArray *keys;
+  int i, count;
+  id key;
+  
+  keys = [passiveAbilitiesToRemove allKeys];
+  count = [keys count];
+  for (i = 0; i < count; i++)
+  {
+    key = [keys objectAtIndex: i];
+    NSMutableArray* abilityList = [passiveAbilitiesToRemove objectForKey: key];
+    for(id ability in abilityList) {
+      [[passiveAbilities objectForKey:key] removeObject:ability];
+    }
+    
+  }
+  
+  [passiveAbilitiesToRemove removeAllObjects];
+}
+
+- (void)removePassiveAbility:(id)ability step:(NSString*)step {
+  if([passiveAbilitiesToRemove objectForKey:step] == nil) {
+    [passiveAbilitiesToRemove setObject:[NSMutableArray new] forKey:step];
+  }
+  
+  NSMutableArray* abilityList = [passiveAbilitiesToRemove objectForKey:step];
+  if(abilityList) {
+    [abilityList addObject:ability];
+  }
 }
 
 - (BOOL)performPassiveAbilitiesForEvent:(NSString*)event {

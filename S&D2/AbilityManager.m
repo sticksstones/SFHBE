@@ -47,7 +47,6 @@ static AbilityManager *gInstance = NULL;
     id abilityObj = [AbilityHelper AbilityForType:[ability valueForKey:@"ability"]];
     
     [abilityObj initialize:[NSArray arrayWithObjects:self,self,[ability objectForKey:@"charges"], [ability objectForKey:@"rechargeTime"], [ability objectForKey:@"level"],key,nil]];
-    
     [abilities setObject:abilityObj forKey:(NSString*)key];
   }
 

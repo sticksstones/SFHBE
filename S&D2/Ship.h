@@ -23,6 +23,8 @@
   bool performTapAbility;
   
   NSMutableDictionary* passiveAbilities;
+  NSMutableDictionary* passiveAbilitiesToRemove;
+  
 }
 
 @property (nonatomic, retain) Ship* attackTarget;
@@ -42,7 +44,9 @@
 - (void)update;
 - (void)resetShot;
 - (void)deploy;
-- (void)addPassiveAbility:(Ability*)ability step:(NSString*)step;
+- (void)addPassiveAbility:(id)ability step:(NSString*)step;
+- (void)purgeExpiredPassiveAbilities;
+- (void)removePassiveAbility:(id)ability step:(NSString*)step;
 - (BOOL)performPassiveAbilitiesForEvent:(NSString*)event;
 
 @end

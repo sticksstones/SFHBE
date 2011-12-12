@@ -190,6 +190,9 @@
 		C26FE482149475C5000D84C3 /* AbilityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = C26FE481149475C5000D84C3 /* AbilityData.plist */; };
 		C26FE48514947766000D84C3 /* AbilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C26FE48414947765000D84C3 /* AbilityManager.m */; };
 		C26FE48814947ABE000D84C3 /* AbilityHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C26FE48714947ABE000D84C3 /* AbilityHelper.m */; };
+		C26FE48D14956361000D84C3 /* AbilityAutoRepair.m in Sources */ = {isa = PBXBuildFile; fileRef = C26FE48C14956360000D84C3 /* AbilityAutoRepair.m */; };
+		C26FE4901495689C000D84C3 /* AbilityBurn.m in Sources */ = {isa = PBXBuildFile; fileRef = C26FE48F1495689B000D84C3 /* AbilityBurn.m */; };
+		C26FE4931495C470000D84C3 /* AbilityHarvest.m in Sources */ = {isa = PBXBuildFile; fileRef = C26FE4921495C46D000D84C3 /* AbilityHarvest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -559,6 +562,12 @@
 		C26FE48414947765000D84C3 /* AbilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbilityManager.m; sourceTree = "<group>"; };
 		C26FE48614947ABE000D84C3 /* AbilityHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbilityHelper.h; sourceTree = "<group>"; };
 		C26FE48714947ABE000D84C3 /* AbilityHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbilityHelper.m; sourceTree = "<group>"; };
+		C26FE48B1495635F000D84C3 /* AbilityAutoRepair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbilityAutoRepair.h; sourceTree = "<group>"; };
+		C26FE48C14956360000D84C3 /* AbilityAutoRepair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbilityAutoRepair.m; sourceTree = "<group>"; };
+		C26FE48E14956899000D84C3 /* AbilityBurn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbilityBurn.h; sourceTree = "<group>"; };
+		C26FE48F1495689B000D84C3 /* AbilityBurn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbilityBurn.m; sourceTree = "<group>"; };
+		C26FE4911495C46C000D84C3 /* AbilityHarvest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbilityHarvest.h; sourceTree = "<group>"; };
+		C26FE4921495C46D000D84C3 /* AbilityHarvest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbilityHarvest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1178,6 +1187,12 @@
 				C26FE47A149463C9000D84C3 /* AbilityFog.m */,
 				C26FE47E14946A71000D84C3 /* AbilityRetreat.h */,
 				C26FE47F14946A71000D84C3 /* AbilityRetreat.m */,
+				C26FE48B1495635F000D84C3 /* AbilityAutoRepair.h */,
+				C26FE48C14956360000D84C3 /* AbilityAutoRepair.m */,
+				C26FE48E14956899000D84C3 /* AbilityBurn.h */,
+				C26FE48F1495689B000D84C3 /* AbilityBurn.m */,
+				C26FE4911495C46C000D84C3 /* AbilityHarvest.h */,
+				C26FE4921495C46D000D84C3 /* AbilityHarvest.m */,
 			);
 			name = Ability;
 			sourceTree = "<group>";
@@ -1444,6 +1459,9 @@
 				C26FE48014946A72000D84C3 /* AbilityRetreat.m in Sources */,
 				C26FE48514947766000D84C3 /* AbilityManager.m in Sources */,
 				C26FE48814947ABE000D84C3 /* AbilityHelper.m in Sources */,
+				C26FE48D14956361000D84C3 /* AbilityAutoRepair.m in Sources */,
+				C26FE4901495689C000D84C3 /* AbilityBurn.m in Sources */,
+				C26FE4931495C470000D84C3 /* AbilityHarvest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

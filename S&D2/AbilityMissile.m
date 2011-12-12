@@ -18,7 +18,7 @@
   if([self abilityAvailable]) {
     [self incurCost];    
     if([self checkCriteria:nil]) {
-      ProjectileMissile* missile = (ProjectileMissile*)[[ProjectileMissile alloc] newProjectile:[NSArray arrayWithObjects:[NSNumber numberWithInt:level*2],[NSNumber numberWithInt:2+level],[NSNumber numberWithInt:level], @"Missile.png",nil]];
+      ProjectileMissile* missile = (ProjectileMissile*)[[ProjectileMissile alloc] newProjectile:[NSArray arrayWithObjects:[NSNumber numberWithInt:level*2],[NSNumber numberWithInt:5+level],[NSNumber numberWithInt:level], @"Missile.png",nil]];
       [missile setPlayerNum:[sourceToken playerNum]];
       [[GameObjectManager instance] addProjectile:missile];
       CGPoint boardPos = [(Ship*)sourceToken getBoardXY];

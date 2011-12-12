@@ -18,9 +18,13 @@
   float currentCharge;
   NSString* abilityType;
   NSArray* origParams;
+  NSString* abilityName;
   
 }
 
+@property (nonatomic, retain) NSString* abilityName;
+
+- (float)getCurrentCharge;
 - (id)copyAbility;
 - (void)setSourceToken:(id)token;
 - (bool)incurCost;

@@ -15,7 +15,7 @@
 - (bool)checkCriteria:(NSArray*)params {
   int x = [[params objectAtIndex:0] intValue];
   int y = [[params objectAtIndex:1] intValue];
-  return [[BoardManager instance] isTileOccupiedX:x Y:y];
+  return ![[BoardManager instance] isTileOccupiedX:x Y:y];
   
 }
 

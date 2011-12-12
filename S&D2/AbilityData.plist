@@ -57,5 +57,38 @@
 		<key>charges</key>
 		<integer>-1</integer>
 	</dict>
+	<key>Auto Repair</key>
+	<dict>
+		<key>ability</key>
+		<string>Auto Repair</string>
+		<key>level</key>
+		<integer>1</integer>
+		<key>rechargeTime</key>
+		<integer>10</integer>
+		<key>charges</key>
+		<integer>-1</integer>
+	</dict>
+	<key>Burn</key>
+	<dict>
+		<key>ability</key>
+		<string>Burn</string>
+		<key>level</key>
+		<integer>1</integer>
+		<key>rechargeTime</key>
+		<integer>10</integer>
+		<key>charges</key>
+		<integer>-1</integer>
+	</dict>
+	<key>Harvest</key>
+	<dict>
+		<key>ability</key>
+		<string>Harvest</string>
+		<key>level</key>
+		<integer>1</integer>
+		<key>rechargeTime</key>
+		<integer>10</integer>
+		<key>charges</key>
+		<integer>-1</integer>
+	</dict>
 </dict>
 </plist>

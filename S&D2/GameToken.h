@@ -19,6 +19,7 @@
 
 @property int playerNum, direction;
 
+- (void)setupTouch;
 - (int)positionRelativeToToken:(GameToken*)token;
 - (int)getLanePosition;
 - (int)getLane;

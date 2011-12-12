@@ -18,6 +18,8 @@
 
 @implementation Ability
 
+@synthesize abilityName;
+
 - (void)initialize:(NSArray*)params {
   sourceToken = [params objectAtIndex:PARAMS_SRCTOKEN];
   targetToken = [params objectAtIndex:PARAMS_DSTTOKEN];  
@@ -28,12 +30,18 @@
   level = [[params objectAtIndex:PARAMS_LEVEL] intValue];
   origParams = [[NSArray alloc] initWithArray:params];
   abilityType = [[NSString alloc] initWithString:[params objectAtIndex:PARAMS_TYPE]];
+  [self setAbilityName:abilityType];
 }
 
 - (id)copyAbility {
   id copy = [AbilityHelper AbilityForType:abilityType];
   [copy initialize:origParams];
   return copy;
+}
+
+
+- (float)getCurrentCharge { 
+  return currentCharge;
 }
 
 - (void)setSourceToken:(id)token {

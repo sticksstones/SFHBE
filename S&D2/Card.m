@@ -8,17 +8,21 @@
 
 #import "Card.h"
 #import "BoardManager.h"
+#import "Board.h"
+#import "Tile.h"
 #import "Ship.h"
 #import "GameObjectManager.h"
 #import "PlayerManager.h"
 #import "Player.h"
+#import "AbilityHelper.h"
+#import "Ability.h"
 
 #define kRechargeLabel 1
 #define kPreview 2
 
 @implementation Card
 
-@synthesize originalLocation, held, ready;
+@synthesize originalLocation, held, ready, isCaptain;
 
 - (Card*)initWithParams:(NSDictionary*)params {
   NSString* fileName = [params valueForKey:@"imagename"];  
@@ -31,6 +35,10 @@
   cardID = [params valueForKey:@"id"];
   origParams = params;
   
+  CCLabelTTF* cardLabel = [[CCLabelTTF alloc] initWithString:[cardID uppercaseString] fontName:@"Helvetica" fontSize:10.0];
+  [self addChild: cardLabel];
+  [cardLabel setPosition:CGPointMake(self.contentSize.width/2, -12)];
+  
   CCLabelTTF* cardCost = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"%d",cost] fontName:@"Helvetica" fontSize:12];
   [self addChild:cardCost];
   [cardCost setPosition:CGPointMake(self.contentSize.width, self.contentSize.height)];
@@ -40,7 +48,7 @@
     [self addChild:shipStats];
     [shipStats setPosition:CGPointMake(self.contentSize.width, 0)];
   }
-
+  
   CCLabelTTF* rechargeLabel = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"%.1f",(rechargeTime - currentCharge)] fontName:@"Helvetica" fontSize:12];
   [self addChild:rechargeLabel z:1 tag:kRechargeLabel];
   [rechargeLabel setPosition:CGPointMake(0,0)];
@@ -59,9 +67,9 @@
   if (held) {
     if([player hasEnoughMana:cost] && ready) {
       
-    CCSprite* preview = [CCSprite spriteWithFile:[properties objectForKey:@"sprite"]];
-    preview.rotation = playerNum == 1 ? 90 : 270;
-    [[[GameObjectManager instance] gameLayer] addChild:preview z:10 tag:kPreview];
+      CCSprite* preview = [CCSprite spriteWithFile:[properties objectForKey:@"sprite"]];
+      preview.rotation = playerNum == 1 ? 90 : 270;
+      [[[GameObjectManager instance] gameLayer] addChild:preview z:10 tag:kPreview];
     }
   }
   else {
@@ -152,29 +160,61 @@
   return boardPos;
 }
 
+- (void)commitCard:(Player*)player {
+  [player spendMana:cost];
+  self.ready = NO;
+  currentCharge = 0.0;
+  if (!isCaptain) {
+    [[[PlayerManager instance] getPlayer:playerNum] consumeCard:self];
+  }  
+}
+
 - (void)playCard:(CGPoint)boardPos {
   Player* player = [[PlayerManager instance] getPlayer:playerNum];
   if ([player hasEnoughMana:cost] && ready) {
-  if ([type isEqualToString:@"ship"]) {
-    
-    NSString* sprite = [properties objectForKey:@"sprite"];
-    
-    
-    Ship* ship = [[Ship alloc] newShip:[NSArray arrayWithObjects:[NSNumber numberWithInt:[[properties objectForKey:@"hp"] intValue]],[NSNumber numberWithInt:[[properties objectForKey:@"sp"] intValue]],[NSNumber numberWithInt:[[properties objectForKey:@"ap"] intValue]],sprite,properties,nil]];
-
-    [ship setPlayerNum:playerNum];
-    
-    [[GameObjectManager instance] addShip:ship];        
-    [[BoardManager instance] setToken:ship X:(int)boardPos.x Y:(int)boardPos.y];
-    [[BoardManager instance] updateGameTokenBoardPosition:ship];  
-    self.ready = NO;
-    currentCharge = 0.0;
-    if (!isCaptain) {
-      [[[PlayerManager instance] getPlayer:playerNum] consumeCard:self];
+    if ([type isEqualToString:@"ship"]) {
+      if([self isInValidSpot:boardPos]) {
+        NSString* sprite = [properties objectForKey:@"sprite"];
+        
+        Ship* ship = [[Ship alloc] newShip:[NSArray arrayWithObjects:[NSNumber numberWithInt:[[properties objectForKey:@"hp"] intValue]],[NSNumber numberWithInt:[[properties objectForKey:@"sp"] intValue]],[NSNumber numberWithInt:[[properties objectForKey:@"ap"] intValue]],sprite,properties,nil]];
+        
+        [ship setPlayerNum:playerNum];
+        
+        [[GameObjectManager instance] addShip:ship];        
+        [[BoardManager instance] setToken:ship X:(int)boardPos.x Y:(int)boardPos.y];
+        [[BoardManager instance] updateGameTokenBoardPosition:ship];  
+        [self commitCard:player];
+      }
+    }
+    else if ([type isEqualToString:@"armor"]) {
+      Tile* tile = [[[BoardManager instance] getBoard] getTileX:boardPos.x Y:boardPos.y];
+      if(tile) {
+        NSArray* occupants = [tile getOccupants];
+        Ship* target = nil;
+        
+        for(Ship* occupant in occupants) {
+          if([occupant isKindOfClass:[Ship class]]) {
+            target = occupant;
+            break;
+          }
+        }
+        
+        if(target) {
+          
+          NSArray* abilities = [properties objectForKey:@"abilities"];
+          for(NSString* ability in abilities) {
+            id abilityObj = [AbilityHelper AbilityForType:ability];
+            [abilityObj setSourceToken:target];
+            [abilityObj performAbility];        
+          }
+        }
+        [self commitCard:player];
+        
+      }
     }
   }
-    [player spendMana:cost];
-  }
+  
+  
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {	
@@ -182,9 +222,9 @@
   if (held) {
     touchPoint = [[CCDirector sharedDirector] convertToGL:touchPoint];
     CGPoint boardPos = [self getBoardPos:touchPoint];
-    if ([self isInValidSpot:boardPos]) {
-      [self playCard:boardPos];
-    }
+    //    if ([self isInValidSpot:boardPos]) {
+    [self playCard:boardPos];
+    //    }
     [self runAction:[CCMoveTo actionWithDuration:0.2 position:originalLocation]];
     self.held = false;
     self.opacity = 255;

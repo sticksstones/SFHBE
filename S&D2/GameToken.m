@@ -59,9 +59,13 @@
 	return CGRectContainsPoint(r, p);
 }
 
+- (void)setupTouch {
+	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:NO];  
+}
+
 - (void)onEnter
 {
-	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:NO];
+  [self setupTouch];
 	[super onEnter];
 }
 
