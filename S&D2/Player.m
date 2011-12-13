@@ -41,6 +41,7 @@
   
   CCLabelTTF* manaLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d",mana] fontName:@"Helvetica" fontSize:24];
   [self addChild:manaLabel z:1 tag:kManaTag];
+  [manaLabel setPosition:CGPointMake(0.0, 75.0)];
 }
 
 - (void)setMana:(int)_mana {

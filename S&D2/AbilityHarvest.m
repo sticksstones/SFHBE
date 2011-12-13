@@ -16,6 +16,7 @@
   Ship* ship = (Ship*)sourceToken;
   [ship addPassiveAbility:self step:@"onUpdate"];
   effectInterval = 20.0;
+  currentTime = 19.9;
 }
 
 - (void)update {

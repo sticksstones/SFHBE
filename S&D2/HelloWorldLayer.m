@@ -82,8 +82,8 @@ enum {
     [p2 setPosition:CGPointMake(770, 730)];
     [p2 setRotation:270];
     
-    [p1 addMana:150];
-    [p2 addMana:150];
+    [p1 addMana:50];
+    [p2 addMana:50];
     
     [[PlayerManager instance] addPlayer:p1 Num:1];
     [[PlayerManager instance] addPlayer:p2 Num:-1];       

@@ -10,11 +10,15 @@
 #import "PlayerManager.h"
 #import "Player.h"
 
+#define EXPIRATION_TIME 10.0
+
 @implementation Mana
 
 - (void)initialize {
   [self runAction:[CCActionTween actionWithDuration:0.25 key:@"scale" from:0.0 to:1.0]];
   [self runAction:[CCActionTween actionWithDuration:0.25 key:@"opacity" from:0 to:128]];  
+  elapsedTime = 0.0;
+  
 }
 
 
@@ -53,6 +57,17 @@
     return YES;
   }
   return NO;
+}
+
+- (void)draw {
+  [super draw];
+//  [[[PlayerManager instance] getPlayer:playerNum] addMana:amount];
+//  [self removeFromParentAndCleanup:YES];
+//  return;
+  elapsedTime += 1.0/60.0;
+  if (elapsedTime >= EXPIRATION_TIME) {
+    [self removeFromParentAndCleanup:YES];
+  }
 }
 
 

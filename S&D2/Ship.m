@@ -247,6 +247,9 @@
   if (endPoint.y >= 100 && direction == 0) {
     [self deploy];
   }
+  else if(endPoint.y <= -100) {
+    direction = 0;
+  }
   else {
     if(endPoint.y <= 20) {
       performTapAbility = YES;

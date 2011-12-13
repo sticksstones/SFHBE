@@ -182,13 +182,37 @@
 			<key>imagename</key>
 			<string>Card.png</string>
 			<key>recharge</key>
-			<integer>10</integer>
+			<integer>30</integer>
 			<key>cost</key>
 			<integer>150</integer>
 			<key>type</key>
 			<string>ship</string>
-			<key>captain</key>
-			<false/>
+		</dict>
+		<key>Bowman - 2</key>
+		<dict>
+			<key>properties</key>
+			<dict>
+				<key>tapAbility</key>
+				<string>Missile</string>
+				<key>passiveAbilities</key>
+				<array/>
+				<key>sprite</key>
+				<string>Ship.png</string>
+				<key>hp</key>
+				<integer>1</integer>
+				<key>ap</key>
+				<integer>1</integer>
+				<key>sp</key>
+				<integer>3</integer>
+			</dict>
+			<key>imagename</key>
+			<string>Card.png</string>
+			<key>recharge</key>
+			<integer>30</integer>
+			<key>cost</key>
+			<integer>225</integer>
+			<key>type</key>
+			<string>ship</string>
 		</dict>
 		<key>Mystic Soldier</key>
 		<dict>
@@ -285,7 +309,7 @@
 				<key>sprite</key>
 				<string>Ship.png</string>
 				<key>hp</key>
-				<integer>2</integer>
+				<integer>3</integer>
 				<key>ap</key>
 				<integer>0</integer>
 				<key>sp</key>

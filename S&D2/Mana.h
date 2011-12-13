@@ -10,6 +10,7 @@
 
 @interface Mana : GameToken {
   int amount;
+  float elapsedTime;
 }
 - (void)initialize;
 - (void)setManaAmount:(int)_amount;
