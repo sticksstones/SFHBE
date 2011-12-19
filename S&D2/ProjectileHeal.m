@@ -9,7 +9,7 @@
 #import "ProjectileHeal.h"
 #import "GameObjectManager.h"
 
-#define ATTACK_DISTANCE 1
+#define ATTACK_DISTANCE 0.0
 
 @implementation ProjectileHeal
 

@@ -29,6 +29,7 @@
 @property (nonatomic) bool ready;
 @property (nonatomic) bool isCaptain;
 
+- (bool)isPlayable;
 - (void)playCard:(CGPoint)boardPos;
 - (Card*)initWithParams:(NSDictionary*)params;
 - (void)setPlayerNum:(int)_playerNum;

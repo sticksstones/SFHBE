@@ -17,17 +17,21 @@
   int ap;
   int maxHP;
   Ship* attackTarget;
-  GameToken* nearestGameToken;
+  Ship* nearestGameToken;
   id tapAbility;
   bool shotReady;
   bool performTapAbility;
+  bool passable;
+  bool passing;
   
   NSMutableDictionary* passiveAbilities;
   NSMutableDictionary* passiveAbilitiesToRemove;
   
 }
 
+@property (nonatomic, retain) Ship* nearestGameToken;
 @property (nonatomic, retain) Ship* attackTarget;
+@property (nonatomic) bool passable;
 
 - (void)setHp:(int)_hp;
 - (void)setSp:(int)_sp;
@@ -48,5 +52,6 @@
 - (void)purgeExpiredPassiveAbilities;
 - (void)removePassiveAbility:(id)ability step:(NSString*)step;
 - (BOOL)performPassiveAbilitiesForEvent:(NSString*)event;
+- (BOOL)checkPassable;
 
 @end

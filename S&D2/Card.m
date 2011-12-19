@@ -52,7 +52,7 @@
   CCLabelTTF* rechargeLabel = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"%.1f",(rechargeTime - currentCharge)] fontName:@"Helvetica" fontSize:12];
   [self addChild:rechargeLabel z:1 tag:kRechargeLabel];
   [rechargeLabel setPosition:CGPointMake(0,0)];
-  
+  currentCharge = rechargeTime - 0.1;
   self.ready = YES;  
   return self;
 }
@@ -79,10 +79,6 @@
 
 - (void)setReady:(_Bool)_ready {
   ready = _ready;
-  self.opacity = ready ? 255 : 128;
-  CCLabelTTF* rechargeLabel = (CCLabelTTF*)[self getChildByTag:kRechargeLabel];
-  [rechargeLabel setVisible:!ready];
-  
 }
 
 - (Card*)copyCard {
@@ -143,7 +139,7 @@
 - (bool)isInValidSpot:(CGPoint)boardPos {
   bool onBoard = (boardPos.x != -1 && boardPos.y != -1);  
   bool tileNotOccupied = !([[BoardManager instance] isTileOccupiedX:boardPos.x Y:boardPos.y]);
-  bool isOnPlayersSide = (((playerNum == 1) && (boardPos.x < 6)) || ((playerNum == -1) && (boardPos.x >= 12)));
+  bool isOnPlayersSide = (((playerNum == 1) && (boardPos.x <= 2)) || ((playerNum == -1) && (boardPos.x >= 6)));
   return (onBoard && tileNotOccupied && isOnPlayersSide);
 }
 
@@ -151,12 +147,6 @@
   touchPoint.y += self.contentSize.height/2;
   touchPoint.x += self.contentSize.width/2;    
   CGPoint boardPos = [[BoardManager instance] getTileLocForPoint:touchPoint];     
-  if (playerNum == 1) {
-    boardPos.x = ((int)boardPos.x) % 2 == 1 ? boardPos.x - 1 : boardPos.x;    
-  }
-  else {
-    boardPos.x = ((int)boardPos.x) % 2 == 0 ? boardPos.x + 1 : boardPos.x;    
-  }
   return boardPos;
 }
 
@@ -171,7 +161,7 @@
 
 - (void)playCard:(CGPoint)boardPos {
   Player* player = [[PlayerManager instance] getPlayer:playerNum];
-  if ([player hasEnoughMana:cost] && ready) {
+  if ([self isPlayable]) {
     if ([type isEqualToString:@"ship"]) {
       if([self isInValidSpot:boardPos]) {
         NSString* sprite = [properties objectForKey:@"sprite"];
@@ -182,14 +172,13 @@
         
         [[GameObjectManager instance] addShip:ship];        
         [[BoardManager instance] setToken:ship X:(int)boardPos.x Y:(int)boardPos.y];
-        [[BoardManager instance] updateGameTokenBoardPosition:ship];  
         [self commitCard:player];
       }
     }
     else if ([type isEqualToString:@"armor"]) {
       Tile* tile = [[[BoardManager instance] getBoard] getTileX:boardPos.x Y:boardPos.y];
       if(tile) {
-        NSArray* occupants = [tile getOccupants];
+        NSArray* occupants = [[BoardManager instance] getTokensForSpot:boardPos];
         Ship* target = nil;
         
         for(Ship* occupant in occupants) {
@@ -199,8 +188,7 @@
           }
         }
         
-        if(target) {
-          
+        if(target) {          
           NSArray* abilities = [properties objectForKey:@"abilities"];
           for(NSString* ability in abilities) {
             id abilityObj = [AbilityHelper AbilityForType:ability];
@@ -222,9 +210,9 @@
   if (held) {
     touchPoint = [[CCDirector sharedDirector] convertToGL:touchPoint];
     CGPoint boardPos = [self getBoardPos:touchPoint];
-    //    if ([self isInValidSpot:boardPos]) {
-    [self playCard:boardPos];
-    //    }
+    if ([self isInValidSpot:boardPos]) {
+      [self playCard:boardPos];
+    }
     [self runAction:[CCMoveTo actionWithDuration:0.2 position:originalLocation]];
     self.held = false;
     self.opacity = 255;
@@ -241,27 +229,33 @@
     CGPoint boardPos = [self getBoardPos:touchPoint];
     
     if ([self isInValidSpot:boardPos]) {
-      self.opacity = 255;
+      preview.opacity = 255;
     }
     else {
-      self.opacity = 128;
+      preview.opacity = 128;
     }
   }
 }
 
+- (bool)isPlayable {
+  Player* player = [[PlayerManager instance] getPlayer:playerNum];
+  return [player hasEnoughMana:cost] && (currentCharge >= rechargeTime);
+}
+
 - (void)draw {
   [super draw];
-  if (currentCharge >= rechargeTime) {
-    self.ready = YES;
+  self.ready = [self isPlayable];
+  CCLabelTTF* rechargeLabel = (CCLabelTTF*)[self getChildByTag:kRechargeLabel];  
+  if (currentCharge < rechargeTime) {
+    currentCharge += 1.0/60.0;
+    [rechargeLabel setString:[NSString stringWithFormat:@"%.1f",rechargeTime - currentCharge]];    
+    [rechargeLabel setVisible:YES];
   }
   else {
-    if(!ready && !held) {
-      currentCharge += 1.0/60.0;
-      CCLabelTTF* rechargeLabel = (CCLabelTTF*)[self getChildByTag:kRechargeLabel];
-      [rechargeLabel setString:[NSString stringWithFormat:@"%.1f",rechargeTime - currentCharge]];
-      self.opacity = 128;
-    }
+    [rechargeLabel setVisible:NO];
   }
+  
+  self.opacity = ready ? 255 : 100;
 }
 
 

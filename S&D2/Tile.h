@@ -15,17 +15,10 @@
 @interface Tile : CCSprite {
   int boardX;
   int boardY;
-  int owner;
-  NSMutableArray* occupants;
-  
+  int owner;  
 }
 
 - (void)setPlayer:(int)player;
-- (void)addOccupant:(GameToken*)occupant;
-- (void)removeOccupant:(GameToken*)occupant;
-- (NSArray*)getOccupants;
-- (int)getNumOccupants;
-- (bool)isOccupied;
 - (bool)containsMana;
 - (bool)addMana:(Mana*)mana;
 

@@ -10,13 +10,19 @@
 #import "Ship.h"
 #import "Mana.h"
 
+#define BASE_MANA_AMOUNT 25
+#define MANA_SPAWN_INTERVAL 20.0
+
+#define kManaTag 999
+
+
 @implementation AbilityHarvest
 
 - (void)performAbility {
   Ship* ship = (Ship*)sourceToken;
   [ship addPassiveAbility:self step:@"onUpdate"];
-  effectInterval = 20.0;
-  currentTime = 19.9;
+  effectInterval = MANA_SPAWN_INTERVAL;
+  currentTime = MANA_SPAWN_INTERVAL - 0.1;
 }
 
 - (void)update {
@@ -24,12 +30,12 @@
   currentTime += 1.0/60.0;
   
   if(currentTime >= effectInterval) {
-    if([ship getChildByTag:999] == nil) {
+    if([ship getChildByTag:kManaTag] == nil) {
       Mana* mana = [Mana spriteWithFile:@"Mana.png"];
-      [mana setManaAmount:25*level];        
+      [mana setManaAmount:BASE_MANA_AMOUNT*level];        
       [mana setPlayerNum:[ship playerNum]];
       [mana initialize];
-      [ship addChild:mana z:99 tag:999];
+      [ship addChild:mana z:99 tag:kManaTag];
     }
     currentTime = 0.0;
   }

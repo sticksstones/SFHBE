@@ -82,8 +82,8 @@ enum {
     [p2 setPosition:CGPointMake(770, 730)];
     [p2 setRotation:270];
     
-    [p1 addMana:50];
-    [p2 addMana:50];
+    [p1 addMana:1000];
+    [p2 addMana:1000];
     
     [[PlayerManager instance] addPlayer:p1 Num:1];
     [[PlayerManager instance] addPlayer:p2 Num:-1];       
@@ -94,9 +94,9 @@ enum {
     [[GameObjectManager instance] setupTotem:1 X:0 Y:0];
     [[GameObjectManager instance] setupTotem:1 X:0 Y:1];    
     [[GameObjectManager instance] setupTotem:1 X:0 Y:2];    
-    [[GameObjectManager instance] setupTotem:-1 X:17 Y:0];    
-    [[GameObjectManager instance] setupTotem:-1 X:17 Y:1];    
-    [[GameObjectManager instance] setupTotem:-1 X:17 Y:2];    
+    [[GameObjectManager instance] setupTotem:-1 X:8 Y:0];    
+    [[GameObjectManager instance] setupTotem:-1 X:8 Y:1];    
+    [[GameObjectManager instance] setupTotem:-1 X:8 Y:2];    
 
     [[BoardManager instance] spawnMana];
     [[PlayerManager instance] drawCards];

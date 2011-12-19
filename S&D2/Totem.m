@@ -17,8 +17,8 @@
 
 #define SHOT_DELAY 2.0
 
-#define ATTACK_DISTANCE 2
-#define MOVE_DISTANCE 1
+#define ATTACK_DISTANCE 15.0
+#define MOVE_DISTANCE 10.0
 #define kHealthTag 1
 #define kAPTag 2
 

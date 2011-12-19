@@ -12,7 +12,6 @@
 @class GameToken;
 
 @interface GameToken : CCSprite <CCTargetedTouchDelegate> {
-  int boardX, boardY;
   int playerNum;
   int direction;
 }
@@ -21,11 +20,9 @@
 
 - (void)setupTouch;
 - (int)positionRelativeToToken:(GameToken*)token;
-- (int)getLanePosition;
 - (int)getLane;
 - (void)update;
-- (void)setBoardLocationX:(int)x Y:(int)y;
 - (void)updateBoardLocation;
 - (bool)behindToken:(GameToken*)token;
-- (CGPoint)getBoardXY;
+- (bool)inArea:(CGRect)area;
 @end

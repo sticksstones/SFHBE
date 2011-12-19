@@ -15,7 +15,7 @@
 #define X_OFFSET 100
 #define Y_OFFSET 100
 
-#define TILE_RESOLUTION 2
+#define TILE_RESOLUTION 1
 
 @implementation Board
 
@@ -50,6 +50,14 @@
   }
 }
 
+- (int)getLaneForPixelPos:(int)pixelPos {
+  return (int)((pixelPos - Y_OFFSET)/[self getTileDimensions].height);
+}
+
+- (int)getPixelPosForLane:(int)lane {
+  return (int)([self getTileDimensions].height * lane + Y_OFFSET);
+}
+
 - (int)positionToBoardX:(float)position {
   int tile = (int)((position - X_OFFSET)/(SIZE_X/realColumns));
   if (tile >= realColumns || tile < 0) {
@@ -66,35 +74,36 @@
   return tile;
 }
 
-- (void)updateGameTokenBoardPosition:(GameToken *)token {
-  CGPoint origBoardLoc = [token getBoardXY];
-  int boardLocX = [self positionToBoardX:token.position.x];
-  int boardLocY = [self positionToBoardY:token.position.y];
-  
-  if(boardLocX != origBoardLoc.x || boardLocY != origBoardLoc.y) {
-    [[self getTileX:origBoardLoc.x Y:origBoardLoc.y] removeOccupant:token];
-    [[self getTileX:boardLocX Y:boardLocY] addOccupant:token];
-    [token setBoardLocationX:boardLocX Y:boardLocY];
-  }    
-}
-
-- (void)removeGameTokenFromBoard:(GameToken*)token {
-  CGPoint origBoardLoc = [token getBoardXY];
-  [[self getTileX:origBoardLoc.x Y:origBoardLoc.y] removeOccupant:token];
-}
 
 - (void)setToken:(GameToken*)token X:(int)x Y:(int)y {
   [token setPosition:CGPointMake(X_OFFSET + x*SIZE_X/realColumns, Y_OFFSET + y*SIZE_Y/numLanes)];
-  [token setBoardLocationX:x Y:y];
-  [[self getTileX:x Y:y] addOccupant:token];
 }
 
 - (Tile*)getTileX:(int)x Y:(int)y {
   return [tiles valueForKey:[NSString stringWithFormat:@"%d-%d",x,y]];
 }
 
+- (CGSize)getTileDimensions {
+  return CGSizeMake(SIZE_X/realColumns, SIZE_Y/numLanes);
+}
+
+- (CGRect)convertTileRangeToGameSpaceFrom:(CGPoint)pt1 to:(CGPoint)pt2 {
+  CGSize tileSize = [self getTileDimensions];
+  CGRect area = CGRectMake(X_OFFSET + tileSize.width*(pt1.x),Y_OFFSET + tileSize.height*(pt1.y),tileSize.width*abs(1 + pt2.x - pt1.x),tileSize.height*(1 + pt2.y - pt1.y));
+  return area;
+}
+
 - (int)getTileSize {
   return (SIZE_X/realColumns);
+}
+
+- (void)testArea {
+  CGRect area;
+  
+  area = [self convertTileRangeToGameSpaceFrom:CGPointMake(0, 0) to:CGPointMake(6,2)];
+  area = [self convertTileRangeToGameSpaceFrom:CGPointMake(2, 2) to:CGPointMake(5,2)];
+  area = [self convertTileRangeToGameSpaceFrom:CGPointMake(2, 2) to:CGPointMake(2,2)];
+  
 }
 
 

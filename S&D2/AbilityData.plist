@@ -9,7 +9,7 @@
 		<key>level</key>
 		<integer>1</integer>
 		<key>rechargeTime</key>
-		<real>10</real>
+		<integer>1</integer>
 		<key>charges</key>
 		<integer>-1</integer>
 	</dict>

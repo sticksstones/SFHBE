@@ -31,6 +31,7 @@
 - (void)removeGameToken:(GameToken*)token;
 - (NSMutableArray*)getTokensForLane:(int)lane;
 - (GameToken*)getClosestGameTokenTo:(GameToken*)sourceToken enemyOnly:(bool)enemyOnly;
+- (NSArray*)getTokensInArea:(CGRect)area;
 - (void)update;
 - (void)initManager;
 

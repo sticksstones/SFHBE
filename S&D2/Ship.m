@@ -29,15 +29,15 @@
 
 #define SHOT_DELAY 2.0
 
-#define ATTACK_DISTANCE 2
-#define MOVE_DISTANCE 1
+#define ATTACK_DISTANCE 15.0
+#define MOVE_DISTANCE 10.0
 #define kHealthTag 1
 #define kAPTag 2
 #define kAbilityChargeTag 3
 
 @implementation Ship
 
-@synthesize attackTarget;
+@synthesize attackTarget, passable, nearestGameToken;
 
 - (Ship*)newShip:(NSArray*)params {
   self = [super initWithFile:[params objectAtIndex:PARAMS_SPRITE]];
@@ -52,7 +52,8 @@
     [self setAp:[[params objectAtIndex:PARAMS_AP] intValue]];
     
     shotReady = NO;
-    performTapAbility = NO;    
+    performTapAbility = NO;  
+    passing = NO;
     CCLabelTTF* label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d/%d",ap,hp] fontName:@"Helvetica" fontSize:12];
     label.position = CGPointMake(self.contentSize.width, 0);
     [label setTag:kHealthTag];    
@@ -82,7 +83,13 @@
   return self;
 }
 
+#pragma mark Setters
+
 - (void)setAttackTarget:(Ship *)_attackTarget {
+  if(attackTarget != nil) {
+    passing = NO;
+  }
+  
   if (attackTarget == _attackTarget) {
     
   }
@@ -91,6 +98,7 @@
     shotReady = NO;    
     
     if(attackTarget) {
+      [NSObject cancelPreviousPerformRequestsWithTarget:self];
       [self performSelector:@selector(resetShot) withObject:nil afterDelay:SHOT_DELAY];      
     }
     [self performPassiveAbilitiesForEvent:@"onEncounter"];
@@ -129,6 +137,12 @@
   
 }
 
+- (void)setNearestGameToken:(Ship *)_nearestGameToken {
+  nearestGameToken = _nearestGameToken;
+}
+
+#pragma mark Update
+
 - (void)damage:(int)amount {
   [self setHp:hp-amount];
   [self runAction:[CCSequence actions:[CCActionTween actionWithDuration:0.25 key:@"opacity" from:255 to:128],[CCActionTween actionWithDuration:0.25 key:@"opacity" from:128 to:255],nil]];
@@ -138,21 +152,18 @@
   [self damage:-amount];
 }
 
-
-
-- (void)boundsCheckPosition {
-  
-}
-
 - (void)deploy {
   direction = playerNum == 1 ? 1 : -1;  
 }
 
-
+- (void)pass {
+  if(nearestGameToken && [nearestGameToken passable]) {
+    passing = YES;
+  }
+}
 
 - (void)move {
   [self setPosition:CGPointMake(self.position.x + 0.5*sp * direction, self.position.y)];
-  [self boundsCheckPosition];  
 }
 
 - (void)attack {
@@ -165,37 +176,6 @@
 
 - (void)resetShot {
   shotReady = YES;
-}
-
-- (bool)checkMoveOK {
-  GameToken* closestToken = [[GameObjectManager instance] getClosestGameTokenTo:self enemyOnly:false];
-  if (closestToken != nil) {
-    if(fabs(closestToken.position.x - self.position.x) <= [[BoardManager instance] getTileSize]) {
-      nearestGameToken = closestToken;
-      return NO;
-    }
-  }
-  return YES;
-  
-}
-
-- (bool)checkAttackAvailable {
-  GameToken* closestToken = [[GameObjectManager instance] getClosestGameTokenTo:self enemyOnly:true];
-  
-  if (closestToken != nil) {
-    if([self positionRelativeToToken:closestToken] <= ATTACK_DISTANCE) {
-      self.attackTarget = (Ship*)closestToken;
-      return YES;
-    }
-    else {
-      self.attackTarget = nil;
-      return NO;
-    }
-  }
-  else {
-    self.attackTarget = nil;
-  }
-  return NO;
 }
 
 - (void)killShip {
@@ -230,25 +210,90 @@
   
   if(![self performPassiveAbilitiesForEvent:@"controlBehavior"]) {
     if([self checkAttackAvailable]) {
-      [self attack];    
+      [self attack];  
+      passing = NO;
     }
     if([self checkMoveOK]) {
       [self move];
     }
   }
   
+  if(!(nearestGameToken && [nearestGameToken passable])) {
+    if(passing) {
+      NSLog(@"Turning passing off");
+    }
+    passing = NO;
+  }
+  
+  self.passable = [self checkPassable];
+  
 }
+
+#pragma mark Checks
+
+- (BOOL)checkPassable {
+  bool isNotDeployed = (direction == 0);
+  bool isNotUnderAttack = (attackTarget == nil);
+  bool isNotBlocked = (nearestGameToken == nil);
+  return (isNotDeployed && isNotUnderAttack && isNotBlocked);  
+}
+
+- (bool)checkMoveOK {
+  if(passing) {
+    return YES;
+  }
+  Ship* closestToken = (Ship*)[[GameObjectManager instance] getClosestGameTokenTo:self enemyOnly:false];
+  if (closestToken != nil) {
+    if([self behindToken:closestToken] && [self positionRelativeToToken:closestToken] <= MOVE_DISTANCE) {
+      self.nearestGameToken = closestToken;
+      return NO;
+    }
+  }
+  
+  self.nearestGameToken = nil;
+  return YES;
+  
+}
+
+- (bool)checkAttackAvailable {
+  Ship* closestToken = (Ship*)[[GameObjectManager instance] getClosestGameTokenTo:self enemyOnly:true];
+  
+  if (closestToken != nil) {
+    if([self positionRelativeToToken:closestToken] <= ATTACK_DISTANCE) {
+      self.attackTarget = (Ship*)closestToken;
+      return YES;
+    }
+    else {
+      self.attackTarget = nil;
+      return NO;
+    }
+  }
+  else {
+    self.attackTarget = nil;
+  }
+  return NO;
+}
+
+- (void)boundsCheckPosition {
+  
+}
+
+#pragma mark TouchCode
 
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {	
   CGPoint endPoint = [self convertTouchToNodeSpace:touch];
   
-  if (endPoint.y >= 100 && direction == 0) {
-    [self deploy];
+  if (endPoint.y >= 100) {
+    if(direction == 0) {
+      [self deploy];
+    }
+      [self pass];
   }
   else if(endPoint.y <= -100) {
     direction = 0;
+    passing = NO;
   }
   else {
     if(endPoint.y <= 20) {
@@ -257,6 +302,8 @@
   }
   
 }
+
+#pragma mark PassiveAbilities
 
 - (void)addPassiveAbility:(id)ability step:(NSString*)step {
   if([passiveAbilities objectForKey:step] == nil) {
@@ -298,6 +345,7 @@
   
   [passiveAbilitiesToRemove removeAllObjects];
 }
+
 
 - (void)removePassiveAbility:(id)ability step:(NSString*)step {
   if([passiveAbilitiesToRemove objectForKey:step] == nil) {

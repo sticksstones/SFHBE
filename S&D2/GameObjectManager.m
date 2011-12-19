@@ -94,7 +94,6 @@ static GameObjectManager *gInstance = NULL;
 }
 
 - (void)killShip:(Ship*)ship {
-  [[[BoardManager instance] getBoard] removeGameTokenFromBoard:ship];
   [self removeGameToken:ship];
 }
 
@@ -108,9 +107,10 @@ static GameObjectManager *gInstance = NULL;
 
 - (NSMutableArray*)getTokensForLane:(int)lane {
   NSMutableArray* tokensInLane = [NSMutableArray new];
+  int pixelPos = [[BoardManager instance] getPixelPosForLane:lane];
   
   for (GameToken* token in gameTokens) {
-    if ([token getLane] == lane) {
+    if (pixelPos == (int)([token position].y)) {
       [tokensInLane addObject:token];
     }
   }
@@ -137,6 +137,16 @@ static GameObjectManager *gInstance = NULL;
   return closestToken;
 }
 
+- (NSArray*)getTokensInArea:(CGRect)area {
+  NSMutableArray* tokensInArea = [NSMutableArray new];
+  for (GameToken* token in gameTokens) {
+    if ([token inArea:area]) {
+      [tokensInArea addObject:token];      
+    }
+  }
+  return tokensInArea;
+}
+
 - (void)setupTotem:(int)playerNum X:(int)x Y:(int)y {
   Totem* totem;
   int totemHP = 10;
@@ -151,7 +161,7 @@ static GameObjectManager *gInstance = NULL;
   [gameLayer addChild:totem];
   
   [[BoardManager instance] setToken:totem X:x Y:y];
-  [[BoardManager instance] updateGameTokenBoardPosition:totem];  
+  //[[BoardManager instance] updateGameTokenBoardPosition:totem];  
 
 }
 

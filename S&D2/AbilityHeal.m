@@ -10,6 +10,7 @@
 #import "ProjectileHeal.h"
 #import "GameObjectManager.h"
 #import "BoardManager.h"
+#import "Ship.h"
 
 @implementation AbilityHeal
 
@@ -18,12 +19,16 @@
     [self incurCost];    
     if([self checkCriteria:nil]) {
       ProjectileHeal* heal = (ProjectileHeal*)[[ProjectileHeal alloc] newProjectile:[NSArray arrayWithObjects:[NSNumber numberWithInt:level*2],[NSNumber numberWithInt:2+level],[NSNumber numberWithInt:level*2], @"Heal.png",nil]];
+      
+      Ship* ship = (Ship*)sourceToken;
       int playerNum = [sourceToken playerNum];
       [heal setPlayerNum:playerNum];
       [[GameObjectManager instance] addProjectile:heal];
-      CGPoint boardPos = [(Ship*)sourceToken getBoardXY];
-      [[BoardManager instance] setToken:heal X:(int)boardPos.x+1*([sourceToken playerNum]) Y:(int)boardPos.y];
-      [[BoardManager instance] updateGameTokenBoardPosition:heal];  
+      
+      
+      [heal setPosition:CGPointMake(ship.position.x + [ship playerNum]*(ship.contentSize.width/2 + heal.contentSize.width/2), ship.position.y)];
+
+      
       [heal deploy];
     }
     else {

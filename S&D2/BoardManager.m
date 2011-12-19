@@ -11,6 +11,8 @@
 #import "GameToken.h"
 #import "Tile.h"
 #import "Mana.h"
+#import "GameObjectManager.h"
+
 
 #define MANA_INTERVAL 12.0
 #define MANA_DROP_AMOUNT 25
@@ -42,17 +44,20 @@ static BoardManager *gInstance = NULL;
   
 }
 
-- (void)updateGameTokenBoardPosition:(GameToken*)token {
-  if(board) {
-    [board updateGameTokenBoardPosition:token];
-  }
-}
 
 - (int)getTileSize {
   if(board) {
     return [board getTileSize];
   }
   return 0;
+}
+
+- (int)getPixelPosForLane:(int)lane {
+  return [board getPixelPosForLane:lane];
+}
+
+- (int)getLaneForPixelPos:(int)pixelPos {
+  return [board getLaneForPixelPos:pixelPos];
 }
 
 - (CGPoint)getTileLocForPoint:(CGPoint)point {
@@ -67,10 +72,26 @@ static BoardManager *gInstance = NULL;
     [board setToken:token X:x Y:y];
   }
 }
-- (bool)isTileOccupiedX:(int)x Y:(int)y {
-  Tile* tile = [[self getBoard] getTileX:x Y:y];
+
+- (NSArray*)getTokensForSpot:(CGPoint)spot {
+  CGRect area = [board convertTileRangeToGameSpaceFrom:CGPointMake(spot.x,spot.y) to:CGPointMake(spot.x,spot.y)];
   
-  return (tile == nil || [tile isOccupied]);
+  NSArray* tokens = [[GameObjectManager instance] getTokensInArea:area];
+  return tokens;
+}
+
+- (bool)isTileOccupiedX:(int)x Y:(int)y {
+  
+  CGRect area = [board convertTileRangeToGameSpaceFrom:CGPointMake(x,y) to:CGPointMake(x,y)];
+  
+  NSArray* tokens = [[GameObjectManager instance] getTokensInArea:area];
+  
+  if([tokens count] == 0) {
+    return NO;
+  }
+  else {
+    return YES;
+  }
 }
 
 - (void)spawnManaInRangeXY1:(CGPoint)xy1 XY2:(CGPoint)xy2 playerNum:(int)playerNum {
@@ -81,8 +102,8 @@ static BoardManager *gInstance = NULL;
   [mana setPlayerNum:playerNum];
   NSMutableArray* tiles = [NSMutableArray new];
   
-    for(int y = xy1.y; y < xy2.y; y+=2) {
-      for(int x = xy1.x; x < xy2.x; ++x) {
+    for(int y = xy1.y; y <= xy2.y; y++) {
+      for(int x = xy1.x; x <= xy2.x; ++x) {
 
       [tiles addObject:[NSString stringWithFormat:@"%d,%d",x,y]];      
     }
@@ -103,10 +124,14 @@ static BoardManager *gInstance = NULL;
 
 - (void)spawnMana {
 
-  [self spawnManaInRangeXY1:CGPointMake(0,2) XY2:CGPointMake(3,6) playerNum:1];
-  [self spawnManaInRangeXY1:CGPointMake(0,13) XY2:CGPointMake(3,16) playerNum:-1];  
+  [self spawnManaInRangeXY1:CGPointMake(0,1) XY2:CGPointMake(2,2) playerNum:1];
+  [self spawnManaInRangeXY1:CGPointMake(0,6) XY2:CGPointMake(2,7) playerNum:-1];  
   [self performSelector:@selector(spawnMana) withObject:nil afterDelay:MANA_INTERVAL];    
   
+}
+
+- (void)testArea {
+  [board testArea];
 }
 
 

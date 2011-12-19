@@ -19,8 +19,10 @@
 - (void)setBoard:(Board*)_board;
 - (Board*)getBoard;
 - (void)generateMana;
-- (void)updateGameTokenBoardPosition:(GameToken*)token;
+- (int)getPixelPosForLane:(int)lane;
+- (int)getLaneForPixelPos:(int)pixelPos;
 - (int)getTileSize;
+- (NSArray*)getTokensForSpot:(CGPoint)spot;
 - (CGPoint)getTileLocForPoint:(CGPoint)point;
 - (void)setToken:(GameToken*)token X:(int)x Y:(int)y;
 - (bool)isTileOccupiedX:(int)x Y:(int)y;

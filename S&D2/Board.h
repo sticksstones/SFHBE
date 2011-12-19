@@ -25,10 +25,12 @@
 - (void)setupBoardLanes:(int)lanes Columns:(int)columns;
 - (int)positionToBoardX:(float)position;
 - (int)positionToBoardY:(float)position;
-- (void)updateGameTokenBoardPosition:(GameToken*)token;
-- (void)removeGameTokenFromBoard:(GameToken*)token;
-
+- (int)getLaneForPixelPos:(int)pixelPos;
+- (int)getPixelPosForLane:(int)lane;
 - (void)setToken:(GameToken*)token X:(int)x Y:(int)y;
+- (CGSize)getTileDimensions;
+- (CGRect)convertTileRangeToGameSpaceFrom:(CGPoint)pt1 to:(CGPoint)pt2;
 - (int)getTileSize;
 - (Tile*)getTileX:(int)x Y:(int)y;
+- (void)testArea;
 @end

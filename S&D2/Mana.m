@@ -15,8 +15,21 @@
 @implementation Mana
 
 - (void)initialize {
-  [self runAction:[CCActionTween actionWithDuration:0.25 key:@"scale" from:0.0 to:1.0]];
-  [self runAction:[CCActionTween actionWithDuration:0.25 key:@"opacity" from:0 to:128]];  
+  id opacStartup = [CCActionTween actionWithDuration:0.25 key:@"opacity" from:0 to:128];
+  id opacOscillateUp = [CCActionTween actionWithDuration:0.4 key:@"opacity" from:128 to:255];
+  id opacOscillateDown = [CCActionTween actionWithDuration:0.4 key:@"opacity" from:255 to:128];
+  id opacOscillate = [CCRepeatForever actionWithAction:[CCSequence actions:opacOscillateUp,opacOscillateDown,nil]];
+  [self runAction:opacStartup];
+  [self runAction:opacOscillate];
+
+  id scaleStartup = [CCActionTween actionWithDuration:0.25 key:@"scale" from:0 to:1.0];
+  id scaleOscillateUp = [CCActionTween actionWithDuration:0.4 key:@"scale" from:1.0 to:1.25];
+  id scaleOscillateDown = [CCActionTween actionWithDuration:0.4 key:@"scale" from:1.25 to:1.0];
+  id scaleOscillate = [CCRepeatForever actionWithAction:[CCSequence actions:scaleOscillateUp,scaleOscillateDown,nil]];
+
+  [self runAction:scaleStartup];
+  [self runAction:scaleOscillate];
+
   elapsedTime = 0.0;
   
 }
@@ -59,14 +72,15 @@
   return NO;
 }
 
+- (void)killMana {
+  [self removeFromParentAndCleanup:YES];  
+}
+
 - (void)draw {
   [super draw];
-//  [[[PlayerManager instance] getPlayer:playerNum] addMana:amount];
-//  [self removeFromParentAndCleanup:YES];
-//  return;
   elapsedTime += 1.0/60.0;
   if (elapsedTime >= EXPIRATION_TIME) {
-    [self removeFromParentAndCleanup:YES];
+      [self runAction:[CCSequence actions:[CCActionTween actionWithDuration:0.25 key:@"opacity" from:self.opacity to:0], [CCCallFunc actionWithTarget:self selector:@selector(killMana)],nil]];    
   }
 }
 

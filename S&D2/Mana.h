@@ -14,5 +14,5 @@
 }
 - (void)initialize;
 - (void)setManaAmount:(int)_amount;
-
+- (void)killMana;
 @end

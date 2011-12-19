@@ -26,7 +26,8 @@
     
     
     CGPoint pos = CGPointMake(ship.position.x, ship.position.y);
-    pos.x = pos.x + ship.playerNum*level*2*[[BoardManager instance] getTileSize];
+    pos = CGPointMake(pos.x + ship.playerNum*(1 + level)*[[BoardManager instance] getTileSize], pos.y);
+
     
     CGPoint tileLoc = [[BoardManager instance] getTileLocForPoint:pos];
     

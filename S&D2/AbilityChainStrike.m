@@ -24,16 +24,16 @@
   int playerNum = [ship playerNum];
   Ship* attackTarget = [ship attackTarget];
   if(attackTarget) {
-    CGPoint boardPos = [attackTarget getBoardXY];
-    for(int x = 1; x <= level; ++x) {
-      Tile* tile = [[[BoardManager instance] getBoard] getTileX:boardPos.x+playerNum*x Y:boardPos.y];
-      if(tile) {
-        NSArray* occupants = [tile getOccupants];
-        for (Ship* token in occupants) {
-          [token damage:[ship getAp]];
-        }
-      }
-    }
+//    CGPoint boardPos = [attackTarget getBoardXY];
+//    for(int x = 1; x <= level; ++x) {
+//      Tile* tile = [[[BoardManager instance] getBoard] getTileX:boardPos.x+playerNum*x Y:boardPos.y];
+//      if(tile) {
+//        NSArray* occupants = [tile getOccupants];
+//        for (Ship* token in occupants) {
+//          [token damage:[ship getAp]];
+//        }
+//      }
+//    }
   }
 }
 

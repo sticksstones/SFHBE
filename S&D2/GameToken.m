@@ -14,24 +14,18 @@
 @synthesize playerNum, direction;
 
 - (int)positionRelativeToToken:(GameToken*)token {
-  return abs([token getLanePosition] - [self getLanePosition]);
-}
-
-- (int)getLanePosition {
-  return boardX;
+  float positionDiff = abs(((int)token.position.x - (int)self.position.x));
+  float midPointsOffset = token.contentSize.width/2 + self.contentSize.width/2;
+  int trueDist = (int)(positionDiff - midPointsOffset);
+  return trueDist;
 }
 
 - (int)getLane {
-  return boardY;
-}
-
-- (void)setBoardLocationX:(int)x Y:(int)y {
-  boardX = x;
-  boardY = y;
+  return [[BoardManager instance] getLaneForPixelPos:(int)self.position.y];
 }
 
 - (void)updateBoardLocation {
-  [[BoardManager instance] updateGameTokenBoardPosition:self];
+  //[[BoardManager instance] updateGameTokenBoardPosition:self];
 }
 
 - (void)update {
@@ -41,13 +35,13 @@
 - (CGRect)rectInPixels
 {
 	CGSize s = [texture_ contentSizeInPixels];
-	return CGRectMake(-1.25*s.width / 2, -1.25*s.height / 2, 1.25*s.width, 1.25*s.height);
+	return CGRectMake(-1.0*s.width / 2, -1.0*s.height / 2, 1.0*s.width, 1.0*s.height);
 }
 
 - (CGRect)rect
 {
 	CGSize s = [texture_ contentSize];
-	return CGRectMake(-1.25*s.width / 2, -1.25*s.height / 2, 1.25*s.width, 1.25*s.height);
+	return CGRectMake(-1.0*s.width / 2, -1.0*s.height / 2, 1.0*s.width, 1.0*s.height);
 }
 
 
@@ -57,6 +51,10 @@
 	CGRect r = [self rectInPixels];
   
 	return CGRectContainsPoint(r, p);
+}
+
+- (bool)inArea:(CGRect)area {
+  return CGRectContainsPoint(area, [self position]);
 }
 
 - (void)setupTouch {
@@ -83,11 +81,7 @@
 }
 
 - (bool)behindToken:(GameToken*)token {
-  return (([token getLanePosition] - [self getLanePosition])*playerNum > 0);
-}
-
-- (CGPoint)getBoardXY {
-  return CGPointMake(boardX, boardY);
+  return ((token.position.x - self.position.x)*playerNum >= 0);
 }
 
 @end

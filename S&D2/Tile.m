@@ -17,39 +17,14 @@
 
 - (Tile*)initWithFile:(NSString*)file {
   self = [super initWithFile:file];
-  occupants = [NSMutableArray new];
+  self.opacity = 150;
+  
   return self;
 }
 
-- (void)draw {
-  if([self isOccupied]) {
-    self.opacity = 255;
-  }
-  else {
-    self.opacity = 50;
-  }
-  
-  [super draw];
-  
-}
 - (void)setPlayer:(int)player {
   owner = player;
   self.color = ccc3(255*(owner == 1 ? 1 : 0), 0, 255*(owner != 1 ? 1 : 0));                    
-}
-
-- (void)addOccupant:(GameToken*)occupant {
-  [occupants addObject:occupant];
-}
-- (void)removeOccupant:(GameToken*)occupant {
-  [occupants removeObject:occupant];
-}
-
-- (int)getNumOccupants {
-  return [occupants count];
-}
-
-- (bool)isOccupied {
-  return [self getNumOccupants] > 0;
 }
 
 - (bool)addMana:(Mana*)mana {
@@ -65,10 +40,6 @@
 
 - (bool)containsMana {
   return ([self getChildByTag:kManaTag] != nil);
-}
-
-- (NSArray*)getOccupants {
-  return occupants;
 }
 
 @end
