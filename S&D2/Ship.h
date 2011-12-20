@@ -23,6 +23,7 @@
   bool performTapAbility;
   bool passable;
   bool passing;
+  bool blockedByFriendly;
   
   NSMutableDictionary* passiveAbilities;
   NSMutableDictionary* passiveAbilitiesToRemove;

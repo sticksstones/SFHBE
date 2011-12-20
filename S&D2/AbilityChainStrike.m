@@ -20,20 +20,20 @@
 }
 
 - (void)update {
-  Ship* ship = (Ship*)sourceToken;
+  Ship* ship = (Ship*)sourceToken;  
   int playerNum = [ship playerNum];
   Ship* attackTarget = [ship attackTarget];
-  if(attackTarget) {
-//    CGPoint boardPos = [attackTarget getBoardXY];
-//    for(int x = 1; x <= level; ++x) {
-//      Tile* tile = [[[BoardManager instance] getBoard] getTileX:boardPos.x+playerNum*x Y:boardPos.y];
-//      if(tile) {
-//        NSArray* occupants = [tile getOccupants];
-//        for (Ship* token in occupants) {
-//          [token damage:[ship getAp]];
-//        }
-//      }
-//    }
+  if(attackTarget) {            
+    for(int x = 1; x <= level; ++x) {
+      CGPoint pos = CGPointMake(attackTarget.position.x + ship.playerNum*(x)*[[BoardManager instance] getTileSize], attackTarget.position.y);
+      CGPoint tileLoc = [[BoardManager instance] getTileLocForPoint:pos];
+      NSArray* occupants = [[BoardManager instance] getTokensForSpot:tileLoc];
+      for (Ship* token in occupants) {
+        if([token playerNum] != playerNum) {
+          [token damage:[ship getAp]];
+        }
+      }
+    }
   }
 }
 

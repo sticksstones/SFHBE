@@ -29,8 +29,8 @@
 
 #define SHOT_DELAY 2.0
 
-#define ATTACK_DISTANCE 15.0
-#define MOVE_DISTANCE 10.0
+#define ATTACK_DISTANCE 60.0
+#define MOVE_DISTANCE 15.0
 #define kHealthTag 1
 #define kAPTag 2
 #define kAbilityChargeTag 3
@@ -52,7 +52,8 @@
     [self setAp:[[params objectAtIndex:PARAMS_AP] intValue]];
     
     shotReady = NO;
-    performTapAbility = NO;  
+    performTapAbility = NO;
+    blockedByFriendly = NO;
     passing = NO;
     CCLabelTTF* label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d/%d",ap,hp] fontName:@"Helvetica" fontSize:12];
     label.position = CGPointMake(self.contentSize.width, 0);
@@ -171,6 +172,7 @@
     [attackTarget damage:ap];
     shotReady = NO;
     [self performSelector:@selector(resetShot) withObject:nil afterDelay:SHOT_DELAY];        
+    [self performPassiveAbilitiesForEvent:@"onAttack"];        
   }
 }
 
@@ -209,13 +211,13 @@
   [self performPassiveAbilitiesForEvent:@"onUpdate"];  
   
   if(![self performPassiveAbilitiesForEvent:@"controlBehavior"]) {
-    if([self checkAttackAvailable]) {
-      [self attack];  
-      passing = NO;
-    }
     if([self checkMoveOK]) {
       [self move];
     }
+    if([self checkAttackAvailable]) {
+      [self attack];  
+      passing = NO;
+    }    
   }
   
   if(!(nearestGameToken && [nearestGameToken passable])) {
@@ -239,10 +241,17 @@
 }
 
 - (bool)checkMoveOK {
+  Ship* closestToken = (Ship*)[[GameObjectManager instance] getClosestGameTokenTo:self enemyOnly:false];
+  blockedByFriendly = NO;
+  if(closestToken && [closestToken playerNum] == playerNum) {
+    blockedByFriendly = YES;
+  }
+
+  if(attackTarget) return NO; 
   if(passing) {
     return YES;
   }
-  Ship* closestToken = (Ship*)[[GameObjectManager instance] getClosestGameTokenTo:self enemyOnly:false];
+  
   if (closestToken != nil) {
     if([self behindToken:closestToken] && [self positionRelativeToToken:closestToken] <= MOVE_DISTANCE) {
       self.nearestGameToken = closestToken;
@@ -256,6 +265,11 @@
 }
 
 - (bool)checkAttackAvailable {
+  if(blockedByFriendly) {
+    self.attackTarget = nil;
+    return NO; 
+  }
+  
   Ship* closestToken = (Ship*)[[GameObjectManager instance] getClosestGameTokenTo:self enemyOnly:true];
   
   if (closestToken != nil) {

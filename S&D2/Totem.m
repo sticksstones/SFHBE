@@ -10,18 +10,6 @@
 #import "PlayerManager.h"
 #import "Player.h"
 
-#define PARAMS_HP 0
-#define PARAMS_SP 1
-#define PARAMS_AP 2
-#define PARAMS_SPRITE 3
-
-#define SHOT_DELAY 2.0
-
-#define ATTACK_DISTANCE 15.0
-#define MOVE_DISTANCE 10.0
-#define kHealthTag 1
-#define kAPTag 2
-
 
 @implementation Totem
 

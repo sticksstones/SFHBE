@@ -80,7 +80,7 @@ static BoardManager *gInstance = NULL;
   return tokens;
 }
 
-- (bool)isTileOccupiedX:(int)x Y:(int)y {
+- (bool)isTileOccupiedX:(int)x Y:(int)y playerNum:(int)pNum enemyOnly:(bool)enemyOnly{
   
   CGRect area = [board convertTileRangeToGameSpaceFrom:CGPointMake(x,y) to:CGPointMake(x,y)];
   
@@ -90,21 +90,32 @@ static BoardManager *gInstance = NULL;
     return NO;
   }
   else {
-    return YES;
+    if(enemyOnly) {
+      for(GameToken* token in tokens) {
+        if(pNum == [token playerNum]) {
+          return YES;
+        }
+        return NO;
+      }
+    }
+    else {      
+      return YES;
+    }
   }
+  return YES;
 }
 
 - (void)spawnManaInRangeXY1:(CGPoint)xy1 XY2:(CGPoint)xy2 playerNum:(int)playerNum {
   Mana* mana = [Mana spriteWithFile:@"Mana.png"];
   [mana setManaAmount:MANA_DROP_AMOUNT];
-
+  
   
   [mana setPlayerNum:playerNum];
   NSMutableArray* tiles = [NSMutableArray new];
   
-    for(int y = xy1.y; y <= xy2.y; y++) {
-      for(int x = xy1.x; x <= xy2.x; ++x) {
-
+  for(int y = xy1.y; y <= xy2.y; y++) {
+    for(int x = xy1.x; x <= xy2.x; ++x) {
+      
       [tiles addObject:[NSString stringWithFormat:@"%d,%d",x,y]];      
     }
   }  
@@ -123,7 +134,7 @@ static BoardManager *gInstance = NULL;
 }
 
 - (void)spawnMana {
-
+  
   [self spawnManaInRangeXY1:CGPointMake(0,1) XY2:CGPointMake(2,2) playerNum:1];
   [self spawnManaInRangeXY1:CGPointMake(0,6) XY2:CGPointMake(2,7) playerNum:-1];  
   [self performSelector:@selector(spawnMana) withObject:nil afterDelay:MANA_INTERVAL];    

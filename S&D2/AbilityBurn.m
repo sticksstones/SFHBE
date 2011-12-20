@@ -9,13 +9,16 @@
 #import "AbilityBurn.h"
 #import "Ship.h"
 
+#define BURN_INTERVAL 3.0
+#define BURN_DURATION 15.0
+
 @implementation AbilityBurn 
 
 - (void)performAbility {
   Ship* ship = (Ship*)sourceToken;
   [ship addPassiveAbility:self step:@"onUpdate"];
-  effectInterval = 3.0;
-  effectDuration = 15.0;
+  effectInterval = BURN_INTERVAL;
+  effectDuration = BURN_DURATION;
 }
 
 - (void)update {

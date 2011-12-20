@@ -137,10 +137,16 @@
 
 
 - (bool)isInValidSpot:(CGPoint)boardPos {
+  bool isTileOccupied = [[BoardManager instance] isTileOccupiedX:boardPos.x Y:boardPos.y playerNum:playerNum enemyOnly:YES];
+  
   bool onBoard = (boardPos.x != -1 && boardPos.y != -1);  
-  bool tileNotOccupied = !([[BoardManager instance] isTileOccupiedX:boardPos.x Y:boardPos.y]);
+  bool isCastOnAUnit = true;
+  if(![type isEqualToString:@"ship"]) { // If this is not a ship card, it must be cast on a unit
+    isCastOnAUnit = isTileOccupied;
+    isTileOccupied = NO;
+  }
   bool isOnPlayersSide = (((playerNum == 1) && (boardPos.x <= 2)) || ((playerNum == -1) && (boardPos.x >= 6)));
-  return (onBoard && tileNotOccupied && isOnPlayersSide);
+  return (onBoard && !isTileOccupied && isOnPlayersSide && isCastOnAUnit);
 }
 
 - (CGPoint)getBoardPos:(CGPoint)touchPoint {
