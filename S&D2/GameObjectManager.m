@@ -73,6 +73,7 @@ static GameObjectManager *gInstance = NULL;
   [self purgeTokens];
   [self addNewTokens];
   [self updateTokens];
+  [[PlayerManager instance] update];
 }
 
 - (void)addProjectile:(Projectile*)projectile {
@@ -161,6 +162,7 @@ static GameObjectManager *gInstance = NULL;
   [gameLayer addChild:totem];
   
   [[BoardManager instance] setToken:totem X:x Y:y];
+  totem.position = CGPointMake(totem.position.x - totem.playerNum*75, totem.position.y);
   //[[BoardManager instance] updateGameTokenBoardPosition:totem];  
 
 }

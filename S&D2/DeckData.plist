@@ -8,19 +8,19 @@
 		<array>
 			<string>Soldier</string>
 			<string>Soldier</string>
-			<string>Scout</string>
-			<string>Scout</string>
-			<string>Grunt</string>
 			<string>Medic</string>
+			<string>Wall</string>
+			<string>Grunt</string>
+			<string>Grunt</string>
 			<string>Bowman</string>
-			<string>Lightning Ninja</string>
-			<string>Mystic Scout</string>
-			<string>Flash Amulet</string>
+			<string>Super Grunt</string>
+			<string>Super Soldier</string>
+			<string>Captain</string>
 		</array>
 		<key>Captain</key>
 		<array>
-			<string>Harvester</string>
-			<string>Smoke Screen</string>
+			<string>Mana</string>
+			<string>Soldier</string>
 			<string>Bowman</string>
 		</array>
 	</dict>
@@ -30,14 +30,14 @@
 		<array>
 			<string>Soldier</string>
 			<string>Soldier</string>
-			<string>Scout</string>
-			<string>Scout</string>
+			<string>Fence</string>
+			<string>Swift Soldier</string>
 			<string>Grunt</string>
-			<string>Medic</string>
+			<string>Grunt</string>
+			<string>Tank</string>
+			<string>Swift Soldier</string>
 			<string>Bowman</string>
-			<string>Lightning Ninja</string>
-			<string>Bandages</string>
-			<string>Flash Amulet</string>
+			<string>Super Soldier</string>
 		</array>
 		<key>Captain</key>
 		<array>

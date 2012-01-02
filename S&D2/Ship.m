@@ -164,7 +164,7 @@
 }
 
 - (void)move {
-  [self setPosition:CGPointMake(self.position.x + 0.5*sp * direction, self.position.y)];
+  [self setPosition:CGPointMake(self.position.x + 0.3*sp * direction, self.position.y)];
 }
 
 - (void)attack {

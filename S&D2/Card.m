@@ -18,7 +18,7 @@
 #import "Ability.h"
 
 #define kRechargeLabel 1
-#define kPreview 2
+#define kPreview 5
 
 @implementation Card
 
@@ -69,11 +69,11 @@
       
       CCSprite* preview = [CCSprite spriteWithFile:[properties objectForKey:@"sprite"]];
       preview.rotation = playerNum == 1 ? 90 : 270;
-      [[[GameObjectManager instance] gameLayer] addChild:preview z:10 tag:kPreview];
+      [[[GameObjectManager instance] gameLayer] addChild:preview z:10 tag:kPreview+playerNum];
     }
   }
   else {
-    [[[GameObjectManager instance] gameLayer] removeChildByTag:kPreview cleanup:YES];
+    [[[GameObjectManager instance] gameLayer] removeChildByTag:kPreview+playerNum cleanup:YES];
   }
 }
 
@@ -81,7 +81,7 @@
   ready = _ready;
 }
 
-- (Card*)copyCard {
+- (id)copyCard {
   return [[Card alloc] initWithParams:origParams];
 }
 
@@ -230,7 +230,7 @@
 	if (held) {
     touchPoint = [[CCDirector sharedDirector] convertToGL:touchPoint];
     
-    CCSprite* preview = (CCSprite*)[[[GameObjectManager instance] gameLayer] getChildByTag:kPreview];
+    CCSprite* preview = (CCSprite*)[[[GameObjectManager instance] gameLayer] getChildByTag:kPreview+playerNum];
     [preview setPosition:CGPointMake(touchPoint.x, touchPoint.y)];
     CGPoint boardPos = [self getBoardPos:touchPoint];
     

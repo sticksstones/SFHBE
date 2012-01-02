@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+@class Player;
+
 @interface Card : CCSprite <CCTargetedTouchDelegate> {
   float rechargeTime;
   float currentCharge;
@@ -33,7 +35,8 @@
 - (void)playCard:(CGPoint)boardPos;
 - (Card*)initWithParams:(NSDictionary*)params;
 - (void)setPlayerNum:(int)_playerNum;
-- (Card*)copyCard;
+- (id)copyCard;
 - (NSString*)getID;
+- (void)commitCard:(Player*)player;
 
 @end

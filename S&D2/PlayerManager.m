@@ -37,6 +37,12 @@ static PlayerManager *gInstance = NULL;
   return [players objectForKey:[NSString stringWithFormat:@"%d",playerNum]];
 }
 
+- (void)update {
+  [[self getPlayer:-1] update];
+  [[self getPlayer:1] update];
+
+}
+
 - (void)drawCards {
   [[self getPlayer:1] drawCardIntoHand];
   [[self getPlayer:-1] drawCardIntoHand];

@@ -8,6 +8,7 @@
 
 #import "CardManager.h"
 #import "Card.h"
+#import "SideCard.h"
 
 @implementation CardManager
 
@@ -40,12 +41,16 @@ static CardManager *gInstance = NULL;
         key = [keys objectAtIndex: i];
         NSDictionary* card = [plistCards objectForKey: key];
         [card setValue:key forKey:@"id"];
-        Card* cardObj = [[Card alloc] initWithParams:card];        
+        id cardObj;
+        if([[card valueForKey:@"type"] isEqualToString:@"side"]) {
+          cardObj = [[SideCard alloc] initWithParams:card];
+        }
+        else {
+          cardObj = [[Card alloc] initWithParams:card];        
+        }
         [cards setObject:cardObj forKey:(NSString*)key];
       }
 
-      
-      
       gInstance.cards = cards;
     }
   }

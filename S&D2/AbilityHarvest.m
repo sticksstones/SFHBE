@@ -36,6 +36,7 @@
       [mana setPlayerNum:[ship playerNum]];
       [mana initialize];
       [ship addChild:mana z:99 tag:kManaTag];
+      mana.position = CGPointMake(ship.contentSize.width/2, ship.contentSize.height/2);
     }
     currentTime = 0.0;
   }

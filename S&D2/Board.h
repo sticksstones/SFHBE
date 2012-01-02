@@ -32,5 +32,4 @@
 - (CGRect)convertTileRangeToGameSpaceFrom:(CGPoint)pt1 to:(CGPoint)pt2;
 - (int)getTileSize;
 - (Tile*)getTileX:(int)x Y:(int)y;
-- (void)testArea;
 @end

@@ -12,7 +12,7 @@
 
 #define SIZE_X 900
 #define SIZE_Y 300
-#define X_OFFSET 100
+#define X_OFFSET 115
 #define Y_OFFSET 100
 
 #define TILE_RESOLUTION 1
@@ -89,23 +89,12 @@
 
 - (CGRect)convertTileRangeToGameSpaceFrom:(CGPoint)pt1 to:(CGPoint)pt2 {
   CGSize tileSize = [self getTileDimensions];
-  CGRect area = CGRectMake(X_OFFSET + tileSize.width*(pt1.x),Y_OFFSET + tileSize.height*(pt1.y),tileSize.width*abs(1 + pt2.x - pt1.x),tileSize.height*(1 + pt2.y - pt1.y));
+  CGRect area = CGRectMake(X_OFFSET - tileSize.width/2 + tileSize.width*(pt1.x),Y_OFFSET - tileSize.height/2 + tileSize.height*(pt1.y),tileSize.width*abs(1 + pt2.x - pt1.x),tileSize.height*(1 + pt2.y - pt1.y));
   return area;
 }
 
 - (int)getTileSize {
   return (SIZE_X/realColumns);
 }
-
-- (void)testArea {
-  CGRect area;
-  
-  area = [self convertTileRangeToGameSpaceFrom:CGPointMake(0, 0) to:CGPointMake(6,2)];
-  area = [self convertTileRangeToGameSpaceFrom:CGPointMake(2, 2) to:CGPointMake(5,2)];
-  area = [self convertTileRangeToGameSpaceFrom:CGPointMake(2, 2) to:CGPointMake(2,2)];
-  
-}
-
-
 
 @end

@@ -11,6 +11,7 @@
 @class Deck;
 @class Hand;
 @class Card;
+@class SideBoardToken;
 
 @interface Player : CCNode {
   int mana;
@@ -31,5 +32,6 @@
 - (void)drawCardIntoHand;
 - (void)setDeck:(Deck*)_deck;
 - (void)consumeCard:(Card *)card;
-
+- (BOOL)attemptSideTokenPlay:(SideBoardToken*)token Touch:(UITouch*)touch;
+- (void)update;
 @end

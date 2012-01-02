@@ -193,6 +193,10 @@
 		C26FE48D14956361000D84C3 /* AbilityAutoRepair.m in Sources */ = {isa = PBXBuildFile; fileRef = C26FE48C14956360000D84C3 /* AbilityAutoRepair.m */; };
 		C26FE4901495689C000D84C3 /* AbilityBurn.m in Sources */ = {isa = PBXBuildFile; fileRef = C26FE48F1495689B000D84C3 /* AbilityBurn.m */; };
 		C26FE4931495C470000D84C3 /* AbilityHarvest.m in Sources */ = {isa = PBXBuildFile; fileRef = C26FE4921495C46D000D84C3 /* AbilityHarvest.m */; };
+		C2B7F80A14AFD50900DAE1A2 /* SideBoardToken.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B7F80914AFD50900DAE1A2 /* SideBoardToken.m */; };
+		C2B7F80D14AFD60F00DAE1A2 /* SideBoardTile.png in Resources */ = {isa = PBXBuildFile; fileRef = C2B7F80C14AFD60F00DAE1A2 /* SideBoardTile.png */; };
+		C2B7F81014AFDC5300DAE1A2 /* SideTile.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B7F80F14AFDC5300DAE1A2 /* SideTile.m */; };
+		C2B7F81314AFE25F00DAE1A2 /* SideCard.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B7F81214AFE25F00DAE1A2 /* SideCard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -568,6 +572,13 @@
 		C26FE48F1495689B000D84C3 /* AbilityBurn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbilityBurn.m; sourceTree = "<group>"; };
 		C26FE4911495C46C000D84C3 /* AbilityHarvest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbilityHarvest.h; sourceTree = "<group>"; };
 		C26FE4921495C46D000D84C3 /* AbilityHarvest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbilityHarvest.m; sourceTree = "<group>"; };
+		C2B7F80814AFD50900DAE1A2 /* SideBoardToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideBoardToken.h; sourceTree = "<group>"; };
+		C2B7F80914AFD50900DAE1A2 /* SideBoardToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideBoardToken.m; sourceTree = "<group>"; };
+		C2B7F80C14AFD60F00DAE1A2 /* SideBoardTile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SideBoardTile.png; sourceTree = "<group>"; };
+		C2B7F80E14AFDC5300DAE1A2 /* SideTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideTile.h; sourceTree = "<group>"; };
+		C2B7F80F14AFDC5300DAE1A2 /* SideTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideTile.m; sourceTree = "<group>"; };
+		C2B7F81114AFE25F00DAE1A2 /* SideCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideCard.h; sourceTree = "<group>"; };
+		C2B7F81214AFE25F00DAE1A2 /* SideCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideCard.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1101,6 +1112,8 @@
 				C26FE467149413B0000D84C3 /* ProjectileMissile.m */,
 				C26FE46B14944E70000D84C3 /* ProjectileHeal.h */,
 				C26FE46C14944E71000D84C3 /* ProjectileHeal.m */,
+				C2B7F80814AFD50900DAE1A2 /* SideBoardToken.h */,
+				C2B7F80914AFD50900DAE1A2 /* SideBoardToken.m */,
 			);
 			name = "Game Objects";
 			sourceTree = "<group>";
@@ -1142,6 +1155,8 @@
 				C24CD38B148B7052007CFB58 /* Board.m */,
 				C24CD411148C7B3F007CFB58 /* Tile.h */,
 				C24CD412148C7B3F007CFB58 /* Tile.m */,
+				C2B7F80E14AFDC5300DAE1A2 /* SideTile.h */,
+				C2B7F80F14AFDC5300DAE1A2 /* SideTile.m */,
 			);
 			name = Board;
 			sourceTree = "<group>";
@@ -1155,6 +1170,8 @@
 				C24CD40F148C6088007CFB58 /* Hand.m */,
 				C26FE43B148F40AA000D84C3 /* Deck.h */,
 				C26FE43C148F40AA000D84C3 /* Deck.m */,
+				C2B7F81114AFE25F00DAE1A2 /* SideCard.h */,
+				C2B7F81214AFE25F00DAE1A2 /* SideCard.m */,
 			);
 			name = Card;
 			sourceTree = "<group>";
@@ -1219,6 +1236,7 @@
 				C26FE443148FD5D6000D84C3 /* Card2.png */,
 				C24CD38F148B7FA5007CFB58 /* Ship.png */,
 				C24CD38D148B774E007CFB58 /* Tile.png */,
+				C2B7F80C14AFD60F00DAE1A2 /* SideBoardTile.png */,
 			);
 			name = GFX;
 			sourceTree = "<group>";
@@ -1296,6 +1314,7 @@
 				C26FE47214945006000D84C3 /* Heal.png in Resources */,
 				C26FE47D149464B8000D84C3 /* Fog.png in Resources */,
 				C26FE482149475C5000D84C3 /* AbilityData.plist in Resources */,
+				C2B7F80D14AFD60F00DAE1A2 /* SideBoardTile.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1462,6 +1481,9 @@
 				C26FE48D14956361000D84C3 /* AbilityAutoRepair.m in Sources */,
 				C26FE4901495689C000D84C3 /* AbilityBurn.m in Sources */,
 				C26FE4931495C470000D84C3 /* AbilityHarvest.m in Sources */,
+				C2B7F80A14AFD50900DAE1A2 /* SideBoardToken.m in Sources */,
+				C2B7F81014AFDC5300DAE1A2 /* SideTile.m in Sources */,
+				C2B7F81314AFE25F00DAE1A2 /* SideCard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

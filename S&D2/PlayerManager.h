@@ -21,4 +21,5 @@
 - (void)addPlayer:(Player*)player Num:(int)playerNum;
 - (Player*)getPlayer:(int)playerNum;
 - (void)drawCards;
+- (void)update;
 @end

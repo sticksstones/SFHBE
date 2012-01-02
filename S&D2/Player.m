@@ -7,14 +7,18 @@
 //
 
 #define kManaTag 1
+#define kSideBoardTagBase 100
 
 #define MAX_HEALTH 2
+#define SIDE_BOARD_TILES 5
 
 #import "Player.h"
 
 #import "Card.h"
 #import "Deck.h"
 #import "Hand.h"
+#import "SideTile.h"
+#import "SideBoardToken.h"
 
 @implementation Player
 
@@ -42,6 +46,27 @@
   CCLabelTTF* manaLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d",mana] fontName:@"Helvetica" fontSize:24];
   [self addChild:manaLabel z:1 tag:kManaTag];
   [manaLabel setPosition:CGPointMake(0.0, 75.0)];
+  
+  for(int x = 0; x < SIDE_BOARD_TILES; ++x) {
+
+    float spacing = 5.0;
+    SideTile* sideTile = [SideTile spriteWithFile:@"SideBoardTile.png"];
+    [self addChild:sideTile z:1 tag:kSideBoardTagBase + x];
+    sideTile.position = CGPointMake(playerNum*(100 + x*(spacing + sideTile.contentSize.width)), 75.0);
+  }
+}
+
+- (BOOL)attemptSideTokenPlay:(SideBoardToken*)token Touch:(UITouch*)touch {
+  for(int x = 0; x < SIDE_BOARD_TILES; ++x) {
+    SideTile* tile = (SideTile*)[self getChildByTag:kSideBoardTagBase+x];
+    if(tile) {
+      if([tile containsTouchLocation:touch]) {
+        [tile addToken:token];
+        return YES;
+      }
+    }
+  }
+  return NO;
 }
 
 - (void)setMana:(int)_mana {
@@ -82,6 +107,15 @@
 - (void)consumeCard:(Card *)card {
   [hand removeCardFromHand:card];
   [deck addCard:[card getID]];
+}
+
+- (void)update {
+  for(int x = 0; x < SIDE_BOARD_TILES; ++x) {
+    SideTile* tile = (SideTile*)[self getChildByTag:kSideBoardTagBase+x];
+    if(tile) {
+      [tile update];      
+    }
+  }
 }
 
 

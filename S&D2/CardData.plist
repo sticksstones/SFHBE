@@ -13,7 +13,7 @@
 				<key>sprite</key>
 				<string>Ship.png</string>
 				<key>hp</key>
-				<integer>2</integer>
+				<integer>3</integer>
 				<key>ap</key>
 				<integer>1</integer>
 				<key>sp</key>
@@ -30,18 +30,96 @@
 			<key>captain</key>
 			<false/>
 		</dict>
-		<key>Scout</key>
+		<key>Mana</key>
 		<dict>
 			<key>properties</key>
 			<dict>
+				<key>passiveAbilities</key>
+				<array>
+					<string>Harvest</string>
+				</array>
+				<key>sprite</key>
+				<string>Ship.png</string>
+			</dict>
+			<key>imagename</key>
+			<string>Card.png</string>
+			<key>recharge</key>
+			<integer>10</integer>
+			<key>cost</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>side</string>
+			<key>captain</key>
+			<false/>
+		</dict>
+		<key>Captain</key>
+		<dict>
+			<key>properties</key>
+			<dict>
+				<key>passiveAbilities</key>
+				<array/>
 				<key>sprite</key>
 				<string>Ship.png</string>
 				<key>hp</key>
-				<integer>1</integer>
+				<integer>5</integer>
+				<key>ap</key>
+				<integer>5</integer>
+				<key>sp</key>
+				<integer>2</integer>
+			</dict>
+			<key>imagename</key>
+			<string>Card.png</string>
+			<key>recharge</key>
+			<integer>10</integer>
+			<key>cost</key>
+			<integer>400</integer>
+			<key>type</key>
+			<string>ship</string>
+			<key>captain</key>
+			<false/>
+		</dict>
+		<key>Super Soldier</key>
+		<dict>
+			<key>properties</key>
+			<dict>
+				<key>passiveAbilities</key>
+				<array/>
+				<key>sprite</key>
+				<string>Ship.png</string>
+				<key>hp</key>
+				<integer>3</integer>
+				<key>ap</key>
+				<integer>3</integer>
+				<key>sp</key>
+				<integer>2</integer>
+			</dict>
+			<key>imagename</key>
+			<string>Card.png</string>
+			<key>recharge</key>
+			<integer>10</integer>
+			<key>cost</key>
+			<integer>200</integer>
+			<key>type</key>
+			<string>ship</string>
+			<key>captain</key>
+			<false/>
+		</dict>
+		<key>Swift Soldier</key>
+		<dict>
+			<key>properties</key>
+			<dict>
+				<key>passiveAbilities</key>
+				<array>
+					<string>FirstStrike</string>
+				</array>
+				<key>sprite</key>
+				<string>Ship.png</string>
+				<key>hp</key>
+				<integer>3</integer>
 				<key>ap</key>
 				<integer>1</integer>
 				<key>sp</key>
-				<integer>4</integer>
+				<integer>2</integer>
 			</dict>
 			<key>imagename</key>
 			<string>Card.png</string>
@@ -58,14 +136,16 @@
 		<dict>
 			<key>properties</key>
 			<dict>
+				<key>passiveAbilities</key>
+				<array/>
 				<key>sprite</key>
 				<string>Ship.png</string>
 				<key>hp</key>
-				<integer>3</integer>
+				<integer>5</integer>
 				<key>ap</key>
 				<integer>2</integer>
 				<key>sp</key>
-				<integer>1</integer>
+				<integer>2</integer>
 			</dict>
 			<key>imagename</key>
 			<string>Card.png</string>
@@ -73,6 +153,162 @@
 			<integer>10</integer>
 			<key>cost</key>
 			<integer>125</integer>
+			<key>type</key>
+			<string>ship</string>
+			<key>captain</key>
+			<false/>
+		</dict>
+		<key>Super Grunt</key>
+		<dict>
+			<key>properties</key>
+			<dict>
+				<key>passiveAbilities</key>
+				<array/>
+				<key>sprite</key>
+				<string>Ship.png</string>
+				<key>hp</key>
+				<integer>7</integer>
+				<key>ap</key>
+				<integer>2</integer>
+				<key>sp</key>
+				<integer>2</integer>
+			</dict>
+			<key>imagename</key>
+			<string>Card.png</string>
+			<key>recharge</key>
+			<integer>10</integer>
+			<key>cost</key>
+			<integer>200</integer>
+			<key>type</key>
+			<string>ship</string>
+			<key>captain</key>
+			<false/>
+		</dict>
+		<key>Mystic Grunt</key>
+		<dict>
+			<key>properties</key>
+			<dict>
+				<key>passiveAbilities</key>
+				<array>
+					<string>Fog</string>
+				</array>
+				<key>sprite</key>
+				<string>Ship.png</string>
+				<key>hp</key>
+				<integer>5</integer>
+				<key>ap</key>
+				<integer>2</integer>
+				<key>sp</key>
+				<integer>2</integer>
+			</dict>
+			<key>imagename</key>
+			<string>Card.png</string>
+			<key>recharge</key>
+			<integer>10</integer>
+			<key>cost</key>
+			<integer>150</integer>
+			<key>type</key>
+			<string>ship</string>
+			<key>captain</key>
+			<false/>
+		</dict>
+		<key>Mystic Soldier</key>
+		<dict>
+			<key>properties</key>
+			<dict>
+				<key>passiveAbilities</key>
+				<array>
+					<string>Fog</string>
+				</array>
+				<key>sprite</key>
+				<string>Ship.png</string>
+				<key>hp</key>
+				<integer>3</integer>
+				<key>ap</key>
+				<integer>1</integer>
+			</dict>
+			<key>imagename</key>
+			<string>Card.png</string>
+			<key>recharge</key>
+			<integer>10</integer>
+			<key>cost</key>
+			<integer>75</integer>
+			<key>type</key>
+			<string>ship</string>
+			<key>captain</key>
+			<false/>
+		</dict>
+		<key>Scout</key>
+		<dict>
+			<key>properties</key>
+			<dict>
+				<key>sprite</key>
+				<string>Ship.png</string>
+				<key>hp</key>
+				<integer>3</integer>
+				<key>ap</key>
+				<integer>1</integer>
+				<key>sp</key>
+				<integer>4</integer>
+			</dict>
+			<key>imagename</key>
+			<string>Card.png</string>
+			<key>recharge</key>
+			<integer>10</integer>
+			<key>cost</key>
+			<integer>75</integer>
+			<key>type</key>
+			<string>ship</string>
+			<key>captain</key>
+			<false/>
+		</dict>
+		<key>Super Scout</key>
+		<dict>
+			<key>properties</key>
+			<dict>
+				<key>sprite</key>
+				<string>Ship.png</string>
+				<key>hp</key>
+				<integer>4</integer>
+				<key>ap</key>
+				<integer>2</integer>
+				<key>sp</key>
+				<integer>4</integer>
+			</dict>
+			<key>imagename</key>
+			<string>Card.png</string>
+			<key>recharge</key>
+			<integer>10</integer>
+			<key>cost</key>
+			<integer>250</integer>
+			<key>type</key>
+			<string>ship</string>
+			<key>captain</key>
+			<false/>
+		</dict>
+		<key>Swift Scout</key>
+		<dict>
+			<key>properties</key>
+			<dict>
+				<key>passiveAbilities</key>
+				<array>
+					<string>FirstStrike</string>
+				</array>
+				<key>sprite</key>
+				<string>Ship.png</string>
+				<key>hp</key>
+				<integer>3</integer>
+				<key>ap</key>
+				<integer>1</integer>
+				<key>sp</key>
+				<integer>4</integer>
+			</dict>
+			<key>imagename</key>
+			<string>Card.png</string>
+			<key>recharge</key>
+			<integer>10</integer>
+			<key>cost</key>
+			<integer>150</integer>
 			<key>type</key>
 			<string>ship</string>
 			<key>captain</key>
@@ -89,7 +325,7 @@
 				<key>hp</key>
 				<integer>2</integer>
 				<key>ap</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>sp</key>
 				<integer>2</integer>
 			</dict>
@@ -104,13 +340,13 @@
 			<key>captain</key>
 			<false/>
 		</dict>
-		<key>Warlord</key>
+		<key>Harvester</key>
 		<dict>
 			<key>properties</key>
 			<dict>
 				<key>passiveAbilities</key>
 				<array>
-					<string>ChainStrike</string>
+					<string>Harvest</string>
 				</array>
 				<key>sprite</key>
 				<string>Ship.png</string>
@@ -126,7 +362,59 @@
 			<key>recharge</key>
 			<integer>10</integer>
 			<key>cost</key>
-			<integer>150</integer>
+			<integer>75</integer>
+			<key>type</key>
+			<string>ship</string>
+			<key>captain</key>
+			<false/>
+		</dict>
+		<key>Fence</key>
+		<dict>
+			<key>properties</key>
+			<dict>
+				<key>passiveAbilities</key>
+				<array/>
+				<key>sprite</key>
+				<string>Ship.png</string>
+				<key>hp</key>
+				<integer>4</integer>
+				<key>ap</key>
+				<integer>0</integer>
+				<key>sp</key>
+				<integer>0</integer>
+			</dict>
+			<key>imagename</key>
+			<string>Card.png</string>
+			<key>recharge</key>
+			<integer>10</integer>
+			<key>cost</key>
+			<integer>75</integer>
+			<key>type</key>
+			<string>ship</string>
+			<key>captain</key>
+			<false/>
+		</dict>
+		<key>Wall</key>
+		<dict>
+			<key>properties</key>
+			<dict>
+				<key>passiveAbilities</key>
+				<array/>
+				<key>sprite</key>
+				<string>Ship.png</string>
+				<key>hp</key>
+				<integer>7</integer>
+				<key>ap</key>
+				<integer>0</integer>
+				<key>sp</key>
+				<integer>0</integer>
+			</dict>
+			<key>imagename</key>
+			<string>Card.png</string>
+			<key>recharge</key>
+			<integer>10</integer>
+			<key>cost</key>
+			<integer>125</integer>
 			<key>type</key>
 			<string>ship</string>
 			<key>captain</key>
@@ -145,11 +433,11 @@
 				<key>sprite</key>
 				<string>Ship.png</string>
 				<key>hp</key>
-				<integer>1</integer>
+				<integer>3</integer>
 				<key>ap</key>
 				<integer>1</integer>
 				<key>sp</key>
-				<integer>3</integer>
+				<integer>2</integer>
 			</dict>
 			<key>imagename</key>
 			<string>Card.png</string>
@@ -173,244 +461,48 @@
 				<key>sprite</key>
 				<string>Ship.png</string>
 				<key>hp</key>
-				<integer>1</integer>
+				<integer>2</integer>
 				<key>ap</key>
 				<integer>1</integer>
 				<key>sp</key>
-				<integer>3</integer>
+				<integer>2</integer>
 			</dict>
 			<key>imagename</key>
 			<string>Card.png</string>
 			<key>recharge</key>
-			<integer>30</integer>
+			<integer>10</integer>
 			<key>cost</key>
 			<integer>150</integer>
 			<key>type</key>
 			<string>ship</string>
+			<key>captain</key>
+			<false/>
 		</dict>
-		<key>Bowman - 2</key>
-		<dict>
-			<key>properties</key>
-			<dict>
-				<key>tapAbility</key>
-				<string>Missile</string>
-				<key>passiveAbilities</key>
-				<array/>
-				<key>sprite</key>
-				<string>Ship.png</string>
-				<key>hp</key>
-				<integer>1</integer>
-				<key>ap</key>
-				<integer>1</integer>
-				<key>sp</key>
-				<integer>3</integer>
-			</dict>
-			<key>imagename</key>
-			<string>Card.png</string>
-			<key>recharge</key>
-			<integer>30</integer>
-			<key>cost</key>
-			<integer>225</integer>
-			<key>type</key>
-			<string>ship</string>
-		</dict>
-		<key>Mystic Soldier</key>
+		<key>Tank</key>
 		<dict>
 			<key>properties</key>
 			<dict>
 				<key>passiveAbilities</key>
-				<array>
-					<string>Fog</string>
-				</array>
-				<key>sprite</key>
-				<string>Ship.png</string>
-				<key>hp</key>
-				<integer>2</integer>
-				<key>ap</key>
-				<integer>1</integer>
-				<key>sp</key>
-				<integer>2</integer>
-			</dict>
-			<key>imagename</key>
-			<string>Card.png</string>
-			<key>recharge</key>
-			<integer>10</integer>
-			<key>cost</key>
-			<integer>200</integer>
-			<key>type</key>
-			<string>ship</string>
-			<key>captain</key>
-			<false/>
-		</dict>
-		<key>Mystic Scout</key>
-		<dict>
-			<key>properties</key>
-			<dict>
-				<key>passiveAbilities</key>
-				<array>
-					<string>Fog</string>
-				</array>
-				<key>sprite</key>
-				<string>Ship.png</string>
-				<key>hp</key>
-				<integer>1</integer>
-				<key>ap</key>
-				<integer>1</integer>
-				<key>sp</key>
-				<integer>4</integer>
-			</dict>
-			<key>imagename</key>
-			<string>Card.png</string>
-			<key>recharge</key>
-			<integer>10</integer>
-			<key>cost</key>
-			<integer>250</integer>
-			<key>type</key>
-			<string>ship</string>
-			<key>captain</key>
-			<false/>
-		</dict>
-		<key>Mystic Grunt</key>
-		<dict>
-			<key>properties</key>
-			<dict>
-				<key>passiveAbilities</key>
-				<array>
-					<string>Fog</string>
-				</array>
-				<key>sprite</key>
-				<string>Ship.png</string>
-				<key>hp</key>
-				<integer>3</integer>
-				<key>ap</key>
-				<integer>2</integer>
-				<key>sp</key>
-				<integer>1</integer>
-			</dict>
-			<key>imagename</key>
-			<string>Card.png</string>
-			<key>recharge</key>
-			<integer>10</integer>
-			<key>cost</key>
-			<integer>350</integer>
-			<key>type</key>
-			<string>ship</string>
-			<key>captain</key>
-			<false/>
-		</dict>
-		<key>Harvester</key>
-		<dict>
-			<key>properties</key>
-			<dict>
-				<key>passiveAbilities</key>
-				<array>
-					<string>Harvest</string>
-				</array>
-				<key>sprite</key>
-				<string>Ship.png</string>
-				<key>hp</key>
-				<integer>3</integer>
-				<key>ap</key>
-				<integer>1</integer>
-				<key>sp</key>
-				<integer>5</integer>
-			</dict>
-			<key>imagename</key>
-			<string>Card.png</string>
-			<key>recharge</key>
-			<integer>10</integer>
-			<key>cost</key>
-			<integer>75</integer>
-			<key>type</key>
-			<string>ship</string>
-			<key>captain</key>
-			<false/>
-		</dict>
-		<key>Smoke Screen</key>
-		<dict>
-			<key>properties</key>
-			<dict>
-				<key>sprite</key>
-				<string>Ship.png</string>
-				<key>abilities</key>
-				<array>
-					<string>Fog</string>
-				</array>
-			</dict>
-			<key>imagename</key>
-			<string>Card2.png</string>
-			<key>recharge</key>
-			<integer>10</integer>
-			<key>cost</key>
-			<integer>100</integer>
-			<key>type</key>
-			<string>armor</string>
-			<key>captain</key>
-			<false/>
-		</dict>
-		<key>Flash Amulet</key>
-		<dict>
-			<key>properties</key>
-			<dict>
-				<key>sprite</key>
-				<string>Ship.png</string>
-				<key>abilities</key>
-				<array>
-					<string>Blink</string>
-				</array>
-			</dict>
-			<key>imagename</key>
-			<string>Card2.png</string>
-			<key>recharge</key>
-			<integer>10</integer>
-			<key>cost</key>
-			<integer>50</integer>
-			<key>type</key>
-			<string>armor</string>
-			<key>captain</key>
-			<false/>
-		</dict>
-		<key>Medical Pouch</key>
-		<dict>
-			<key>properties</key>
-			<dict>
-				<key>sprite</key>
-				<string>Ship.png</string>
-				<key>abilities</key>
-				<array>
-					<string>Heal</string>
-				</array>
-			</dict>
-			<key>imagename</key>
-			<string>Card2.png</string>
-			<key>recharge</key>
-			<integer>10</integer>
-			<key>cost</key>
-			<integer>75</integer>
-			<key>type</key>
-			<string>armor</string>
-			<key>captain</key>
-			<false/>
-		</dict>
-		<key>Bandages</key>
-		<dict>
-			<key>properties</key>
-			<dict>
-				<key>sprite</key>
-				<string>Ship.png</string>
-				<key>abilities</key>
 				<array>
 					<string>Auto Repair</string>
 				</array>
+				<key>sprite</key>
+				<string>Ship.png</string>
+				<key>hp</key>
+				<integer>3</integer>
+				<key>ap</key>
+				<integer>2</integer>
+				<key>sp</key>
+				<integer>2</integer>
 			</dict>
 			<key>imagename</key>
-			<string>Card2.png</string>
+			<string>Card.png</string>
 			<key>recharge</key>
 			<integer>10</integer>
 			<key>cost</key>
-			<integer>100</integer>
+			<integer>150</integer>
 			<key>type</key>
-			<string>armor</string>
+			<string>ship</string>
 			<key>captain</key>
 			<false/>
 		</dict>
