@@ -224,7 +224,7 @@
     if(passing) {
       NSLog(@"Turning passing off");
     }
-    passing = NO;
+    //passing = NO;
   }
   
   self.passable = [self checkPassable];
@@ -234,9 +234,9 @@
 #pragma mark Checks
 
 - (BOOL)checkPassable {
-  bool isNotDeployed = (direction == 0);
+  bool isNotBlocked = true;//(nearestGameToken == nil);
+  bool isNotDeployed = (direction == 0 || nearestGameToken != nil);
   bool isNotUnderAttack = (attackTarget == nil);
-  bool isNotBlocked = (nearestGameToken == nil);
   return (isNotDeployed && isNotUnderAttack && isNotBlocked);  
 }
 
@@ -299,13 +299,13 @@
 {	
   CGPoint endPoint = [self convertTouchToNodeSpace:touch];
   
-  if (endPoint.y >= 100) {
-    if(direction == 0) {
+  if (endPoint.y >= 50) {
+    if(direction == 0 && sp > 0) {
       [self deploy];
     }
       [self pass];
   }
-  else if(endPoint.y <= -100) {
+  else if(endPoint.y <= -50) {
     direction = 0;
     passing = NO;
   }
@@ -315,6 +315,7 @@
     }
   }
   
+  self.opacity = 255;
 }
 
 #pragma mark PassiveAbilities

@@ -11,15 +11,18 @@
 @class Card;
 
 @interface Deck : CCNode {
-  NSMutableArray* cards;
+  NSMutableArray* cards;  
+  NSMutableArray* graveyard;
+  
   NSMutableArray* captain;
   NSArray* origDeckIDs;
   NSArray* origCaptainIDs;  
+  int manaCardChance;
 }
 
 - (void)initialize:(NSArray*)deck Captain:(NSArray*)captainCards;
 - (NSArray*)getCaptain;
-- (Card*)drawCard;
+- (id)drawCard;
 - (void)addCard:(NSString*)card;
 - (void)shuffle;
 - (Deck*)copyDeck;

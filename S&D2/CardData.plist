@@ -42,7 +42,7 @@
 				<string>Ship.png</string>
 			</dict>
 			<key>imagename</key>
-			<string>Card.png</string>
+			<string>Card2.png</string>
 			<key>recharge</key>
 			<integer>10</integer>
 			<key>cost</key>
@@ -245,9 +245,9 @@
 				<key>sprite</key>
 				<string>Ship.png</string>
 				<key>hp</key>
-				<integer>3</integer>
+				<integer>2</integer>
 				<key>ap</key>
-				<integer>1</integer>
+				<integer>2</integer>
 				<key>sp</key>
 				<integer>4</integer>
 			</dict>
@@ -377,7 +377,7 @@
 				<key>sprite</key>
 				<string>Ship.png</string>
 				<key>hp</key>
-				<integer>4</integer>
+				<integer>5</integer>
 				<key>ap</key>
 				<integer>0</integer>
 				<key>sp</key>
@@ -388,7 +388,7 @@
 			<key>recharge</key>
 			<integer>10</integer>
 			<key>cost</key>
-			<integer>75</integer>
+			<integer>50</integer>
 			<key>type</key>
 			<string>ship</string>
 			<key>captain</key>

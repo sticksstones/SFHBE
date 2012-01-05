@@ -18,7 +18,7 @@
   if([self abilityAvailable]) {
     [self incurCost];    
     if([self checkCriteria:nil]) {
-      ProjectileHeal* heal = (ProjectileHeal*)[[ProjectileHeal alloc] newProjectile:[NSArray arrayWithObjects:[NSNumber numberWithInt:level*2],[NSNumber numberWithInt:2+level],[NSNumber numberWithInt:level*2], @"Heal.png",nil]];
+      ProjectileHeal* heal = (ProjectileHeal*)[[ProjectileHeal alloc] newProjectile:[NSArray arrayWithObjects:[NSNumber numberWithInt:level*2],[NSNumber numberWithInt:4+level],[NSNumber numberWithInt:level*2], @"Heal.png",nil]];
       
       Ship* ship = (Ship*)sourceToken;
       int playerNum = [sourceToken playerNum];

@@ -12,12 +12,13 @@
 
 @interface CardManager : NSObject {
   NSDictionary* cards;
+  NSString* manaCard;
 }
 
 @property (nonatomic, retain) NSDictionary* cards;
 
 + (CardManager *)instance;
-- (Card*)getCard:(NSString*)cardID;
+- (id)getCard:(NSString*)cardID;
 
 
 @end

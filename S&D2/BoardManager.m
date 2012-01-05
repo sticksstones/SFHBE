@@ -133,16 +133,13 @@ static BoardManager *gInstance = NULL;
   return;
 }
 
-- (void)spawnMana {
+- (void)spawnMana:(int)playerNum {
+  if(playerNum == 1)
+    [self spawnManaInRangeXY1:CGPointMake(0,1) XY2:CGPointMake(2,2) playerNum:1];
+  else if(playerNum == -1)
+    [self spawnManaInRangeXY1:CGPointMake(0,6) XY2:CGPointMake(2,7) playerNum:-1];  
+  //[self performSelector:@selector(spawnMana) withObject:nil afterDelay:MANA_INTERVAL];    
   
-  [self spawnManaInRangeXY1:CGPointMake(0,1) XY2:CGPointMake(2,2) playerNum:1];
-  [self spawnManaInRangeXY1:CGPointMake(0,6) XY2:CGPointMake(2,7) playerNum:-1];  
-  [self performSelector:@selector(spawnMana) withObject:nil afterDelay:MANA_INTERVAL];    
-  
-}
-
-- (void)testArea {
-  [board testArea];
 }
 
 

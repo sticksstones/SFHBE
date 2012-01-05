@@ -9,9 +9,10 @@
 #import "AbilityHarvest.h"
 #import "Ship.h"
 #import "Mana.h"
+#import "BoardManager.h"
 
 #define BASE_MANA_AMOUNT 25
-#define MANA_SPAWN_INTERVAL 20.0
+#define MANA_SPAWN_INTERVAL 12.0
 
 #define kManaTag 999
 
@@ -30,14 +31,15 @@
   currentTime += 1.0/60.0;
   
   if(currentTime >= effectInterval) {
-    if([ship getChildByTag:kManaTag] == nil) {
-      Mana* mana = [Mana spriteWithFile:@"Mana.png"];
-      [mana setManaAmount:BASE_MANA_AMOUNT*level];        
-      [mana setPlayerNum:[ship playerNum]];
-      [mana initialize];
-      [ship addChild:mana z:99 tag:kManaTag];
-      mana.position = CGPointMake(ship.contentSize.width/2, ship.contentSize.height/2);
-    }
+    [[BoardManager instance] spawnMana:[ship playerNum]];
+//    if([ship getChildByTag:kManaTag] == nil) {
+//      Mana* mana = [Mana spriteWithFile:@"Mana.png"];
+//      [mana setManaAmount:BASE_MANA_AMOUNT*level];        
+//      [mana setPlayerNum:[ship playerNum]];
+//      [mana initialize];
+//      [ship addChild:mana z:99 tag:kManaTag];
+//      mana.position = CGPointMake(ship.contentSize.width/2, ship.contentSize.height/2);
+//    }
     currentTime = 0.0;
   }
 }

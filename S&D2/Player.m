@@ -19,6 +19,7 @@
 #import "Hand.h"
 #import "SideTile.h"
 #import "SideBoardToken.h"
+#import "CardManager.h"
 
 @implementation Player
 
@@ -54,6 +55,9 @@
     [self addChild:sideTile z:1 tag:kSideBoardTagBase + x];
     sideTile.position = CGPointMake(playerNum*(100 + x*(spacing + sideTile.contentSize.width)), 75.0);
   }
+  
+  [hand addCardToHand:[[CardManager instance] getCard:@"Mana"]];
+
 }
 
 - (BOOL)attemptSideTokenPlay:(SideBoardToken*)token Touch:(UITouch*)touch {

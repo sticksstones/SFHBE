@@ -53,4 +53,10 @@
   [self move];
 }
 
+- (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+{	
+  self.opacity = 255;
+}
+
+
 @end

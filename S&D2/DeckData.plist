@@ -6,20 +6,20 @@
 	<dict>
 		<key>Cards</key>
 		<array>
-			<string>Soldier</string>
-			<string>Soldier</string>
+			<string>Scout</string>
+			<string>Super Scout</string>
 			<string>Medic</string>
 			<string>Wall</string>
+			<string>Scout</string>
 			<string>Grunt</string>
-			<string>Grunt</string>
-			<string>Bowman</string>
+			<string>Captain</string>
 			<string>Super Grunt</string>
 			<string>Super Soldier</string>
 			<string>Captain</string>
 		</array>
 		<key>Captain</key>
 		<array>
-			<string>Mana</string>
+			<string>Medic</string>
 			<string>Soldier</string>
 			<string>Bowman</string>
 		</array>

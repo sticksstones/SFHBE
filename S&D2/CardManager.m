@@ -48,6 +48,7 @@ static CardManager *gInstance = NULL;
         else {
           cardObj = [[Card alloc] initWithParams:card];        
         }
+
         [cards setObject:cardObj forKey:(NSString*)key];
       }
 
@@ -57,7 +58,7 @@ static CardManager *gInstance = NULL;
   return(gInstance);
 }
 
-- (Card*)getCard:(NSString*)cardID {
+- (id)getCard:(NSString*)cardID {
   return [[cards objectForKey:cardID] copyCard];
 }
 

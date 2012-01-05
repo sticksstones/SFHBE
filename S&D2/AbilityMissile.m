@@ -22,7 +22,7 @@
       [missile setPlayerNum:[sourceToken playerNum]];
       [[GameObjectManager instance] addProjectile:missile];
       Ship* ship = (Ship*)sourceToken;      
-      [missile setPosition:CGPointMake(ship.position.x + [ship playerNum]*(ship.contentSize.width/2 + missile.contentSize.width/2), ship.position.y)];
+      [missile setPosition:CGPointMake(ship.position.x + [ship playerNum]*5/*(ship.contentSize.width/2 + missile.contentSize.width/2)*/, ship.position.y)];
             
       [missile deploy];
     }

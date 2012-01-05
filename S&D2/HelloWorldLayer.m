@@ -98,7 +98,8 @@ enum {
     [[GameObjectManager instance] setupTotem:-1 X:8 Y:1];    
     [[GameObjectManager instance] setupTotem:-1 X:8 Y:2];    
 
-    [[BoardManager instance] spawnMana];
+    //[[BoardManager instance] spawnMana];
+    
     [[PlayerManager instance] drawCards];
 
 		[self schedule: @selector(step:)];

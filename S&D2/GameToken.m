@@ -49,8 +49,8 @@
 {
 	CGPoint p = [self convertTouchToNodeSpaceAR:touch];
 	CGRect r = [self rectInPixels];
-  
-	return CGRectContainsPoint(r, p);
+  CGRect test = CGRectMake(1.5*r.origin.x, 1.5*r.origin.y, 1.5*r.size.width, 1.5*r.size.height);
+	return CGRectContainsPoint(test, p);
 }
 
 - (bool)inArea:(CGRect)area {
@@ -77,7 +77,11 @@
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
-	return [self containsTouchLocation:touch];
+  if([self containsTouchLocation:touch]) {
+    self.opacity = 100;
+    return YES;
+  }
+	return NO;
 }
 
 - (bool)behindToken:(GameToken*)token {

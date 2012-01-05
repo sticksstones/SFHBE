@@ -7,6 +7,7 @@
 //
 
 #import "ProjectileHeal.h"
+#import "ProjectileMissile.h"
 #import "GameObjectManager.h"
 
 #define ATTACK_DISTANCE 0.0
@@ -22,7 +23,7 @@
 - (bool)checkAttackAvailable {
   GameToken* closestToken = [[GameObjectManager instance] getClosestGameTokenTo:self enemyOnly:false];
   
-  if (closestToken != nil) {
+  if (closestToken != nil && [closestToken class] != [ProjectileMissile class]) {
     if([self positionRelativeToToken:closestToken] <= ATTACK_DISTANCE) {
       attackTarget = (Ship*)closestToken;
       return YES;

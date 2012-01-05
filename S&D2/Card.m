@@ -17,7 +17,7 @@
 #import "AbilityHelper.h"
 #import "Ability.h"
 
-#define kRechargeLabel 1
+#define kRechargeTimer 2
 #define kPreview 5
 
 @implementation Card
@@ -35,6 +35,12 @@
   cardID = [params valueForKey:@"id"];
   origParams = params;
   
+  CCProgressTimer* timer = [CCProgressTimer progressWithFile:fileName];
+  timer.position = CGPointMake(self.contentSize.width/2, self.contentSize.height/2);
+  timer.type = kCCProgressTimerTypeVerticalBarBT;
+  timer.percentage = 0;
+  [self addChild:timer z:1 tag:kRechargeTimer];
+  
   CCLabelTTF* cardLabel = [[CCLabelTTF alloc] initWithString:[cardID uppercaseString] fontName:@"Helvetica" fontSize:10.0];
   [self addChild: cardLabel];
   [cardLabel setPosition:CGPointMake(self.contentSize.width/2, -12)];
@@ -49,9 +55,6 @@
     [shipStats setPosition:CGPointMake(self.contentSize.width, 0)];
   }
   
-  CCLabelTTF* rechargeLabel = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"%.1f",(rechargeTime - currentCharge)] fontName:@"Helvetica" fontSize:12];
-  [self addChild:rechargeLabel z:1 tag:kRechargeLabel];
-  [rechargeLabel setPosition:CGPointMake(0,0)];
   currentCharge = rechargeTime - 0.1;
   self.ready = YES;  
   return self;
@@ -121,17 +124,18 @@
 {
 	CGPoint p = [self convertTouchToNodeSpaceAR:touch];
 	CGRect r = [self rectInPixels];
+  CGRect test = CGRectMake(1.5*r.origin.x, 1.5*r.origin.y, 1.5*r.size.width, 1.5*r.size.height);
   
-	return CGRectContainsPoint(r, p);
+	return CGRectContainsPoint(test, p);
 }
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
 	if (![self containsTouchLocation:touch] ) return NO;
   
-  if(ready) {
+  //if(ready) {
     self.held = true;
-  }
+  //}
 	return YES;
 }
 
@@ -219,6 +223,13 @@
     if ([self isInValidSpot:boardPos]) {
       [self playCard:boardPos];
     }
+    else {
+      if(touchPoint.x > 400 && touchPoint.x < 600) {
+          if (!isCaptain) {
+            [[[PlayerManager instance] getPlayer:playerNum] consumeCard:self];
+          }
+      }
+    }
     [self runAction:[CCMoveTo actionWithDuration:0.2 position:originalLocation]];
     self.held = false;
     self.opacity = 255;
@@ -251,14 +262,14 @@
 - (void)draw {
   [super draw];
   self.ready = [self isPlayable];
-  CCLabelTTF* rechargeLabel = (CCLabelTTF*)[self getChildByTag:kRechargeLabel];  
+  CCProgressTimer* timer = (CCProgressTimer*)[self getChildByTag:kRechargeTimer];
   if (currentCharge < rechargeTime) {
+    timer.visible = YES;    
     currentCharge += 1.0/60.0;
-    [rechargeLabel setString:[NSString stringWithFormat:@"%.1f",rechargeTime - currentCharge]];    
-    [rechargeLabel setVisible:YES];
+    timer.percentage = 100.0*currentCharge/rechargeTime;
   }
   else {
-    [rechargeLabel setVisible:NO];
+    timer.visible = NO;
   }
   
   self.opacity = ready ? 255 : 100;
