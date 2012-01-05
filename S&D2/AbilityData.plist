@@ -90,5 +90,38 @@
 		<key>charges</key>
 		<integer>-1</integer>
 	</dict>
+	<key>Destruct</key>
+	<dict>
+		<key>ability</key>
+		<string>Destruct</string>
+		<key>level</key>
+		<integer>1</integer>
+		<key>rechargeTime</key>
+		<integer>10</integer>
+		<key>charges</key>
+		<integer>-1</integer>
+	</dict>
+	<key>Madness</key>
+	<dict>
+		<key>ability</key>
+		<string>Madness</string>
+		<key>level</key>
+		<integer>1</integer>
+		<key>rechargeTime</key>
+		<integer>10</integer>
+		<key>charges</key>
+		<integer>-1</integer>
+	</dict>
+	<key>MindControl</key>
+	<dict>
+		<key>ability</key>
+		<string>MindControl</string>
+		<key>level</key>
+		<integer>1</integer>
+		<key>rechargeTime</key>
+		<integer>10</integer>
+		<key>charges</key>
+		<integer>-1</integer>
+	</dict>
 </dict>
 </plist>

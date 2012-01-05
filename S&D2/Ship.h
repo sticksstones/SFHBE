@@ -37,6 +37,7 @@
 - (void)setHp:(int)_hp;
 - (void)setSp:(int)_sp;
 - (void)setAp:(int)_ap;
+- (int)getHp;
 - (int)getAp;
 - (void)killShip;
 - (Ship*)newShip:(NSArray*)params;

@@ -134,23 +134,31 @@
 	if (![self containsTouchLocation:touch] ) return NO;
   
   //if(ready) {
-    self.held = true;
+  self.held = true;
   //}
 	return YES;
 }
 
 
 - (bool)isInValidSpot:(CGPoint)boardPos {
-  bool isTileOccupied = [[BoardManager instance] isTileOccupiedX:boardPos.x Y:boardPos.y playerNum:playerNum enemyOnly:YES];
-  
-  bool onBoard = (boardPos.x != -1 && boardPos.y != -1);  
-  bool isCastOnAUnit = true;
-  if(![type isEqualToString:@"ship"]) { // If this is not a ship card, it must be cast on a unit
-    isCastOnAUnit = isTileOccupied;
-    isTileOccupied = NO;
+  if([type isEqualToString:@"instant"]) {
+    bool onBoard = (boardPos.x != -1 && boardPos.y != -1);  
+    return onBoard;
   }
-  bool isOnPlayersSide = (((playerNum == 1) && (boardPos.x <= 2)) || ((playerNum == -1) && (boardPos.x >= 6)));
-  return (onBoard && !isTileOccupied && isOnPlayersSide && isCastOnAUnit);
+  else {
+    bool isTileOccupied = [[BoardManager instance] isTileOccupiedX:boardPos.x Y:boardPos.y playerNum:playerNum enemyOnly:YES];
+    
+    bool onBoard = (boardPos.x != -1 && boardPos.y != -1);  
+    bool isCastOnAUnit = true;
+    if(![type isEqualToString:@"ship"]) { // If this is not a ship card, it must be cast on a unit
+      isCastOnAUnit = isTileOccupied;
+      isTileOccupied = NO;
+    }
+    bool isOnPlayersSide = (((playerNum == 1) && (boardPos.x <= 2)) || ((playerNum == -1) && (boardPos.x >= 6)));
+    return (onBoard && !isTileOccupied && isOnPlayersSide && isCastOnAUnit);
+
+    
+  }
 }
 
 - (CGPoint)getBoardPos:(CGPoint)touchPoint {
@@ -209,6 +217,34 @@
         [self commitCard:player];
         
       }
+    }    
+    else if ([type isEqualToString:@"instant"]) {
+      Tile* tile = [[[BoardManager instance] getBoard] getTileX:boardPos.x Y:boardPos.y];
+      if(tile) {
+        NSString* targetType = [properties valueForKey:@"targetType"];
+        NSArray* occupants = [[BoardManager instance] getTokensForSpot:boardPos];
+        NSMutableArray* targets = [NSMutableArray new];
+        
+        for(Ship* occupant in occupants) {
+          if([occupant isKindOfClass:[Ship class]] && 
+             (([targetType isEqualToString:@"friendly"] && [occupant playerNum] == playerNum) || 
+             ([targetType isEqualToString:@"enemy"] && [occupant playerNum] != playerNum))) {
+               [targets addObject:occupant];
+          }
+        }
+        
+        for(Ship* target in targets) {
+          NSArray* abilities = [properties objectForKey:@"abilities"];
+          for(NSString* ability in abilities) {
+            id abilityObj = [AbilityHelper AbilityForType:ability];
+            [abilityObj setSourceToken:target];
+            [abilityObj performAbility];        
+          }
+        }
+        [self commitCard:player];
+        
+      }
+      
     }
   }
   
@@ -225,9 +261,9 @@
     }
     else {
       if(touchPoint.x > 400 && touchPoint.x < 600) {
-          if (!isCaptain) {
-            [[[PlayerManager instance] getPlayer:playerNum] consumeCard:self];
-          }
+        if (!isCaptain) {
+          [[[PlayerManager instance] getPlayer:playerNum] consumeCard:self];
+        }
       }
     }
     [self runAction:[CCMoveTo actionWithDuration:0.2 position:originalLocation]];

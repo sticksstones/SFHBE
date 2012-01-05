@@ -84,6 +84,10 @@
   return self;
 }
 
+- (int)getHp {
+  return hp;
+}
+
 #pragma mark Setters
 
 - (void)setAttackTarget:(Ship *)_attackTarget {

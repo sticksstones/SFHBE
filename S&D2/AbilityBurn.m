@@ -10,7 +10,7 @@
 #import "Ship.h"
 
 #define BURN_INTERVAL 3.0
-#define BURN_DURATION 15.0
+#define BURN_DURATION 6.0
 
 @implementation AbilityBurn 
 

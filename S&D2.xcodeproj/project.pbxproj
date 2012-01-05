@@ -193,6 +193,9 @@
 		C26FE48D14956361000D84C3 /* AbilityAutoRepair.m in Sources */ = {isa = PBXBuildFile; fileRef = C26FE48C14956360000D84C3 /* AbilityAutoRepair.m */; };
 		C26FE4901495689C000D84C3 /* AbilityBurn.m in Sources */ = {isa = PBXBuildFile; fileRef = C26FE48F1495689B000D84C3 /* AbilityBurn.m */; };
 		C26FE4931495C470000D84C3 /* AbilityHarvest.m in Sources */ = {isa = PBXBuildFile; fileRef = C26FE4921495C46D000D84C3 /* AbilityHarvest.m */; };
+		C27B118214B598C90018B796 /* AbilityDestruct.m in Sources */ = {isa = PBXBuildFile; fileRef = C27B118114B598C90018B796 /* AbilityDestruct.m */; };
+		C27B118614B59A890018B796 /* AbilityMadness.m in Sources */ = {isa = PBXBuildFile; fileRef = C27B118514B59A890018B796 /* AbilityMadness.m */; };
+		C27B118914B59C040018B796 /* AbilityMindControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C27B118814B59C040018B796 /* AbilityMindControl.m */; };
 		C2B7F80A14AFD50900DAE1A2 /* SideBoardToken.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B7F80914AFD50900DAE1A2 /* SideBoardToken.m */; };
 		C2B7F80D14AFD60F00DAE1A2 /* SideBoardTile.png in Resources */ = {isa = PBXBuildFile; fileRef = C2B7F80C14AFD60F00DAE1A2 /* SideBoardTile.png */; };
 		C2B7F81014AFDC5300DAE1A2 /* SideTile.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B7F80F14AFDC5300DAE1A2 /* SideTile.m */; };
@@ -572,6 +575,12 @@
 		C26FE48F1495689B000D84C3 /* AbilityBurn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbilityBurn.m; sourceTree = "<group>"; };
 		C26FE4911495C46C000D84C3 /* AbilityHarvest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbilityHarvest.h; sourceTree = "<group>"; };
 		C26FE4921495C46D000D84C3 /* AbilityHarvest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbilityHarvest.m; sourceTree = "<group>"; };
+		C27B118014B598C90018B796 /* AbilityDestruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbilityDestruct.h; sourceTree = "<group>"; };
+		C27B118114B598C90018B796 /* AbilityDestruct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbilityDestruct.m; sourceTree = "<group>"; };
+		C27B118414B59A890018B796 /* AbilityMadness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbilityMadness.h; sourceTree = "<group>"; };
+		C27B118514B59A890018B796 /* AbilityMadness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbilityMadness.m; sourceTree = "<group>"; };
+		C27B118714B59C040018B796 /* AbilityMindControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbilityMindControl.h; sourceTree = "<group>"; };
+		C27B118814B59C040018B796 /* AbilityMindControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbilityMindControl.m; sourceTree = "<group>"; };
 		C2B7F80814AFD50900DAE1A2 /* SideBoardToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideBoardToken.h; sourceTree = "<group>"; };
 		C2B7F80914AFD50900DAE1A2 /* SideBoardToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideBoardToken.m; sourceTree = "<group>"; };
 		C2B7F80C14AFD60F00DAE1A2 /* SideBoardTile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SideBoardTile.png; sourceTree = "<group>"; };
@@ -1210,6 +1219,12 @@
 				C26FE48F1495689B000D84C3 /* AbilityBurn.m */,
 				C26FE4911495C46C000D84C3 /* AbilityHarvest.h */,
 				C26FE4921495C46D000D84C3 /* AbilityHarvest.m */,
+				C27B118014B598C90018B796 /* AbilityDestruct.h */,
+				C27B118114B598C90018B796 /* AbilityDestruct.m */,
+				C27B118414B59A890018B796 /* AbilityMadness.h */,
+				C27B118514B59A890018B796 /* AbilityMadness.m */,
+				C27B118714B59C040018B796 /* AbilityMindControl.h */,
+				C27B118814B59C040018B796 /* AbilityMindControl.m */,
 			);
 			name = Ability;
 			sourceTree = "<group>";
@@ -1484,6 +1499,9 @@
 				C2B7F80A14AFD50900DAE1A2 /* SideBoardToken.m in Sources */,
 				C2B7F81014AFDC5300DAE1A2 /* SideTile.m in Sources */,
 				C2B7F81314AFE25F00DAE1A2 /* SideCard.m in Sources */,
+				C27B118214B598C90018B796 /* AbilityDestruct.m in Sources */,
+				C27B118614B59A890018B796 /* AbilityMadness.m in Sources */,
+				C27B118914B59C040018B796 /* AbilityMindControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

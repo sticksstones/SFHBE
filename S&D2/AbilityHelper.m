@@ -16,6 +16,10 @@
 #import "AbilityAutoRepair.h"
 #import "AbilityBurn.h"
 #import "AbilityHarvest.h"
+#import "AbilityDestruct.h"
+#import "AbilityMadness.h"
+#import "AbilityMindControl.h"
+
 
 @implementation AbilityHelper
 
@@ -44,6 +48,15 @@
   }
   else if([type isEqualToString:@"Harvest"]) {
     return [[AbilityHarvest alloc] init];
+  }
+  else if([type isEqualToString:@"Destruct"]) {
+    return [[AbilityDestruct alloc] init];
+  }
+  else if([type isEqualToString:@"Madness"]) {
+    return [[AbilityMadness alloc] init];
+  }
+  else if([type isEqualToString:@"MindControl"]) {
+    return [[AbilityMindControl alloc] init];
   }
 
   
