@@ -12,6 +12,7 @@
 #import "Tile.h"
 #import "Ship.h"
 #import "GameObjectManager.h"
+#import "AbilityManager.h"
 #import "PlayerManager.h"
 #import "Player.h"
 #import "AbilityHelper.h"
@@ -236,13 +237,12 @@
         for(Ship* target in targets) {
           NSArray* abilities = [properties objectForKey:@"abilities"];
           for(NSString* ability in abilities) {
-            id abilityObj = [AbilityHelper AbilityForType:ability];
+            id abilityObj = [[AbilityManager instance] getAbility:ability];
             [abilityObj setSourceToken:target];
             [abilityObj performAbility];        
           }
         }
         [self commitCard:player];
-        
       }
       
     }

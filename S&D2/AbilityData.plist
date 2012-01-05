@@ -123,5 +123,16 @@
 		<key>charges</key>
 		<integer>-1</integer>
 	</dict>
+	<key>Recover</key>
+	<dict>
+		<key>ability</key>
+		<string>Recover</string>
+		<key>level</key>
+		<integer>1</integer>
+		<key>rechargeTime</key>
+		<integer>10</integer>
+		<key>charges</key>
+		<integer>-1</integer>
+	</dict>
 </dict>
 </plist>

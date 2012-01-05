@@ -196,6 +196,7 @@
 		C27B118214B598C90018B796 /* AbilityDestruct.m in Sources */ = {isa = PBXBuildFile; fileRef = C27B118114B598C90018B796 /* AbilityDestruct.m */; };
 		C27B118614B59A890018B796 /* AbilityMadness.m in Sources */ = {isa = PBXBuildFile; fileRef = C27B118514B59A890018B796 /* AbilityMadness.m */; };
 		C27B118914B59C040018B796 /* AbilityMindControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C27B118814B59C040018B796 /* AbilityMindControl.m */; };
+		C27B118C14B59FA90018B796 /* AbilityRecover.m in Sources */ = {isa = PBXBuildFile; fileRef = C27B118B14B59FA90018B796 /* AbilityRecover.m */; };
 		C2B7F80A14AFD50900DAE1A2 /* SideBoardToken.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B7F80914AFD50900DAE1A2 /* SideBoardToken.m */; };
 		C2B7F80D14AFD60F00DAE1A2 /* SideBoardTile.png in Resources */ = {isa = PBXBuildFile; fileRef = C2B7F80C14AFD60F00DAE1A2 /* SideBoardTile.png */; };
 		C2B7F81014AFDC5300DAE1A2 /* SideTile.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B7F80F14AFDC5300DAE1A2 /* SideTile.m */; };
@@ -581,6 +582,8 @@
 		C27B118514B59A890018B796 /* AbilityMadness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbilityMadness.m; sourceTree = "<group>"; };
 		C27B118714B59C040018B796 /* AbilityMindControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbilityMindControl.h; sourceTree = "<group>"; };
 		C27B118814B59C040018B796 /* AbilityMindControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbilityMindControl.m; sourceTree = "<group>"; };
+		C27B118A14B59FA90018B796 /* AbilityRecover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbilityRecover.h; sourceTree = "<group>"; };
+		C27B118B14B59FA90018B796 /* AbilityRecover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbilityRecover.m; sourceTree = "<group>"; };
 		C2B7F80814AFD50900DAE1A2 /* SideBoardToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideBoardToken.h; sourceTree = "<group>"; };
 		C2B7F80914AFD50900DAE1A2 /* SideBoardToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideBoardToken.m; sourceTree = "<group>"; };
 		C2B7F80C14AFD60F00DAE1A2 /* SideBoardTile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SideBoardTile.png; sourceTree = "<group>"; };
@@ -1225,6 +1228,8 @@
 				C27B118514B59A890018B796 /* AbilityMadness.m */,
 				C27B118714B59C040018B796 /* AbilityMindControl.h */,
 				C27B118814B59C040018B796 /* AbilityMindControl.m */,
+				C27B118A14B59FA90018B796 /* AbilityRecover.h */,
+				C27B118B14B59FA90018B796 /* AbilityRecover.m */,
 			);
 			name = Ability;
 			sourceTree = "<group>";
@@ -1502,6 +1507,7 @@
 				C27B118214B598C90018B796 /* AbilityDestruct.m in Sources */,
 				C27B118614B59A890018B796 /* AbilityMadness.m in Sources */,
 				C27B118914B59C040018B796 /* AbilityMindControl.m in Sources */,
+				C27B118C14B59FA90018B796 /* AbilityRecover.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

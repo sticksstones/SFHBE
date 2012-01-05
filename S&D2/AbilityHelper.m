@@ -19,7 +19,7 @@
 #import "AbilityDestruct.h"
 #import "AbilityMadness.h"
 #import "AbilityMindControl.h"
-
+#import "AbilityRecover.h"
 
 @implementation AbilityHelper
 
@@ -57,6 +57,9 @@
   }
   else if([type isEqualToString:@"MindControl"]) {
     return [[AbilityMindControl alloc] init];
+  }
+  else if([type isEqualToString:@"Recover"]) {
+    return [[AbilityRecover alloc] init];
   }
 
   
