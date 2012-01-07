@@ -19,8 +19,8 @@
 		</array>
 		<key>Captain</key>
 		<array>
-			<string>Recover</string>
-			<string>Berserker</string>
+			<string>Medic</string>
+			<string>Soldier</string>
 			<string>Bowman</string>
 		</array>
 	</dict>

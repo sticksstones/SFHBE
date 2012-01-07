@@ -250,7 +250,7 @@
   if(closestToken && [closestToken playerNum] == playerNum) {
     blockedByFriendly = YES;
   }
-
+  
   if(attackTarget) return NO; 
   if(passing) {
     return YES;
@@ -307,7 +307,7 @@
     if(direction == 0 && sp > 0) {
       [self deploy];
     }
-      [self pass];
+    [self pass];
   }
   else if(endPoint.y <= -50) {
     direction = 0;
