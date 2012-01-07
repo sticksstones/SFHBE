@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA3244BD14B8174900F2A2B9 /* CCAnimationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AA3244B814B8174900F2A2B9 /* CCAnimationHelper.m */; };
+		AA3244BE14B8174900F2A2B9 /* InfantrySprite.m in Sources */ = {isa = PBXBuildFile; fileRef = AA3244BA14B8174900F2A2B9 /* InfantrySprite.m */; };
+		AA3244BF14B8174900F2A2B9 /* SoldierSheet_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA3244BB14B8174900F2A2B9 /* SoldierSheet_default.plist */; };
+		AA3244C014B8174900F2A2B9 /* SoldierSheet_default.png in Resources */ = {isa = PBXBuildFile; fileRef = AA3244BC14B8174900F2A2B9 /* SoldierSheet_default.png */; };
 		C24CD1AC148B5575007CFB58 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C24CD1AB148B5575007CFB58 /* QuartzCore.framework */; };
 		C24CD1AE148B5575007CFB58 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C24CD1AD148B5575007CFB58 /* OpenGLES.framework */; };
 		C24CD1B0148B5575007CFB58 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C24CD1AF148B5575007CFB58 /* OpenAL.framework */; };
@@ -204,6 +208,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA3244B714B8174800F2A2B9 /* CCAnimationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAnimationHelper.h; sourceTree = "<group>"; };
+		AA3244B814B8174900F2A2B9 /* CCAnimationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAnimationHelper.m; sourceTree = "<group>"; };
+		AA3244B914B8174900F2A2B9 /* InfantrySprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfantrySprite.h; sourceTree = "<group>"; };
+		AA3244BA14B8174900F2A2B9 /* InfantrySprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfantrySprite.m; sourceTree = "<group>"; };
+		AA3244BB14B8174900F2A2B9 /* SoldierSheet_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SoldierSheet_default.plist; sourceTree = "<group>"; };
+		AA3244BC14B8174900F2A2B9 /* SoldierSheet_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SoldierSheet_default.png; sourceTree = "<group>"; };
 		C24CD1A7148B5575007CFB58 /* S&D2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "S&D2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C24CD1AB148B5575007CFB58 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C24CD1AD148B5575007CFB58 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -647,6 +657,10 @@
 		C24CD1BB148B5575007CFB58 /* S&D2 */ = {
 			isa = PBXGroup;
 			children = (
+				AA3244B714B8174800F2A2B9 /* CCAnimationHelper.h */,
+				AA3244B814B8174900F2A2B9 /* CCAnimationHelper.m */,
+				AA3244B914B8174900F2A2B9 /* InfantrySprite.h */,
+				AA3244BA14B8174900F2A2B9 /* InfantrySprite.m */,
 				C26FE44F1491B477000D84C3 /* Ability */,
 				C26FE434148F3874000D84C3 /* Player */,
 				C24CD408148C5E4C007CFB58 /* Card */,
@@ -1247,6 +1261,8 @@
 		C26FE48A14948BD8000D84C3 /* GFX */ = {
 			isa = PBXGroup;
 			children = (
+				AA3244BB14B8174900F2A2B9 /* SoldierSheet_default.plist */,
+				AA3244BC14B8174900F2A2B9 /* SoldierSheet_default.png */,
 				C26FE47C149464B7000D84C3 /* Fog.png */,
 				C26FE47114945005000D84C3 /* Heal.png */,
 				C26FE46914943FCF000D84C3 /* Missile.png */,
@@ -1335,6 +1351,8 @@
 				C26FE47D149464B8000D84C3 /* Fog.png in Resources */,
 				C26FE482149475C5000D84C3 /* AbilityData.plist in Resources */,
 				C2B7F80D14AFD60F00DAE1A2 /* SideBoardTile.png in Resources */,
+				AA3244BF14B8174900F2A2B9 /* SoldierSheet_default.plist in Resources */,
+				AA3244C014B8174900F2A2B9 /* SoldierSheet_default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1508,6 +1526,8 @@
 				C27B118614B59A890018B796 /* AbilityMadness.m in Sources */,
 				C27B118914B59C040018B796 /* AbilityMindControl.m in Sources */,
 				C27B118C14B59FA90018B796 /* AbilityRecover.m in Sources */,
+				AA3244BD14B8174900F2A2B9 /* CCAnimationHelper.m in Sources */,
+				AA3244BE14B8174900F2A2B9 /* InfantrySprite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
