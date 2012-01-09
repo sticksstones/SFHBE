@@ -251,3 +251,6 @@ do {															\
 #define CC_RECT_POINTS_TO_PIXELS(__points__) __points__
 
 #endif // CC_IS_RETINA_DISPLAY_SUPPORTED
+
+#define CC_POINTS_TO_PIXELS(__pixels__)	\
+CGPointMake( (__pixels__).x * CC_CONTENT_SCALE_FACTOR(), (__pixels__).y * CC_CONTENT_SCALE_FACTOR() )

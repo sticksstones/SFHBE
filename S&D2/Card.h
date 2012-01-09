@@ -36,7 +36,13 @@
 - (Card*)initWithParams:(NSDictionary*)params;
 - (void)setPlayerNum:(int)_playerNum;
 - (id)copyCard;
+- (id)copyCardDisplay;
 - (NSString*)getID;
+- (NSString*)getCardType;
+- (NSString*)getCardPassiveAbilities;
+- (NSString*)getCardTapAbility;
 - (void)commitCard:(Player*)player;
+- (void)basicDraw;
+- (BOOL)containsTouchLocation:(UITouch *)touch;
 
 @end

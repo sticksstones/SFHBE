@@ -19,6 +19,7 @@
 
 + (CardManager *)instance;
 - (id)getCard:(NSString*)cardID;
-
+- (id)getDisplayCard:(NSString*)cardID;
+- (NSArray*)getAllDisplayCards;
 
 @end

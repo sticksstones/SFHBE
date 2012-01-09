@@ -9,6 +9,7 @@
 #import "CardManager.h"
 #import "Card.h"
 #import "SideCard.h"
+#import "CardDisplay.h"
 
 @implementation CardManager
 
@@ -60,6 +61,19 @@ static CardManager *gInstance = NULL;
 
 - (id)getCard:(NSString*)cardID {
   return [[cards objectForKey:cardID] copyCard];
+}
+
+- (id)getDisplayCard:(NSString*)cardID {  
+  return [[cards objectForKey:cardID] copyCardDisplay];
+}
+
+- (NSArray*)getAllDisplayCards {
+  NSMutableArray* displayCards = [NSMutableArray array];
+  for(NSString* card in [cards allKeys]) {
+    [displayCards addObject:[self getDisplayCard:card]];
+  }
+  
+  return [[NSArray alloc] initWithArray:displayCards];
 }
 
 

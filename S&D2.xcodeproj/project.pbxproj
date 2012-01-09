@@ -151,7 +151,7 @@
 		C24CD368148B557A007CFB58 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C24CD367148B557A007CFB58 /* main.m */; };
 		C24CD36B148B557A007CFB58 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C24CD36A148B557A007CFB58 /* AppDelegate.m */; };
 		C24CD36E148B557A007CFB58 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C24CD36D148B557A007CFB58 /* RootViewController.m */; };
-		C24CD371148B557A007CFB58 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C24CD370148B557A007CFB58 /* HelloWorldLayer.m */; };
+		C24CD371148B557A007CFB58 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C24CD370148B557A007CFB58 /* GameLayer.m */; };
 		C24CD374148B557A007CFB58 /* grossini_dance_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = C24CD373148B557A007CFB58 /* grossini_dance_atlas.png */; };
 		C24CD37D148B562D007CFB58 /* GameToken.m in Sources */ = {isa = PBXBuildFile; fileRef = C24CD37C148B562D007CFB58 /* GameToken.m */; };
 		C24CD380148B5698007CFB58 /* Ship.m in Sources */ = {isa = PBXBuildFile; fileRef = C24CD37F148B5698007CFB58 /* Ship.m */; };
@@ -165,6 +165,7 @@
 		C24CD40D148C5F10007CFB58 /* Card.png in Resources */ = {isa = PBXBuildFile; fileRef = C24CD40C148C5F10007CFB58 /* Card.png */; };
 		C24CD410148C6088007CFB58 /* Hand.m in Sources */ = {isa = PBXBuildFile; fileRef = C24CD40F148C6088007CFB58 /* Hand.m */; };
 		C24CD413148C7B3F007CFB58 /* Tile.m in Sources */ = {isa = PBXBuildFile; fileRef = C24CD412148C7B3F007CFB58 /* Tile.m */; };
+		C26FB83F14B8CAC900040CFA /* BodyPartHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C26FB83E14B8CAC900040CFA /* BodyPartHelper.m */; };
 		C26FE430148F166C000D84C3 /* CardData.plist in Resources */ = {isa = PBXBuildFile; fileRef = C26FE42F148F166C000D84C3 /* CardData.plist */; };
 		C26FE433148F174A000D84C3 /* CardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C26FE432148F174A000D84C3 /* CardManager.m */; };
 		C26FE437148F3888000D84C3 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = C26FE436148F3888000D84C3 /* Player.m */; };
@@ -201,6 +202,16 @@
 		C27B118614B59A890018B796 /* AbilityMadness.m in Sources */ = {isa = PBXBuildFile; fileRef = C27B118514B59A890018B796 /* AbilityMadness.m */; };
 		C27B118914B59C040018B796 /* AbilityMindControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C27B118814B59C040018B796 /* AbilityMindControl.m */; };
 		C27B118C14B59FA90018B796 /* AbilityRecover.m in Sources */ = {isa = PBXBuildFile; fileRef = C27B118B14B59FA90018B796 /* AbilityRecover.m */; };
+		C297D0C014B9372C005E9A89 /* GameMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C297D0BF14B9372C005E9A89 /* GameMenuLayer.m */; };
+		C297D0C414B93D4C005E9A89 /* DeckBuilderLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C297D0C314B93D4C005E9A89 /* DeckBuilderLayer.m */; };
+		C297D0C814B94105005E9A89 /* DetailedCard.m in Sources */ = {isa = PBXBuildFile; fileRef = C297D0C714B94105005E9A89 /* DetailedCard.m */; };
+		C297D0CB14B949D4005E9A89 /* CardDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = C297D0CA14B949D3005E9A89 /* CardDisplay.m */; };
+		C297D0CE14B94CFD005E9A89 /* DetailedCardList.m in Sources */ = {isa = PBXBuildFile; fileRef = C297D0CD14B94CFD005E9A89 /* DetailedCardList.m */; };
+		C297D0D914BA5C80005E9A89 /* CCTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C297D0D014BA5C80005E9A89 /* CCTableView.m */; };
+		C297D0DA14BA5C80005E9A89 /* CCScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C297D0D114BA5C80005E9A89 /* CCScrollView.m */; };
+		C297D0DB14BA5C80005E9A89 /* CCMultiColumnTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C297D0D214BA5C80005E9A89 /* CCMultiColumnTableView.m */; };
+		C297D0DC14BA5C80005E9A89 /* CCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C297D0D814BA5C80005E9A89 /* CCTableViewCell.m */; };
+		C297D0E014BA5E3E005E9A89 /* DetailedCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C297D0DF14BA5E3E005E9A89 /* DetailedCardCell.m */; };
 		C2B7F80A14AFD50900DAE1A2 /* SideBoardToken.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B7F80914AFD50900DAE1A2 /* SideBoardToken.m */; };
 		C2B7F80D14AFD60F00DAE1A2 /* SideBoardTile.png in Resources */ = {isa = PBXBuildFile; fileRef = C2B7F80C14AFD60F00DAE1A2 /* SideBoardTile.png */; };
 		C2B7F81014AFDC5300DAE1A2 /* SideTile.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B7F80F14AFDC5300DAE1A2 /* SideTile.m */; };
@@ -506,8 +517,8 @@
 		C24CD36A148B557A007CFB58 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C24CD36C148B557A007CFB58 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		C24CD36D148B557A007CFB58 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		C24CD36F148B557A007CFB58 /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		C24CD370148B557A007CFB58 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
+		C24CD36F148B557A007CFB58 /* GameLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
+		C24CD370148B557A007CFB58 /* GameLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
 		C24CD372148B557A007CFB58 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		C24CD373148B557A007CFB58 /* grossini_dance_atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grossini_dance_atlas.png; path = Resources/grossini_dance_atlas.png; sourceTree = "<group>"; };
 		C24CD37B148B562D007CFB58 /* GameToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameToken.h; sourceTree = "<group>"; };
@@ -531,6 +542,8 @@
 		C24CD40F148C6088007CFB58 /* Hand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hand.m; sourceTree = "<group>"; };
 		C24CD411148C7B3F007CFB58 /* Tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tile.h; sourceTree = "<group>"; };
 		C24CD412148C7B3F007CFB58 /* Tile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tile.m; sourceTree = "<group>"; };
+		C26FB83D14B8CAC900040CFA /* BodyPartHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BodyPartHelper.h; sourceTree = "<group>"; };
+		C26FB83E14B8CAC900040CFA /* BodyPartHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BodyPartHelper.m; sourceTree = "<group>"; };
 		C26FE42F148F166C000D84C3 /* CardData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CardData.plist; sourceTree = "<group>"; };
 		C26FE431148F174A000D84C3 /* CardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardManager.h; sourceTree = "<group>"; };
 		C26FE432148F174A000D84C3 /* CardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardManager.m; sourceTree = "<group>"; };
@@ -594,6 +607,27 @@
 		C27B118814B59C040018B796 /* AbilityMindControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbilityMindControl.m; sourceTree = "<group>"; };
 		C27B118A14B59FA90018B796 /* AbilityRecover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbilityRecover.h; sourceTree = "<group>"; };
 		C27B118B14B59FA90018B796 /* AbilityRecover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbilityRecover.m; sourceTree = "<group>"; };
+		C297D0BE14B9372C005E9A89 /* GameMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMenuLayer.h; sourceTree = "<group>"; };
+		C297D0BF14B9372C005E9A89 /* GameMenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameMenuLayer.m; sourceTree = "<group>"; };
+		C297D0C214B93D4C005E9A89 /* DeckBuilderLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeckBuilderLayer.h; sourceTree = "<group>"; };
+		C297D0C314B93D4C005E9A89 /* DeckBuilderLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeckBuilderLayer.m; sourceTree = "<group>"; };
+		C297D0C614B94105005E9A89 /* DetailedCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedCard.h; sourceTree = "<group>"; };
+		C297D0C714B94105005E9A89 /* DetailedCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedCard.m; sourceTree = "<group>"; };
+		C297D0C914B949D3005E9A89 /* CardDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDisplay.h; sourceTree = "<group>"; };
+		C297D0CA14B949D3005E9A89 /* CardDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDisplay.m; sourceTree = "<group>"; };
+		C297D0CC14B94CFD005E9A89 /* DetailedCardList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedCardList.h; sourceTree = "<group>"; };
+		C297D0CD14B94CFD005E9A89 /* DetailedCardList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedCardList.m; sourceTree = "<group>"; };
+		C297D0D014BA5C80005E9A89 /* CCTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableView.m; sourceTree = "<group>"; };
+		C297D0D114BA5C80005E9A89 /* CCScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCScrollView.m; sourceTree = "<group>"; };
+		C297D0D214BA5C80005E9A89 /* CCMultiColumnTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMultiColumnTableView.m; sourceTree = "<group>"; };
+		C297D0D314BA5C80005E9A89 /* CCScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScrollView.h; sourceTree = "<group>"; };
+		C297D0D414BA5C80005E9A89 /* CCTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableView.h; sourceTree = "<group>"; };
+		C297D0D514BA5C80005E9A89 /* CCDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDebug.h; sourceTree = "<group>"; };
+		C297D0D614BA5C80005E9A89 /* CCMultiColumnTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMultiColumnTableView.h; sourceTree = "<group>"; };
+		C297D0D714BA5C80005E9A89 /* CCTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewCell.h; sourceTree = "<group>"; };
+		C297D0D814BA5C80005E9A89 /* CCTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewCell.m; sourceTree = "<group>"; };
+		C297D0DE14BA5E3D005E9A89 /* DetailedCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedCardCell.h; sourceTree = "<group>"; };
+		C297D0DF14BA5E3E005E9A89 /* DetailedCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedCardCell.m; sourceTree = "<group>"; };
 		C2B7F80814AFD50900DAE1A2 /* SideBoardToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideBoardToken.h; sourceTree = "<group>"; };
 		C2B7F80914AFD50900DAE1A2 /* SideBoardToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideBoardToken.m; sourceTree = "<group>"; };
 		C2B7F80C14AFD60F00DAE1A2 /* SideBoardTile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SideBoardTile.png; sourceTree = "<group>"; };
@@ -657,10 +691,10 @@
 		C24CD1BB148B5575007CFB58 /* S&D2 */ = {
 			isa = PBXGroup;
 			children = (
-				AA3244B714B8174800F2A2B9 /* CCAnimationHelper.h */,
-				AA3244B814B8174900F2A2B9 /* CCAnimationHelper.m */,
-				AA3244B914B8174900F2A2B9 /* InfantrySprite.h */,
-				AA3244BA14B8174900F2A2B9 /* InfantrySprite.m */,
+				C297D0DD14BA5CA0005E9A89 /* Scenes */,
+				C297D0CF14BA5C71005E9A89 /* CCTableView */,
+				C297D0C514B94090005E9A89 /* DeckBuilder */,
+				C26FB83714B820FA00040CFA /* Sprites */,
 				C26FE44F1491B477000D84C3 /* Ability */,
 				C26FE434148F3874000D84C3 /* Player */,
 				C24CD408148C5E4C007CFB58 /* Card */,
@@ -672,8 +706,6 @@
 				C24CD36A148B557A007CFB58 /* AppDelegate.m */,
 				C24CD36C148B557A007CFB58 /* RootViewController.h */,
 				C24CD36D148B557A007CFB58 /* RootViewController.m */,
-				C24CD36F148B557A007CFB58 /* HelloWorldLayer.h */,
-				C24CD370148B557A007CFB58 /* HelloWorldLayer.m */,
 				C24CD372148B557A007CFB58 /* GameConfig.h */,
 				C24CD1BC148B5575007CFB58 /* Resources */,
 				C24CD1D0148B5575007CFB58 /* libs */,
@@ -1166,10 +1198,14 @@
 		C24CD385148B6DE0007CFB58 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				AA3244B714B8174800F2A2B9 /* CCAnimationHelper.h */,
+				AA3244B814B8174900F2A2B9 /* CCAnimationHelper.m */,
 				C24CD386148B6DF1007CFB58 /* GameBoardHelper.h */,
 				C24CD387148B6DF1007CFB58 /* GameBoardHelper.m */,
 				C26FE48614947ABE000D84C3 /* AbilityHelper.h */,
 				C26FE48714947ABE000D84C3 /* AbilityHelper.m */,
+				C26FB83D14B8CAC900040CFA /* BodyPartHelper.h */,
+				C26FB83E14B8CAC900040CFA /* BodyPartHelper.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -1198,8 +1234,19 @@
 				C26FE43C148F40AA000D84C3 /* Deck.m */,
 				C2B7F81114AFE25F00DAE1A2 /* SideCard.h */,
 				C2B7F81214AFE25F00DAE1A2 /* SideCard.m */,
+				C297D0C914B949D3005E9A89 /* CardDisplay.h */,
+				C297D0CA14B949D3005E9A89 /* CardDisplay.m */,
 			);
 			name = Card;
+			sourceTree = "<group>";
+		};
+		C26FB83714B820FA00040CFA /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				AA3244B914B8174900F2A2B9 /* InfantrySprite.h */,
+				AA3244BA14B8174900F2A2B9 /* InfantrySprite.m */,
+			);
+			name = Sprites;
 			sourceTree = "<group>";
 		};
 		C26FE434148F3874000D84C3 /* Player */ = {
@@ -1275,6 +1322,48 @@
 				C2B7F80C14AFD60F00DAE1A2 /* SideBoardTile.png */,
 			);
 			name = GFX;
+			sourceTree = "<group>";
+		};
+		C297D0C514B94090005E9A89 /* DeckBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				C297D0C614B94105005E9A89 /* DetailedCard.h */,
+				C297D0C714B94105005E9A89 /* DetailedCard.m */,
+				C297D0CC14B94CFD005E9A89 /* DetailedCardList.h */,
+				C297D0CD14B94CFD005E9A89 /* DetailedCardList.m */,
+				C297D0DE14BA5E3D005E9A89 /* DetailedCardCell.h */,
+				C297D0DF14BA5E3E005E9A89 /* DetailedCardCell.m */,
+			);
+			name = DeckBuilder;
+			sourceTree = "<group>";
+		};
+		C297D0CF14BA5C71005E9A89 /* CCTableView */ = {
+			isa = PBXGroup;
+			children = (
+				C297D0D014BA5C80005E9A89 /* CCTableView.m */,
+				C297D0D114BA5C80005E9A89 /* CCScrollView.m */,
+				C297D0D214BA5C80005E9A89 /* CCMultiColumnTableView.m */,
+				C297D0D314BA5C80005E9A89 /* CCScrollView.h */,
+				C297D0D414BA5C80005E9A89 /* CCTableView.h */,
+				C297D0D514BA5C80005E9A89 /* CCDebug.h */,
+				C297D0D614BA5C80005E9A89 /* CCMultiColumnTableView.h */,
+				C297D0D714BA5C80005E9A89 /* CCTableViewCell.h */,
+				C297D0D814BA5C80005E9A89 /* CCTableViewCell.m */,
+			);
+			name = CCTableView;
+			sourceTree = "<group>";
+		};
+		C297D0DD14BA5CA0005E9A89 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				C297D0BE14B9372C005E9A89 /* GameMenuLayer.h */,
+				C297D0BF14B9372C005E9A89 /* GameMenuLayer.m */,
+				C24CD36F148B557A007CFB58 /* GameLayer.h */,
+				C24CD370148B557A007CFB58 /* GameLayer.m */,
+				C297D0C214B93D4C005E9A89 /* DeckBuilderLayer.h */,
+				C297D0C314B93D4C005E9A89 /* DeckBuilderLayer.m */,
+			);
+			name = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1486,7 +1575,7 @@
 				C24CD368148B557A007CFB58 /* main.m in Sources */,
 				C24CD36B148B557A007CFB58 /* AppDelegate.m in Sources */,
 				C24CD36E148B557A007CFB58 /* RootViewController.m in Sources */,
-				C24CD371148B557A007CFB58 /* HelloWorldLayer.m in Sources */,
+				C24CD371148B557A007CFB58 /* GameLayer.m in Sources */,
 				C24CD37D148B562D007CFB58 /* GameToken.m in Sources */,
 				C24CD380148B5698007CFB58 /* Ship.m in Sources */,
 				C24CD384148B5950007CFB58 /* GameObjectManager.m in Sources */,
@@ -1528,6 +1617,17 @@
 				C27B118C14B59FA90018B796 /* AbilityRecover.m in Sources */,
 				AA3244BD14B8174900F2A2B9 /* CCAnimationHelper.m in Sources */,
 				AA3244BE14B8174900F2A2B9 /* InfantrySprite.m in Sources */,
+				C26FB83F14B8CAC900040CFA /* BodyPartHelper.m in Sources */,
+				C297D0C014B9372C005E9A89 /* GameMenuLayer.m in Sources */,
+				C297D0C414B93D4C005E9A89 /* DeckBuilderLayer.m in Sources */,
+				C297D0C814B94105005E9A89 /* DetailedCard.m in Sources */,
+				C297D0CB14B949D4005E9A89 /* CardDisplay.m in Sources */,
+				C297D0CE14B94CFD005E9A89 /* DetailedCardList.m in Sources */,
+				C297D0D914BA5C80005E9A89 /* CCTableView.m in Sources */,
+				C297D0DA14BA5C80005E9A89 /* CCScrollView.m in Sources */,
+				C297D0DB14BA5C80005E9A89 /* CCMultiColumnTableView.m in Sources */,
+				C297D0DC14BA5C80005E9A89 /* CCTableViewCell.m in Sources */,
+				C297D0E014BA5E3E005E9A89 /* DetailedCardCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

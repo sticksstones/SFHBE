@@ -7,6 +7,7 @@
 //
 
 #import "Card.h"
+#import "CardDisplay.h"
 #import "BoardManager.h"
 #import "Board.h"
 #import "Tile.h"
@@ -20,6 +21,7 @@
 
 #define kRechargeTimer 2
 #define kPreview 5
+#define kNameTag 100
 
 @implementation Card
 
@@ -43,7 +45,7 @@
   [self addChild:timer z:1 tag:kRechargeTimer];
   
   CCLabelTTF* cardLabel = [[CCLabelTTF alloc] initWithString:[cardID uppercaseString] fontName:@"Helvetica" fontSize:10.0];
-  [self addChild: cardLabel];
+  [self addChild: cardLabel z:0 tag:kNameTag];
   [cardLabel setPosition:CGPointMake(self.contentSize.width/2, -12)];
   
   CCLabelTTF* cardCost = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"%d",cost] fontName:@"Helvetica" fontSize:12];
@@ -63,6 +65,37 @@
 
 - (NSString*)getID {
   return cardID;
+}
+
+- (NSString*)getCardType {
+  if([type isEqualToString:@"ship"])
+    return @"infantry";
+  else if([type isEqualToString:@"instant"])
+    return @"spell";
+  else 
+    return type;
+}
+
+- (NSString*)getCardPassiveAbilities {
+  NSString* abilityList = @"";
+  
+  if([type isEqualToString:@"instant"]) {
+    abilityList = [[properties objectForKey:@"abilities"] componentsJoinedByString:@","];
+  }
+  else {
+    abilityList = [[properties objectForKey:@"passiveAbilities"] componentsJoinedByString:@","];
+  }
+  
+  if([abilityList isEqualToString:@""] || abilityList == nil) {
+    abilityList = @"None";
+  }
+  
+  return abilityList;
+}
+
+- (NSString*)getCardTapAbility {
+  NSString* tapAbility = [properties valueForKey:@"tapAbility"];
+  return tapAbility ? tapAbility : @"None";
 }
 
 - (void)setHeld:(bool)_held {
@@ -89,6 +122,10 @@
   return [[Card alloc] initWithParams:origParams];
 }
 
+- (id)copyCardDisplay {
+  return [[CardDisplay alloc] initWithParams:origParams];
+}
+
 - (void)setPlayerNum:(int)_playerNum {
   playerNum = _playerNum;
   self.position = originalLocation;  
@@ -97,7 +134,7 @@
 
 - (void)onEnter
 {
-	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:NO];
 	[super onEnter];
 }
 
@@ -295,8 +332,13 @@
   return [player hasEnoughMana:cost] && (currentCharge >= rechargeTime);
 }
 
-- (void)draw {
+- (void)basicDraw {
   [super draw];
+  
+}
+
+- (void)draw {
+  [self basicDraw];
   self.ready = [self isPlayable];
   CCProgressTimer* timer = (CCProgressTimer*)[self getChildByTag:kRechargeTimer];
   if (currentCharge < rechargeTime) {

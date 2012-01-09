@@ -8,6 +8,17 @@
 		<dict>
 			<key>properties</key>
 			<dict>
+				<key>aesthetics</key>
+				<dict>
+					<key>face</key>
+					<string>Soldier-Face</string>
+					<key>body</key>
+					<string>Soldier-Body</string>
+					<key>feet</key>
+					<string>Feet</string>
+					<key>weapon</key>
+					<string>Sword</string>
+				</dict>
 				<key>passiveAbilities</key>
 				<array/>
 				<key>sprite</key>
@@ -404,6 +415,8 @@
 		<dict>
 			<key>properties</key>
 			<dict>
+				<key>passiveAbilities</key>
+				<array/>
 				<key>sprite</key>
 				<string>Ship.png</string>
 				<key>hp</key>
@@ -456,6 +469,8 @@
 		<dict>
 			<key>properties</key>
 			<dict>
+				<key>passiveAbilities</key>
+				<array/>
 				<key>tapAbility</key>
 				<string>Heal</string>
 				<key>sprite</key>
