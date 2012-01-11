@@ -20,6 +20,9 @@
   int manaCardChance;
 }
 
+@property (nonatomic, retain) NSMutableArray* cards;
+@property (nonatomic, retain) NSMutableArray* captain;
+
 - (void)initialize:(NSArray*)deck Captain:(NSArray*)captainCards;
 - (NSArray*)getCaptain;
 - (id)drawCard;

@@ -13,6 +13,8 @@
 
 @implementation Deck
 
+@synthesize captain,cards;
+
 - (void)initialize:(NSArray*)deck Captain:(NSArray*)captainCards {
   cards = [NSMutableArray new];
   graveyard = [NSMutableArray new];

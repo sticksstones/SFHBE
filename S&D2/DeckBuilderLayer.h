@@ -9,11 +9,16 @@
 #import "CCLayer.h"
 #import "cocos2d.h"
 #import "CCTableView.h"
+#import "CCMultiColumnTableView.h"
 
+@class Deck;
 
 @interface DeckBuilderLayer : CCLayer<CCTableViewDataSource, CCTableViewDelegate> {
   NSArray* cards;
   NSMutableArray* detailedCards;
+  CCTableView* cardList;
+  CCMultiColumnTableView* deckGrid;
+  Deck* deck;
 }
 
 +(CCScene *) scene;

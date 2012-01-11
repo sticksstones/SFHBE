@@ -212,6 +212,7 @@
 		C297D0DB14BA5C80005E9A89 /* CCMultiColumnTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C297D0D214BA5C80005E9A89 /* CCMultiColumnTableView.m */; };
 		C297D0DC14BA5C80005E9A89 /* CCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C297D0D814BA5C80005E9A89 /* CCTableViewCell.m */; };
 		C297D0E014BA5E3E005E9A89 /* DetailedCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C297D0DF14BA5E3E005E9A89 /* DetailedCardCell.m */; };
+		C297D0EF14BD68E6005E9A89 /* CardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C297D0EE14BD68E6005E9A89 /* CardCell.m */; };
 		C2B7F80A14AFD50900DAE1A2 /* SideBoardToken.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B7F80914AFD50900DAE1A2 /* SideBoardToken.m */; };
 		C2B7F80D14AFD60F00DAE1A2 /* SideBoardTile.png in Resources */ = {isa = PBXBuildFile; fileRef = C2B7F80C14AFD60F00DAE1A2 /* SideBoardTile.png */; };
 		C2B7F81014AFDC5300DAE1A2 /* SideTile.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B7F80F14AFDC5300DAE1A2 /* SideTile.m */; };
@@ -628,6 +629,8 @@
 		C297D0D814BA5C80005E9A89 /* CCTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewCell.m; sourceTree = "<group>"; };
 		C297D0DE14BA5E3D005E9A89 /* DetailedCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedCardCell.h; sourceTree = "<group>"; };
 		C297D0DF14BA5E3E005E9A89 /* DetailedCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedCardCell.m; sourceTree = "<group>"; };
+		C297D0ED14BD68E6005E9A89 /* CardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardCell.h; sourceTree = "<group>"; };
+		C297D0EE14BD68E6005E9A89 /* CardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardCell.m; sourceTree = "<group>"; };
 		C2B7F80814AFD50900DAE1A2 /* SideBoardToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideBoardToken.h; sourceTree = "<group>"; };
 		C2B7F80914AFD50900DAE1A2 /* SideBoardToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideBoardToken.m; sourceTree = "<group>"; };
 		C2B7F80C14AFD60F00DAE1A2 /* SideBoardTile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SideBoardTile.png; sourceTree = "<group>"; };
@@ -692,7 +695,6 @@
 			isa = PBXGroup;
 			children = (
 				C297D0DD14BA5CA0005E9A89 /* Scenes */,
-				C297D0CF14BA5C71005E9A89 /* CCTableView */,
 				C297D0C514B94090005E9A89 /* DeckBuilder */,
 				C26FB83714B820FA00040CFA /* Sprites */,
 				C26FE44F1491B477000D84C3 /* Ability */,
@@ -742,6 +744,7 @@
 				C24CD2E0148B5579007CFB58 /* LICENSE_TouchJSON.txt */,
 				C24CD308148B5579007CFB58 /* LICENSE_FontLabel.txt */,
 				C24CD364148B557A007CFB58 /* LICENSE_Chipmunk.txt */,
+				C297D0CF14BA5C71005E9A89 /* CCTableView */,
 				C24CD1D1148B5575007CFB58 /* cocos2d */,
 				C24CD2C7148B5579007CFB58 /* CocosDenshion */,
 				C24CD2D6148B5579007CFB58 /* cocoslive */,
@@ -1333,6 +1336,8 @@
 				C297D0CD14B94CFD005E9A89 /* DetailedCardList.m */,
 				C297D0DE14BA5E3D005E9A89 /* DetailedCardCell.h */,
 				C297D0DF14BA5E3E005E9A89 /* DetailedCardCell.m */,
+				C297D0ED14BD68E6005E9A89 /* CardCell.h */,
+				C297D0EE14BD68E6005E9A89 /* CardCell.m */,
 			);
 			name = DeckBuilder;
 			sourceTree = "<group>";
@@ -1628,6 +1633,7 @@
 				C297D0DB14BA5C80005E9A89 /* CCMultiColumnTableView.m in Sources */,
 				C297D0DC14BA5C80005E9A89 /* CCTableViewCell.m in Sources */,
 				C297D0E014BA5E3E005E9A89 /* DetailedCardCell.m in Sources */,
+				C297D0EF14BD68E6005E9A89 /* CardCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

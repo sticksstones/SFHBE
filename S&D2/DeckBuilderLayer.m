@@ -11,6 +11,10 @@
 #import "CardManager.h"
 #import "DetailedCardCell.h"
 #import "CardDisplay.h"
+#import "CCMultiColumnTableView.h"
+#import "Deck.h"
+#import "DeckManager.h"
+#import "CardCell.h"
 
 @implementation DeckBuilderLayer
 
@@ -42,11 +46,22 @@
     for (CardDisplay* card in cards) {
       [detailedCards addObject:[[DetailedCard alloc] initWithCard:card]];
     }
-        
-    CCTableView* tableView = [CCTableView tableViewWithDataSource:self size:CGSizeMake(200, 700)];
-    tableView.position = CGPointMake(100, 68);    
-    [self addChild:tableView];
-    [tableView reloadData];
+    
+    cardList = [CCTableView tableViewWithDataSource:self size:CGSizeMake(200, 700)];
+    cardList.position = CGPointMake(100, 68);    
+    [self addChild:cardList];
+    [cardList reloadData];
+
+    deck = [[DeckManager instance] getDeck:@"Vinit Deck"];//[Deck alloc];
+
+    
+    deckGrid = [CCMultiColumnTableView tableViewWithDataSource:self size:CGSizeMake(400, 500)];
+    deckGrid.position = CGPointMake(400, 200);    
+    [self addChild:deckGrid];
+    [deckGrid reloadData];
+    
+    //[deck initialize:[NSArray new] Captain:[NSArray new]];
+    
 	}
 	return self;
 }
@@ -84,6 +99,13 @@
  * @return class of the cell instances
  */
 -(Class)cellClassForTable:(CCTableView *)table {
+  if(table == deckGrid) {
+    return [DetailedCardCell class];
+  }
+  else if (table == cardList) {
+    return [DetailedCardCell class];
+  }
+  
   return [DetailedCardCell class];
 }
 /**
@@ -93,14 +115,27 @@
  * @return cell found at idx
  */
 -(CCTableViewCell *)table:(CCTableView *)table cellAtIndex:(NSUInteger)idx {
-  CCTableViewCell* cell = [table dequeueCell];
-  if (cell == nil) {
-    cell = [[DetailedCardCell alloc] init];
+  if(table == deckGrid) {
+    CCTableViewCell* cell = [table dequeueCell];
+    if (cell == nil) {
+      cell = [[DetailedCardCell alloc] init];
+    }
+    
+    cell.node = [[DetailedCard alloc] initWithCard:[[CardManager instance] getDisplayCard:[[deck cards] objectAtIndex:idx]]];
+    
+    return cell;    
   }
-  
-  cell.node = [detailedCards objectAtIndex:idx];
-  
-  return cell;    
+  else if(table == cardList) {
+    CCTableViewCell* cell = [table dequeueCell];
+    if (cell == nil) {
+      cell = [[DetailedCardCell alloc] init];
+    }
+    
+    cell.node = [detailedCards objectAtIndex:idx];
+    
+    return cell;    
+  }
+  return nil;
 }
 /**
  * Returns number of cells in a given table view.
@@ -108,7 +143,13 @@
  * @return number of cells
  */
 -(NSUInteger)numberOfCellsInTableView:(CCTableView *)table {
-  return ([detailedCards count]-1);
+  if(table == deckGrid) {
+    return [[deck cards] count];
+  }
+  else if(table == cardList) {
+    return ([detailedCards count]-1);
+  }
+  return 0;
 }
 
 -(void)table:(CCTableView *)table cellTouched:(CCTableViewCell *)cell {

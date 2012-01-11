@@ -35,7 +35,8 @@
   CGPoint touchPoint = [touch locationInView:[touch view]];
   if (held) {
     touchPoint = [[CCDirector sharedDirector] convertToGL:touchPoint];
-    [self runAction:[CCMoveTo actionWithDuration:0.2 position:originalLocation]];
+    //[self runAction:[CCMoveTo actionWithDuration:0.2 position:originalLocation]];
+
     self.held = false;
   }
 }
@@ -44,7 +45,7 @@
   CGPoint touchPoint = [touch locationInView:[touch view]];
 	if (held) {
     touchPoint = [[CCDirector sharedDirector] convertToGL:touchPoint];
-    
+    //self.position = touchPoint;
 //    CCSprite* preview = (CCSprite*)[[[GameObjectManager instance] gameLayer] getChildByTag:kPreview+playerNum];
 //    [preview setPosition:CGPointMake(touchPoint.x, touchPoint.y)];
   }
