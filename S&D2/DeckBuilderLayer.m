@@ -55,8 +55,8 @@
     
     NSArray *sortedCards;
     sortedCards = [cards sortedArrayUsingComparator:^(id a, id b) {
-      NSString* first = [NSString stringWithFormat:@"%@ %d",[(Card*)a getCardType], [(Card*)a cost]];
-      NSString* second = [NSString stringWithFormat:@"%@ %d",[(Card*)b getCardType], [(Card*)b cost]];
+      NSString* first = [NSString stringWithFormat:@"%@ %05d",[(Card*)a getCardType], [(Card*)a cost]];
+      NSString* second = [NSString stringWithFormat:@"%@ %05d",[(Card*)b getCardType], [(Card*)b cost]];
       return [second compare:first];
     }];
     
