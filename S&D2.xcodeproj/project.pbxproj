@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E197D6714BF209D00D915F7 /* Humans-SpriteSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E197D6514BF209D00D915F7 /* Humans-SpriteSheet.plist */; };
+		3E197D6814BF209D00D915F7 /* Humans-SpriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E197D6614BF209D00D915F7 /* Humans-SpriteSheet.png */; };
+		3E197D6A14BF29EB00D915F7 /* AestheticsTemplate.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E197D6914BF29EB00D915F7 /* AestheticsTemplate.plist */; };
 		AA3244BD14B8174900F2A2B9 /* CCAnimationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AA3244B814B8174900F2A2B9 /* CCAnimationHelper.m */; };
 		AA3244BE14B8174900F2A2B9 /* InfantrySprite.m in Sources */ = {isa = PBXBuildFile; fileRef = AA3244BA14B8174900F2A2B9 /* InfantrySprite.m */; };
 		AA3244BF14B8174900F2A2B9 /* SoldierSheet_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA3244BB14B8174900F2A2B9 /* SoldierSheet_default.plist */; };
@@ -224,6 +227,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E197D6514BF209D00D915F7 /* Humans-SpriteSheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Humans-SpriteSheet.plist"; sourceTree = "<group>"; };
+		3E197D6614BF209D00D915F7 /* Humans-SpriteSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Humans-SpriteSheet.png"; sourceTree = "<group>"; };
+		3E197D6914BF29EB00D915F7 /* AestheticsTemplate.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AestheticsTemplate.plist; sourceTree = "<group>"; };
 		AA3244B714B8174800F2A2B9 /* CCAnimationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAnimationHelper.h; sourceTree = "<group>"; };
 		AA3244B814B8174900F2A2B9 /* CCAnimationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAnimationHelper.m; sourceTree = "<group>"; };
 		AA3244B914B8174900F2A2B9 /* InfantrySprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfantrySprite.h; sourceTree = "<group>"; };
@@ -670,6 +676,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E197D6414BF205100D915F7 /* SpriteSheets */ = {
+			isa = PBXGroup;
+			children = (
+				3E197D6514BF209D00D915F7 /* Humans-SpriteSheet.plist */,
+				3E197D6614BF209D00D915F7 /* Humans-SpriteSheet.png */,
+			);
+			name = SpriteSheets;
+			path = ../../../Pictures/Deploy/SpriteSheets;
+			sourceTree = "<group>";
+		};
 		C24CD19C148B5575007CFB58 = {
 			isa = PBXGroup;
 			children = (
@@ -1315,6 +1331,7 @@
 				C26FE481149475C5000D84C3 /* AbilityData.plist */,
 				C26FE42F148F166C000D84C3 /* CardData.plist */,
 				C26FE43E148F44E2000D84C3 /* DeckData.plist */,
+				3E197D6914BF29EB00D915F7 /* AestheticsTemplate.plist */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -1322,6 +1339,7 @@
 		C26FE48A14948BD8000D84C3 /* GFX */ = {
 			isa = PBXGroup;
 			children = (
+				3E197D6414BF205100D915F7 /* SpriteSheets */,
 				AA3244BB14B8174900F2A2B9 /* SoldierSheet_default.plist */,
 				AA3244BC14B8174900F2A2B9 /* SoldierSheet_default.png */,
 				C297D0F014BEB1BA005E9A89 /* DeckBuilderBG.png */,
@@ -1466,6 +1484,9 @@
 				AA3244BF14B8174900F2A2B9 /* SoldierSheet_default.plist in Resources */,
 				AA3244C014B8174900F2A2B9 /* SoldierSheet_default.png in Resources */,
 				C297D0F114BEB1BA005E9A89 /* DeckBuilderBG.png in Resources */,
+				3E197D6714BF209D00D915F7 /* Humans-SpriteSheet.plist in Resources */,
+				3E197D6814BF209D00D915F7 /* Humans-SpriteSheet.png in Resources */,
+				3E197D6A14BF29EB00D915F7 /* AestheticsTemplate.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

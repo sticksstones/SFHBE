@@ -11,13 +11,17 @@
 				<key>aesthetics</key>
 				<dict>
 					<key>face</key>
-					<string>Soldier-Face</string>
+					<string>Human-Soldier-Face</string>
 					<key>body</key>
-					<string>Soldier-Body</string>
+					<string>Human-Soldier-Body</string>
 					<key>feet</key>
-					<string>Feet</string>
+					<string>Human-Foot</string>
 					<key>weapon</key>
-					<string>Sword</string>
+					<string>Human-Sword</string>
+					<key>hand</key>
+					<string>Human-Hand</string>
+					<key>shield</key>
+					<string>Human-Shield</string>
 				</dict>
 				<key>passiveAbilities</key>
 				<array/>
@@ -97,6 +101,25 @@
 			<dict>
 				<key>passiveAbilities</key>
 				<array/>
+				<key>aesthetics</key>
+				<dict>
+					<key>face</key>
+					<string>Human-General-Face</string>
+					<key>body</key>
+					<string>Human-General-Body</string>
+					<key>feet</key>
+					<string>Human-Foot</string>
+					<key>shield</key>
+					<string>Human-Shield</string>
+					<key>armor</key>
+					<string>Human-General-BodyArmor</string>
+					<key>shoulders</key>
+					<string>Human-General-Shoulder</string>
+					<key>hand</key>
+					<string>Human-Hand</string>
+					<key>weapon</key>
+					<string>Human-Sword</string>
+				</dict>
 				<key>sprite</key>
 				<string>Ship.png</string>
 				<key>hp</key>
@@ -287,6 +310,23 @@
 			<dict>
 				<key>passiveAbilities</key>
 				<array/>
+				<key>aesthetics</key>
+				<dict>
+					<key>face</key>
+					<string>Human-Grunt-Face</string>
+					<key>body</key>
+					<string>Human-Grunt-Body</string>
+					<key>feet</key>
+					<string>Human-Foot</string>
+					<key>shield</key>
+					<string>Human-Shield</string>
+					<key>armor</key>
+					<string>Human-Grunt-BodyArmor</string>
+					<key>hand</key>
+					<string>Human-Hand</string>
+					<key>weapon</key>
+					<string>Human-Sword</string>
+				</dict>
 				<key>sprite</key>
 				<string>Ship.png</string>
 				<key>hp</key>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Human</key>
+	<dict>
+		<key>feet</key>
+		<string>Human-Foot</string>
+		<key>hand</key>
+		<string>Human-Hand</string>
+	</dict>
+	<key>Human-Soldier</key>
+	<dict>
+		<key>template</key>
+		<string>Human</string>
+		<key>weapon</key>
+		<string>Human-Sword</string>
+		<key>shield</key>
+		<string>Human-Shield</string>
+		<key>face</key>
+		<string>Human-Soldier-Face</string>
+		<key>body</key>
+		<string>Human-Soldier-Body</string>
+	</dict>
+	<key>Human-Grunt</key>
+	<dict>
+		<key>template</key>
+		<string>human</string>
+		<key>weapon</key>
+		<string>Human-Sword</string>
+		<key>shield</key>
+		<string>Human-Shield</string>
+		<key>armor</key>
+		<string>Human-Grunt-BodyArmor</string>
+		<key>face</key>
+		<string>Human-Grunt-Face</string>
+		<key>body</key>
+		<string>Human-Grunt-Body</string>
+	</dict>
+	<key>Human-General</key>
+	<dict>
+		<key>template</key>
+		<string>human</string>
+		<key>weapon</key>
+		<string>Human-Sword</string>
+		<key>shield</key>
+		<string>Human-Shield</string>
+		<key>armor</key>
+		<string>Human-General-BodyArmor</string>
+		<key>shoulders</key>
+		<string>Human-General-Shoulder</string>
+		<key>face</key>
+		<string>Human-General-Face</string>
+		<key>body</key>
+		<string>Human-General-Body</string>
+	</dict>
+</dict>
+</plist>

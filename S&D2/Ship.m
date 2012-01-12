@@ -75,7 +75,7 @@
         }
         InfantrySprite *sprite = [InfantrySprite infantrySprite:parts];
         [self addChild:sprite z:1 tag:kAestheticSprite];
-        sprite.position = CGPointMake(self.contentSize.width/2, self.contentSize.height);
+        sprite.position = CGPointMake(self.contentSize.width/2, self.contentSize.height*0.75);
         [sprite setRotation:-90.0];
 
       }

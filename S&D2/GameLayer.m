@@ -110,7 +110,7 @@ enum {
     
     CCSpriteFrameCache* frameCache = [CCSpriteFrameCache sharedSpriteFrameCache];
     
-    [frameCache addSpriteFramesWithFile:@"SoldierSheet_default.plist"];
+    [frameCache addSpriteFramesWithFile:@"Humans-SpriteSheet.plist"];
 
     //[[BoardManager instance] spawnMana];
     

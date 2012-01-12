@@ -22,10 +22,22 @@
     return FACE_TAG;
   }
   else if([part isEqualToString:@"feet"]) {
-    return FEET_TAG;
+    return FOOTL_TAG;
   }
   else if([part isEqualToString:@"body"]) {
     return BODY_TAG;
+  }
+  else if([part isEqualToString:@"shoulders"]){
+      return SHOULDERF_TAG;
+  }
+  else if([part isEqualToString:@"shield"]){
+      return SHIELD_TAG;
+  }
+  else if([part isEqualToString:@"armor"]){
+      return ARMOR_TAG;
+  }
+  else if([part isEqualToString:@"hand"]){
+      return HAND_TAG;
   }
   //TODO: throw an exception instead of returning -1
   return -1;
