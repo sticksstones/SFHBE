@@ -13,7 +13,7 @@
 @interface Deck : CCNode {
   NSMutableArray* cards;  
   NSMutableArray* graveyard;
-  
+  NSString* deckName;
   NSMutableArray* captain;
   NSArray* origDeckIDs;
   NSArray* origCaptainIDs;  
@@ -22,6 +22,7 @@
 
 @property (nonatomic, retain) NSMutableArray* cards;
 @property (nonatomic, retain) NSMutableArray* captain;
+@property (nonatomic, retain) NSString* deckName;
 
 - (void)initialize:(NSArray*)deck Captain:(NSArray*)captainCards;
 - (NSArray*)getCaptain;
@@ -29,5 +30,7 @@
 - (void)addCard:(NSString*)card;
 - (void)shuffle;
 - (Deck*)copyDeck;
-
+- (void)removeCard:(NSString*)card;
+- (void)writeDeckToFile;
+- (void)deleteDeckFromFile;
 @end

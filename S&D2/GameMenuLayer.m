@@ -9,6 +9,13 @@
 #import "GameMenuLayer.h"
 #import "GameLayer.h"
 #import "DeckBuilderLayer.h"
+#import "DeckSelectLayer.h"
+#import "DeckManager.h"
+#import "GameObjectManager.h"
+#import "CardManager.h"
+#import "BoardManager.h"
+#import "PlayerManager.h"
+
 
 @implementation GameMenuLayer
 
@@ -32,7 +39,7 @@
 }
 
 - (void)deckBuildTapped:(id)sender {
-  [[CCDirector sharedDirector] replaceScene: [DeckBuilderLayer scene]];
+  [[CCDirector sharedDirector] replaceScene: [DeckSelectLayer scene]];
   
 }
 
@@ -49,13 +56,13 @@
     
     CCMenuItemLabel* deckBuild = [CCMenuItemLabel itemWithLabel:[CCLabelTTF labelWithString:@"Build Deck" fontName:@"Helvetica" fontSize:16.0] target:self selector:@selector(deckBuildTapped:)];
     gameStart.position = CGPointMake(0,0);
-    deckBuild.position = CGPointMake(0, -30);
+    deckBuild.position = CGPointMake(0, -60);
     
     CCMenu *gameMenu = [CCMenu menuWithItems:gameStart,deckBuild,nil];
     gameMenu.position = CGPointMake(200, 200);
     [self addChild:gameMenu];
 		
-    
+    [[DeckManager instance] resetManager];
 	}
 	return self;
 }

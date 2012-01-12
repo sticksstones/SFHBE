@@ -22,4 +22,5 @@
 - (Player*)getPlayer:(int)playerNum;
 - (void)drawCards;
 - (void)update;
+- (void)resetManager;
 @end

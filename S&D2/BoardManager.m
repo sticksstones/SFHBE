@@ -142,5 +142,9 @@ static BoardManager *gInstance = NULL;
   
 }
 
+- (void)resetManager {
+  gInstance = nil;
+}
+
 
 @end

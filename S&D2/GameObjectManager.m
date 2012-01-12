@@ -167,4 +167,7 @@ static GameObjectManager *gInstance = NULL;
 
 }
 
+- (void)resetManager {
+  gInstance = nil;
+}
 @end

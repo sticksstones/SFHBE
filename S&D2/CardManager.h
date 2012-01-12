@@ -21,5 +21,5 @@
 - (id)getCard:(NSString*)cardID;
 - (id)getDisplayCard:(NSString*)cardID;
 - (NSArray*)getAllDisplayCards;
-
+- (void)resetManager;
 @end

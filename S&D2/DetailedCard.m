@@ -11,6 +11,8 @@
 
 @implementation DetailedCard
 
+@synthesize card;
+
 - (DetailedCard*)initWithCard:(Card*)_card {
   self = [super init];
 
@@ -57,4 +59,11 @@
   return self;
 }
 
+- (NSString*)getCardID {
+  return [card getID];
+}
+
+- (void)setHighlight:(bool)highlight {
+  card.opacity = highlight ? 100 : 255;
+}
 @end

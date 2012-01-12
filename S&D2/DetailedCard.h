@@ -15,6 +15,10 @@
   Card* card;
 }
 
+@property (nonatomic, readonly) Card* card;
+
+- (void)setHighlight:(bool)highlight;
+- (NSString*)getCardID;
 - (DetailedCard*)initWithCard:(Card*)_card;
 
 @end

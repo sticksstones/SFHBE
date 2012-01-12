@@ -13,7 +13,7 @@
 
 @implementation Deck
 
-@synthesize captain,cards;
+@synthesize captain,cards,deckName;
 
 - (void)initialize:(NSArray*)deck Captain:(NSArray*)captainCards {
   cards = [NSMutableArray new];
@@ -37,6 +37,7 @@
 - (Deck*)copyDeck {
   Deck* deck = [[Deck alloc] init];
   [deck initialize:origDeckIDs Captain:origCaptainIDs];
+  [deck setDeckName:deckName];
   return deck;
 }
 
@@ -69,7 +70,11 @@
   return nil;
 }
 - (void)addCard:(NSString*)card {
-  [cards addObject:card];
+  [cards insertObject:card atIndex:0];
+}
+
+- (void)removeCard:(NSString*)card {
+  [cards removeObject:card];
 }
 
 - (void)shuffle {
@@ -85,5 +90,28 @@
   
 }
 
+- (void)writeDeckToFile {
+  NSString *plistPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"Decks.plist"];
+  //NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Decks" ofType:@"plist"];
+  NSMutableDictionary *decks = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+  if(!decks) {
+    decks = [NSMutableDictionary new];
+  }
+  NSMutableDictionary* deck = [NSMutableDictionary new];
+  [deck setObject:captain forKey:@"Captain"];
+  [deck setObject:cards forKey:@"Cards"];
+  
+  [decks setObject:deck forKey:deckName];
+  [decks writeToFile:plistPath atomically:YES];
+}
+
+- (void)deleteDeckFromFile {
+  NSString *plistPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"Decks.plist"];
+  NSMutableDictionary *decks = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+  if(decks) {
+    [decks removeObjectForKey:deckName];
+    [decks writeToFile:plistPath atomically:YES];
+  }
+}
 
 @end

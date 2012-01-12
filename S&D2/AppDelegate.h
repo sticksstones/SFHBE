@@ -11,11 +11,14 @@
 
 @class RootViewController;
 
-@interface AppDelegate : NSObject <UIApplicationDelegate> {
+@interface AppDelegate : NSObject <UIApplicationDelegate,UITextFieldDelegate> {
 	UIWindow			*window;
 	RootViewController	*viewController;
+  UITextField *deckNameField;
 }
 
 @property (nonatomic, retain) UIWindow *window;
+
+- (void)specifyDeckName;
 
 @end

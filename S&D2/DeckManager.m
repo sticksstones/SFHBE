@@ -11,7 +11,7 @@
 
 @implementation DeckManager
 
-@synthesize decks;
+@synthesize decks, deckBuilderDeck;
 
 static DeckManager *gInstance = NULL;
 
@@ -21,10 +21,13 @@ static DeckManager *gInstance = NULL;
   {
     if (gInstance == NULL) {
       gInstance = [[self alloc] init];
-      NSBundle* bundle = [NSBundle mainBundle];
+      
+      NSString *plistPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"Decks.plist"];
+      
+      NSBundle* bundle = [NSBundle mainBundle];      
       NSString* plistFile = [bundle pathForResource:@"DeckData" ofType:@"plist"];
       
-      NSMutableDictionary* plist = [[NSMutableDictionary alloc] initWithContentsOfFile:plistFile];
+      NSMutableDictionary* plist = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
       
       NSMutableDictionary* decks = [NSMutableDictionary new];
       
@@ -41,7 +44,8 @@ static DeckManager *gInstance = NULL;
         NSDictionary* value = [plist objectForKey: key];
         Deck* deckObj = [[Deck alloc] init];
         [deckObj initialize:[value objectForKey:@"Cards"] Captain:[value objectForKey:@"Captain"]];
-        [decks setObject:deckObj forKey:key];                  
+        [deckObj setDeckName:[[NSString alloc] initWithString:key]];        
+        [decks setObject:deckObj forKey:key];    
       }
       
       gInstance.decks = [[NSMutableDictionary alloc] initWithDictionary:decks];
@@ -53,6 +57,10 @@ static DeckManager *gInstance = NULL;
 
 - (Deck*)getDeck:(NSString*)deckID {
   return [[decks objectForKey:deckID] copyDeck];
+}
+
+- (void)resetManager {
+  gInstance = nil;
 }
 
 @end

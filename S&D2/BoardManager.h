@@ -28,4 +28,5 @@
 - (bool)isTileOccupiedX:(int)x Y:(int)y playerNum:(int)pNum enemyOnly:(bool)enemyOnly;
 - (void)spawnManaInRangeXY1:(CGPoint)xy1 XY2:(CGPoint)xy2 playerNum:(int)playerNum;
 - (void)spawnMana:(int)playerNum;
+- (void)resetManager;
 @end

@@ -11,7 +11,9 @@
 @implementation DetailedCardCell
 
 +(CGSize)cellSize {
-  return CGSizeMake(200, 75);
+  return CGSizeMake(230, 75);
 }
+
+
 
 @end

@@ -34,5 +34,5 @@
 - (NSArray*)getTokensInArea:(CGRect)area;
 - (void)update;
 - (void)initManager;
-
+- (void)resetManager;
 @end

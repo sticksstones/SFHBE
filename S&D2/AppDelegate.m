@@ -12,6 +12,9 @@
 #import "GameConfig.h"
 #import "GameMenuLayer.h"
 #import "RootViewController.h"
+#import "Deck.h"
+#import "DeckManager.h"
+#import "DeckBuilderLayer.h"
 
 @implementation AppDelegate
 
@@ -43,6 +46,16 @@
 	// Init the window
 	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	
+  
+  deckNameField = [[UITextField alloc] initWithFrame:
+                         CGRectMake(60, 165, 200, 90)];
+  deckNameField.textColor = [UIColor whiteColor];
+  
+  [deckNameField setTransform:CGAffineTransformMakeRotation(-M_PI / 2.0)];
+  [deckNameField setContentVerticalAlignment:UIControlContentVerticalAlignmentTop];
+  [deckNameField setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
+  [deckNameField setDelegate:self];
+  
 	// Try to use CADisplayLink director
 	// if it fails (SDK < 3.1) use the default director
 	if( ! [CCDirector setDirectorType:kCCDirectorTypeDisplayLink] )
@@ -151,10 +164,38 @@
 	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
 }
 
+- (void)specifyDeckName
+{
+  [deckNameField setText:@""];
+  [window addSubview:deckNameField];
+  [deckNameField becomeFirstResponder];    
+}
+
 - (void)dealloc {
 	[[CCDirector sharedDirector] end];
 	[window release];
 	[super dealloc];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField*)textField {
+  //Terminate editing
+  [textField resignFirstResponder];
+  return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField*)textField {
+  if (textField==deckNameField) {
+    [deckNameField endEditing:YES];
+    [deckNameField removeFromSuperview];
+    // here is where you should do something with the data they entered
+    NSString *result = deckNameField.text;
+    Deck* deck = [Deck alloc];
+    [deck initialize:[NSArray new] Captain:[NSArray arrayWithObjects:@"Soldier", @"Grunt", @"Medic",nil]];
+    [deck setDeckName:result];
+    [[DeckManager instance] setDeckBuilderDeck:deck];
+
+    [[CCDirector sharedDirector] replaceScene: [DeckBuilderLayer scene]];
+  }
 }
 
 @end

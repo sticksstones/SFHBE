@@ -75,6 +75,8 @@ static CardManager *gInstance = NULL;
   
   return [[NSArray alloc] initWithArray:displayCards];
 }
-
+- (void)resetManager {
+  gInstance = nil;
+}
 
 @end

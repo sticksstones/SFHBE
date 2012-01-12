@@ -48,6 +48,8 @@ static PlayerManager *gInstance = NULL;
   [[self getPlayer:-1] drawCardIntoHand];
   [self performSelector:@selector(drawCards) withObject:nil afterDelay:DRAW_INTERVAL];    
 }
-
+- (void)resetManager {
+  gInstance = nil;
+}
 
 @end

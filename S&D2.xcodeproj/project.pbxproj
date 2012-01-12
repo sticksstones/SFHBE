@@ -213,6 +213,9 @@
 		C297D0DC14BA5C80005E9A89 /* CCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C297D0D814BA5C80005E9A89 /* CCTableViewCell.m */; };
 		C297D0E014BA5E3E005E9A89 /* DetailedCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C297D0DF14BA5E3E005E9A89 /* DetailedCardCell.m */; };
 		C297D0EF14BD68E6005E9A89 /* CardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C297D0EE14BD68E6005E9A89 /* CardCell.m */; };
+		C297D0F114BEB1BA005E9A89 /* DeckBuilderBG.png in Resources */ = {isa = PBXBuildFile; fileRef = C297D0F014BEB1BA005E9A89 /* DeckBuilderBG.png */; };
+		C297D0F414BECE9A005E9A89 /* DeckSelectLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C297D0F314BECE9A005E9A89 /* DeckSelectLayer.m */; };
+		C297D0F714BED122005E9A89 /* DeckCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C297D0F614BED122005E9A89 /* DeckCell.m */; };
 		C2B7F80A14AFD50900DAE1A2 /* SideBoardToken.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B7F80914AFD50900DAE1A2 /* SideBoardToken.m */; };
 		C2B7F80D14AFD60F00DAE1A2 /* SideBoardTile.png in Resources */ = {isa = PBXBuildFile; fileRef = C2B7F80C14AFD60F00DAE1A2 /* SideBoardTile.png */; };
 		C2B7F81014AFDC5300DAE1A2 /* SideTile.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B7F80F14AFDC5300DAE1A2 /* SideTile.m */; };
@@ -631,6 +634,11 @@
 		C297D0DF14BA5E3E005E9A89 /* DetailedCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedCardCell.m; sourceTree = "<group>"; };
 		C297D0ED14BD68E6005E9A89 /* CardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardCell.h; sourceTree = "<group>"; };
 		C297D0EE14BD68E6005E9A89 /* CardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardCell.m; sourceTree = "<group>"; };
+		C297D0F014BEB1BA005E9A89 /* DeckBuilderBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DeckBuilderBG.png; sourceTree = "<group>"; };
+		C297D0F214BECE9A005E9A89 /* DeckSelectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeckSelectLayer.h; sourceTree = "<group>"; };
+		C297D0F314BECE9A005E9A89 /* DeckSelectLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeckSelectLayer.m; sourceTree = "<group>"; };
+		C297D0F514BED121005E9A89 /* DeckCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeckCell.h; sourceTree = "<group>"; };
+		C297D0F614BED122005E9A89 /* DeckCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeckCell.m; sourceTree = "<group>"; };
 		C2B7F80814AFD50900DAE1A2 /* SideBoardToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideBoardToken.h; sourceTree = "<group>"; };
 		C2B7F80914AFD50900DAE1A2 /* SideBoardToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideBoardToken.m; sourceTree = "<group>"; };
 		C2B7F80C14AFD60F00DAE1A2 /* SideBoardTile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SideBoardTile.png; sourceTree = "<group>"; };
@@ -1313,6 +1321,7 @@
 			children = (
 				AA3244BB14B8174900F2A2B9 /* SoldierSheet_default.plist */,
 				AA3244BC14B8174900F2A2B9 /* SoldierSheet_default.png */,
+				C297D0F014BEB1BA005E9A89 /* DeckBuilderBG.png */,
 				C26FE47C149464B7000D84C3 /* Fog.png */,
 				C26FE47114945005000D84C3 /* Heal.png */,
 				C26FE46914943FCF000D84C3 /* Missile.png */,
@@ -1338,6 +1347,8 @@
 				C297D0DF14BA5E3E005E9A89 /* DetailedCardCell.m */,
 				C297D0ED14BD68E6005E9A89 /* CardCell.h */,
 				C297D0EE14BD68E6005E9A89 /* CardCell.m */,
+				C297D0F514BED121005E9A89 /* DeckCell.h */,
+				C297D0F614BED122005E9A89 /* DeckCell.m */,
 			);
 			name = DeckBuilder;
 			sourceTree = "<group>";
@@ -1367,6 +1378,8 @@
 				C24CD370148B557A007CFB58 /* GameLayer.m */,
 				C297D0C214B93D4C005E9A89 /* DeckBuilderLayer.h */,
 				C297D0C314B93D4C005E9A89 /* DeckBuilderLayer.m */,
+				C297D0F214BECE9A005E9A89 /* DeckSelectLayer.h */,
+				C297D0F314BECE9A005E9A89 /* DeckSelectLayer.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -1447,6 +1460,7 @@
 				C2B7F80D14AFD60F00DAE1A2 /* SideBoardTile.png in Resources */,
 				AA3244BF14B8174900F2A2B9 /* SoldierSheet_default.plist in Resources */,
 				AA3244C014B8174900F2A2B9 /* SoldierSheet_default.png in Resources */,
+				C297D0F114BEB1BA005E9A89 /* DeckBuilderBG.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1634,6 +1648,8 @@
 				C297D0DC14BA5C80005E9A89 /* CCTableViewCell.m in Sources */,
 				C297D0E014BA5E3E005E9A89 /* DetailedCardCell.m in Sources */,
 				C297D0EF14BD68E6005E9A89 /* CardCell.m in Sources */,
+				C297D0F414BECE9A005E9A89 /* DeckSelectLayer.m in Sources */,
+				C297D0F714BED122005E9A89 /* DeckCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

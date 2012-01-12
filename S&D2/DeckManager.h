@@ -12,11 +12,14 @@
 
 @interface DeckManager : NSObject {
   NSMutableDictionary* decks;
+  Deck* deckBuilderDeck;
 }
 
 @property (nonatomic, retain) NSMutableDictionary* decks;
+@property (nonatomic, retain) Deck* deckBuilderDeck;
 
 + (DeckManager *)instance;
 - (Deck*)getDeck:(NSString*)deckID;
+- (void)resetManager;
 
 @end
