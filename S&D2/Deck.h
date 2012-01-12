@@ -33,4 +33,5 @@
 - (void)removeCard:(NSString*)card;
 - (void)writeDeckToFile;
 - (void)deleteDeckFromFile;
+- (void)putInGraveyard:(NSString*)card;
 @end

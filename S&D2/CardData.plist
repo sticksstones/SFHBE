@@ -270,7 +270,7 @@
 				<key>sprite</key>
 				<string>Ship.png</string>
 				<key>targetType</key>
-				<string>enemy</string>
+				<string>friendly</string>
 			</dict>
 			<key>imagename</key>
 			<string>Card.png</string>
