@@ -110,7 +110,7 @@
 
 - (void)consumeCard:(Card *)card {
   [hand removeCardFromHand:card];
-  [deck addCard:[card getID]];
+  [deck putInGraveyard:[card getID]];
 }
 
 - (void)update {

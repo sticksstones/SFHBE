@@ -31,6 +31,8 @@
 @property (nonatomic) bool ready;
 @property (nonatomic) bool isCaptain;
 
+@property (nonatomic) int cost;
+
 - (bool)isPlayable;
 - (void)playCard:(CGPoint)boardPos;
 - (Card*)initWithParams:(NSDictionary*)params;

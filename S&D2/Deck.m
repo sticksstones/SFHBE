@@ -28,7 +28,7 @@
     NSMutableString* copy = [[NSMutableString alloc] initWithString:card];
     [captain addObject:copy];
   }
-  manaCardChance = 33;
+  manaCardChance = 0;
   
   origDeckIDs = [[NSArray alloc] initWithArray:cards];
   origCaptainIDs = [[NSArray alloc] initWithArray:captain];
@@ -50,15 +50,15 @@
   if ([cards count] > 0) {
     int manaRoll = arc4random() % 99;
     if (manaRoll <= manaCardChance) {
-      manaCardChance = 33;
+      manaCardChance = 0;
       SideCard* card = [[CardManager instance] getCard:@"Mana"];
       return card;
     }
     else {
-      manaCardChance += 33;
+      manaCardChance += 20;
       NSString* card = [cards objectAtIndex:0];
       [cards removeObjectAtIndex:0];
-      [graveyard addObject:card];
+      //[graveyard addObject:card];
       return [[CardManager instance] getCard:card];      
     }
   }
@@ -68,6 +68,10 @@
     [graveyard removeAllObjects];
   }
   return nil;
+}
+
+- (void)putInGraveyard:(NSString *)card {
+  [graveyard addObject:card];
 }
 - (void)addCard:(NSString*)card {
   [cards insertObject:card atIndex:0];

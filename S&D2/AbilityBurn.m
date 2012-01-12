@@ -9,8 +9,8 @@
 #import "AbilityBurn.h"
 #import "Ship.h"
 
-#define BURN_INTERVAL 3.0
-#define BURN_DURATION 6.0
+#define BURN_INTERVAL 2.0
+#define BURN_DURATION 4.1
 
 @implementation AbilityBurn 
 
