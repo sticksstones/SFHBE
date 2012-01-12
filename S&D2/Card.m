@@ -25,7 +25,7 @@
 
 @implementation Card
 
-@synthesize originalLocation, held, ready, isCaptain;
+@synthesize originalLocation, held, ready, isCaptain, cost;
 
 - (Card*)initWithParams:(NSDictionary*)params {
   NSString* fileName = [params valueForKey:@"imagename"];  

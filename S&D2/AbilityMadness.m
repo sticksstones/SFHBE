@@ -19,6 +19,7 @@
 - (void)update {
   Ship* ship = (Ship*)sourceToken;
   [ship deploy];
+  [ship pass];
 }
 
 

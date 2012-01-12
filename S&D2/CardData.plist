@@ -33,7 +33,7 @@
 			<key>imagename</key>
 			<string>Card.png</string>
 			<key>recharge</key>
-			<integer>10</integer>
+			<integer>7</integer>
 			<key>cost</key>
 			<integer>50</integer>
 			<key>type</key>
@@ -137,7 +137,7 @@
 			<key>recharge</key>
 			<integer>10</integer>
 			<key>cost</key>
-			<integer>200</integer>
+			<integer>150</integer>
 			<key>type</key>
 			<string>ship</string>
 			<key>captain</key>
@@ -211,7 +211,7 @@
 			<key>recharge</key>
 			<integer>10</integer>
 			<key>cost</key>
-			<integer>75</integer>
+			<integer>125</integer>
 			<key>type</key>
 			<string>instant</string>
 		</dict>
@@ -233,7 +233,7 @@
 			<key>recharge</key>
 			<integer>10</integer>
 			<key>cost</key>
-			<integer>75</integer>
+			<integer>50</integer>
 			<key>type</key>
 			<string>instant</string>
 		</dict>
@@ -255,7 +255,7 @@
 			<key>recharge</key>
 			<integer>10</integer>
 			<key>cost</key>
-			<integer>75</integer>
+			<integer>200</integer>
 			<key>type</key>
 			<string>instant</string>
 		</dict>
@@ -265,7 +265,7 @@
 			<dict>
 				<key>abilities</key>
 				<array>
-					<string>Recover</string>
+					<string>Recover 2</string>
 				</array>
 				<key>sprite</key>
 				<string>Ship.png</string>
@@ -327,61 +327,7 @@
 			<key>recharge</key>
 			<integer>10</integer>
 			<key>cost</key>
-			<integer>200</integer>
-			<key>type</key>
-			<string>ship</string>
-			<key>captain</key>
-			<false/>
-		</dict>
-		<key>Mystic Grunt</key>
-		<dict>
-			<key>properties</key>
-			<dict>
-				<key>passiveAbilities</key>
-				<array>
-					<string>Fog</string>
-				</array>
-				<key>sprite</key>
-				<string>Ship.png</string>
-				<key>hp</key>
-				<integer>5</integer>
-				<key>ap</key>
-				<integer>2</integer>
-				<key>sp</key>
-				<integer>2</integer>
-			</dict>
-			<key>imagename</key>
-			<string>Card.png</string>
-			<key>recharge</key>
-			<integer>10</integer>
-			<key>cost</key>
-			<integer>150</integer>
-			<key>type</key>
-			<string>ship</string>
-			<key>captain</key>
-			<false/>
-		</dict>
-		<key>Mystic Soldier</key>
-		<dict>
-			<key>properties</key>
-			<dict>
-				<key>passiveAbilities</key>
-				<array>
-					<string>Fog</string>
-				</array>
-				<key>sprite</key>
-				<string>Ship.png</string>
-				<key>hp</key>
-				<integer>3</integer>
-				<key>ap</key>
-				<integer>1</integer>
-			</dict>
-			<key>imagename</key>
-			<string>Card.png</string>
-			<key>recharge</key>
-			<integer>10</integer>
-			<key>cost</key>
-			<integer>75</integer>
+			<integer>175</integer>
 			<key>type</key>
 			<string>ship</string>
 			<key>captain</key>
@@ -431,7 +377,7 @@
 			<key>recharge</key>
 			<integer>10</integer>
 			<key>cost</key>
-			<integer>250</integer>
+			<integer>125</integer>
 			<key>type</key>
 			<string>ship</string>
 			<key>captain</key>
@@ -448,9 +394,9 @@
 				<key>sprite</key>
 				<string>Ship.png</string>
 				<key>hp</key>
-				<integer>3</integer>
+				<integer>2</integer>
 				<key>ap</key>
-				<integer>1</integer>
+				<integer>2</integer>
 				<key>sp</key>
 				<integer>4</integer>
 			</dict>
@@ -459,7 +405,7 @@
 			<key>recharge</key>
 			<integer>10</integer>
 			<key>cost</key>
-			<integer>150</integer>
+			<integer>100</integer>
 			<key>type</key>
 			<string>ship</string>
 			<key>captain</key>
@@ -567,7 +513,7 @@
 			<key>recharge</key>
 			<integer>10</integer>
 			<key>cost</key>
-			<integer>125</integer>
+			<integer>100</integer>
 			<key>type</key>
 			<string>ship</string>
 			<key>captain</key>
@@ -597,7 +543,7 @@
 			<key>recharge</key>
 			<integer>10</integer>
 			<key>cost</key>
-			<integer>150</integer>
+			<integer>100</integer>
 			<key>type</key>
 			<string>ship</string>
 			<key>captain</key>
@@ -625,7 +571,7 @@
 			<key>recharge</key>
 			<integer>10</integer>
 			<key>cost</key>
-			<integer>150</integer>
+			<integer>175</integer>
 			<key>type</key>
 			<string>ship</string>
 			<key>captain</key>
@@ -654,6 +600,63 @@
 			<integer>10</integer>
 			<key>cost</key>
 			<integer>150</integer>
+			<key>type</key>
+			<string>ship</string>
+			<key>captain</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>Archive</key>
+	<dict>
+		<key>Mystic Grunt</key>
+		<dict>
+			<key>properties</key>
+			<dict>
+				<key>passiveAbilities</key>
+				<array>
+					<string>Fog</string>
+				</array>
+				<key>sprite</key>
+				<string>Ship.png</string>
+				<key>hp</key>
+				<integer>5</integer>
+				<key>ap</key>
+				<integer>2</integer>
+				<key>sp</key>
+				<integer>2</integer>
+			</dict>
+			<key>imagename</key>
+			<string>Card.png</string>
+			<key>recharge</key>
+			<integer>10</integer>
+			<key>cost</key>
+			<integer>150</integer>
+			<key>type</key>
+			<string>ship</string>
+			<key>captain</key>
+			<false/>
+		</dict>
+		<key>Mystic Soldier</key>
+		<dict>
+			<key>properties</key>
+			<dict>
+				<key>passiveAbilities</key>
+				<array>
+					<string>Fog</string>
+				</array>
+				<key>sprite</key>
+				<string>Ship.png</string>
+				<key>hp</key>
+				<integer>3</integer>
+				<key>ap</key>
+				<integer>1</integer>
+			</dict>
+			<key>imagename</key>
+			<string>Card.png</string>
+			<key>recharge</key>
+			<integer>10</integer>
+			<key>cost</key>
+			<integer>75</integer>
 			<key>type</key>
 			<string>ship</string>
 			<key>captain</key>

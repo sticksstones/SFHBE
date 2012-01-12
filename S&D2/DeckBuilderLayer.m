@@ -52,8 +52,16 @@
 		
 		self.isTouchEnabled = YES;
     cards = [[CardManager instance] getAllDisplayCards];
+    
+    NSArray *sortedCards;
+    sortedCards = [cards sortedArrayUsingComparator:^(id a, id b) {
+      NSString* first = [NSString stringWithFormat:@"%@ %d",[(Card*)a getCardType], [(Card*)a cost]];
+      NSString* second = [NSString stringWithFormat:@"%@ %d",[(Card*)b getCardType], [(Card*)b cost]];
+      return [second compare:first];
+    }];
+    
     detailedCards = [NSMutableArray new];
-    for (CardDisplay* card in cards) {
+    for (CardDisplay* card in sortedCards) {
       [detailedCards addObject:[[DetailedCard alloc] initWithCard:card]];
     }
     
@@ -72,7 +80,9 @@
     [cardList reloadData];
     cardList.colCount = 0;
     cardList.direction = CCScrollViewDirectionVertical;
+    
     deck = [[DeckManager instance] deckBuilderDeck];
+    
     // Deck Grid
     deckGrid = [CCMultiColumnTableView tableViewWithDataSource:self size:CGSizeMake(275, 300)];
     [self addChild:deckGrid];
