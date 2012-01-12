@@ -20,6 +20,7 @@
 #import "Player.h"
 #import "PlayerManager.h"
 #import "Totem.h"
+#import "GameMenuLayer.h"
 
 enum {
 	kTagBatchNode = 1,
@@ -68,7 +69,7 @@ enum {
 
     p1 = [[Player alloc] init];
     [p1 initialize:1];
-    Deck* deck = [[DeckManager instance] getDeck:@"Vinit Deck"];
+    Deck* deck = [[DeckManager instance] p1Deck];
     [deck shuffle];
     [p1 setDeck:deck];
     [p1 setPosition:CGPointMake(250,730)];
@@ -76,7 +77,7 @@ enum {
 
     p2 = [[Player alloc] init];
     [p2 initialize:-1];
-    deck = [[DeckManager instance] getDeck:@"Vinit Deck"];
+    deck = [[DeckManager instance] p2Deck];
     [deck shuffle];
     [p2 setDeck:deck];
     [p2 setPosition:CGPointMake(770, 730)];
@@ -99,6 +100,14 @@ enum {
     [[GameObjectManager instance] setupTotem:-1 X:8 Y:2];    
 
     
+    CCMenuItemLabel* quitGame = [CCMenuItemLabel itemWithLabel:[CCLabelTTF labelWithString:@"QUIT" fontName:@"Helvetica" fontSize:16.0] target:self selector:@selector(goBack:)];
+    
+    CCMenu* gameMenu = [CCMenu menuWithItems:quitGame, nil];
+    
+    gameMenu.position = CGPointMake([[CCDirector sharedDirector] winSize].width/2, [[CCDirector sharedDirector] winSize].height - 10);
+    [self addChild:gameMenu];
+    
+    
     CCSpriteFrameCache* frameCache = [CCSpriteFrameCache sharedSpriteFrameCache];
     
     [frameCache addSpriteFramesWithFile:@"SoldierSheet_default.plist"];
@@ -110,6 +119,11 @@ enum {
 		[self schedule: @selector(step:)];
 	}
 	return self;
+}
+
+- (void)goBack:(id)sender {
+  [[CCDirector sharedDirector] replaceScene: [GameMenuLayer scene]];
+
 }
 
 // on "dealloc" you need to release all your retained objects

@@ -15,6 +15,7 @@
 #import "CardManager.h"
 #import "BoardManager.h"
 #import "PlayerManager.h"
+#import "PlayerDeckSelectLayer.h"
 
 
 @implementation GameMenuLayer
@@ -35,7 +36,7 @@
 }
 
 - (void)gameStartTapped:(id)sender {
-  	[[CCDirector sharedDirector] replaceScene: [GameLayer scene]];
+  	[[CCDirector sharedDirector] replaceScene: [PlayerDeckSelectLayer scene]];
 }
 
 - (void)deckBuildTapped:(id)sender {
@@ -63,6 +64,11 @@
     [self addChild:gameMenu];
 		
     [[DeckManager instance] resetManager];
+    [[BoardManager instance] resetManager];
+    [[GameObjectManager instance] resetManager];
+    [[CardManager instance] resetManager];
+    [[PlayerManager instance] resetManager];
+    
 	}
 	return self;
 }

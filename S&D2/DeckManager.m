@@ -11,7 +11,7 @@
 
 @implementation DeckManager
 
-@synthesize decks, deckBuilderDeck;
+@synthesize decks, deckBuilderDeck, p1Deck, p2Deck;
 
 static DeckManager *gInstance = NULL;
 
