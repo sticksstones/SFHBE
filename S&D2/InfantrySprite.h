@@ -26,8 +26,11 @@
     NSDictionary* partNames;
 }
 
-
+/**
+ * Initialize the infantry sprite with a dictionary of parts.
+ */
 +(id) infantrySprite:(NSDictionary*)parts;
+-(void) reset;
 -(void) walk;
 -(void) attack;
 -(void) hurt;

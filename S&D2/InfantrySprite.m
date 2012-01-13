@@ -68,11 +68,15 @@
             [self addBodyPartWithFrame:shoulderF atDepth:SHLDRF_DEPTH withTag:SHOULDERF_TAG];
             [self addBodyPartWithFrame:shoulderB atDepth:SHLDRB_DEPTH withTag:SHOULDERB_TAG];
         }
+        [self reset];
 	}
 	return self;
 }
 
-
+-(void) reset
+{
+    
+}
 -(void) walk
 {
 
